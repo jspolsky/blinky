@@ -44,7 +44,7 @@ void setup()
   }
 
   ledmatrix.autoPlay(125);
-  int sleepNow = Watchdog.sleep(); // bug this comes on again quickly. gotta learn how this is supposed to work
+  int sleepNow = Watchdog.sleep(); // TODO this comes on again quickly. gotta learn how this is supposed to work
 }
 
 void loop()
