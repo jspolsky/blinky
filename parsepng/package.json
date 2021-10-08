@@ -1,0 +1,14 @@
+{
+  "name": "parsepng",
+  "version": "1.0.0",
+  "description": "Converts PNG files to C data structures suitable for use from Arduino projects",
+  "main": "parsepng.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joel@spolsky.com",
+  "license": "MIT",
+  "dependencies": {
+    "get-pixels": "^3.3.3"
+  }
+}
