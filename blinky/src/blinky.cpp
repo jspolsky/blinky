@@ -5,6 +5,7 @@
 #include <Adafruit_IS31FL3731.h>
 #include <ArduinoLowPower.h>
 #include <Adafruit_NeoPixel.h>
+#include <IRremote.h>
 
 Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
@@ -26,6 +27,9 @@ volatile unsigned long button_time = 0;
 volatile unsigned long last_button_time = 0;
 const unsigned long debounceDelay = 50;
 
+IRrecv irrecv(A1);
+decode_results results;
+
 void buttonPressISR()
 {
   unsigned long button_time = millis();
@@ -41,6 +45,7 @@ void setup()
   Serial.begin(9600);
 
   pinMode(A0, INPUT_PULLUP);
+  pinMode(A1, INPUT_PULLUP);
 
   if (!ledmatrix.begin())
   {
@@ -63,25 +68,37 @@ void setup()
 
   ledmatrix.autoPlay(125);
 
-  //  pixels.begin();
+  pixels.begin();
   pixels.setPixelColor(0, pixels.Color(0x65, 0x43, 0x21));
   pixels.show();
 
   LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
+
+  Serial.println("Enabling IRin");
+  irrecv.enableIRIn(); // Start the receiver
 }
 
 void loop()
 {
   // Toggle the color
 
-  if (buttonPressed)
-  {
-    zToggle = !zToggle;
-    pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
-                                    : pixels.Color(0xAF, 0, 0xAF));
-    pixels.show();
-    buttonPressed = false;
-  }
+  // if (buttonPressed)
+  // {
+  //   zToggle = !zToggle;
+  //   pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
+  //                                   : pixels.Color(0xAF, 0, 0xAF));
+  //   pixels.show();
+  //   buttonPressed = false;
+  // }
 
-  LowPower.sleep(10000);
+  // LowPower.sleep(10000);
+
+  // TESTING IR
+
+  if (irrecv.decode(&results))
+  {
+    Serial.println(results.value, HEX);
+    irrecv.resume(); // Receive the next value
+  }
+  delay(100);
 }
