@@ -16,7 +16,8 @@ const uint8_t gamma_scale[] = {0, 1, 2, 4,
                                22, 28, 33, 39,
                                46, 53, 61, 69};
 
-#include "animations.h"
+#define ____ 0
+#include "../../hexels/bouncyheart.h"
 
 void setup()
 {
