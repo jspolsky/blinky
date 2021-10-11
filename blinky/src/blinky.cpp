@@ -3,12 +3,12 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_IS31FL3731.h>
-#include <Adafruit_SleepyDog.h>
+#include <ArduinoLowPower.h>
+#include <Adafruit_NeoPixel.h>
 
-// If you're using the full breakout...
 Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
-// If you're using the FeatherWing version
-//Adafruit_IS31FL3731_Wing ledmatrix = Adafruit_IS31FL3731_Wing();
+Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
+bool zToggle = 0;
 
 // The lookup table to make the brightness changes be more visible
 const uint8_t gamma_scale[] = {0, 1, 2, 4,
@@ -23,6 +23,8 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("ISSI swirl test");
+
+  pinMode(A0, INPUT_PULLUP);
 
   if (!ledmatrix.begin())
   {
@@ -45,8 +47,18 @@ void setup()
   }
 
   ledmatrix.autoPlay(125);
-  int sleepNow = Watchdog.sleep(); // TODO this comes on again quickly. gotta learn how this is supposed to work
+
+  pixels.begin();
+  // set the first pixel #0 to orange
+  pixels.setPixelColor(0, pixels.Color(0x65, 0x43, 0x21));
+  // and write the data
+  pixels.show();
+
+  //  LowPower.sleep(5000);
 }
+
+unsigned long lastDebounceTime = 0;
+unsigned long debounceDelay = 50;
 
 void loop()
 {
@@ -55,4 +67,30 @@ void loop()
   // ledmatrix.displayFrame(frame);
   // delay(100);
   // frame = (frame + 1) % 8;
+
+  static int lastButtonState = LOW;
+  static int buttonState = LOW;
+
+  int reading = digitalRead(A0);
+  if (reading != lastButtonState)
+  {
+    lastDebounceTime = millis();
+  }
+
+  if ((millis() - lastDebounceTime) > debounceDelay)
+  {
+    if (reading != buttonState)
+    {
+      buttonState = reading;
+      if (buttonState == LOW)
+      {
+        zToggle = !zToggle;
+        pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xFF, 0)
+                                        : pixels.Color(0xff, 0, 0));
+        pixels.show();
+      }
+    }
+  }
+
+  lastButtonState = reading;
 }
