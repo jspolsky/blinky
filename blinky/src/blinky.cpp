@@ -63,7 +63,7 @@ void setup()
 
   ledmatrix.autoPlay(125);
 
-  pixels.begin();
+  //  pixels.begin();
   pixels.setPixelColor(0, pixels.Color(0x65, 0x43, 0x21));
   pixels.show();
 
