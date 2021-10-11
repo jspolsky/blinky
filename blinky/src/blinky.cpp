@@ -19,10 +19,26 @@ const uint8_t gamma_scale[] = {0, 1, 2, 4,
 #define ____ 0
 #include "../../hexels/bouncyheart.h"
 
+volatile uint8_t buttonPressed = 0; // changes to 1 when the interrupt fires
+
+// interrupt service routine for when a button (A0) is pressed
+volatile unsigned long button_time = 0;
+volatile unsigned long last_button_time = 0;
+const unsigned long debounceDelay = 50;
+
+void buttonPressISR()
+{
+  unsigned long button_time = millis();
+  if (button_time - last_button_time > debounceDelay)
+  {
+    buttonPressed = 1;
+    last_button_time = button_time;
+  }
+}
+
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("ISSI swirl test");
 
   pinMode(A0, INPUT_PULLUP);
 
@@ -32,7 +48,6 @@ void setup()
     while (1)
       ;
   }
-  Serial.println("IS31 found!");
 
   // Write all 8 frames
 
@@ -49,48 +64,23 @@ void setup()
   ledmatrix.autoPlay(125);
 
   pixels.begin();
-  // set the first pixel #0 to orange
   pixels.setPixelColor(0, pixels.Color(0x65, 0x43, 0x21));
-  // and write the data
   pixels.show();
 
-  //  LowPower.sleep(5000);
+  LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
+  LowPower.sleep(10000);
 }
-
-unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 50;
 
 void loop()
 {
-  // animate over all the pixels, and set the brightness from the sweep table
-  // static uint8_t frame = 0;
-  // ledmatrix.displayFrame(frame);
-  // delay(100);
-  // frame = (frame + 1) % 8;
+  // Toggle the color
 
-  static int lastButtonState = LOW;
-  static int buttonState = LOW;
-
-  int reading = digitalRead(A0);
-  if (reading != lastButtonState)
+  if (buttonPressed)
   {
-    lastDebounceTime = millis();
+    zToggle = !zToggle;
+    pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
+                                    : pixels.Color(0xAF, 0, 0xAF));
+    pixels.show();
+    buttonPressed = false;
   }
-
-  if ((millis() - lastDebounceTime) > debounceDelay)
-  {
-    if (reading != buttonState)
-    {
-      buttonState = reading;
-      if (buttonState == LOW)
-      {
-        zToggle = !zToggle;
-        pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xFF, 0)
-                                        : pixels.Color(0xff, 0, 0));
-        pixels.show();
-      }
-    }
-  }
-
-  lastButtonState = reading;
 }
