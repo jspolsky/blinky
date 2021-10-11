@@ -68,7 +68,6 @@ void setup()
   pixels.show();
 
   LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
-  LowPower.sleep(10000);
 }
 
 void loop()
@@ -83,4 +82,6 @@ void loop()
     pixels.show();
     buttonPressed = false;
   }
+
+  LowPower.sleep(10000);
 }
