@@ -22,6 +22,7 @@ const uint8_t gamma_scale[] = {0, 1, 2, 4,
 #include "../../hexels/bouncyheart.h"
 
 volatile uint8_t buttonPressed = 0; // changes to 1 when the interrupt fires
+volatile uint8_t irActivity = 0;    // changes to 1 when the interrupt fires
 
 // interrupt service routine for when a button (A0) is pressed
 volatile unsigned long button_time = 0;
@@ -38,6 +39,12 @@ void buttonPressISR()
     buttonPressed = 1;
     last_button_time = button_time;
   }
+}
+
+void irActivityISR()
+{
+  // woken up by ir
+  irActivity = 1;
 }
 
 void setup()
@@ -71,27 +78,30 @@ void setup()
   pixels.begin();
 
   LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
+  LowPower.attachInterruptWakeup(A1, irActivityISR, FALLING);
 
-  Serial.println("Enabling IRin");
-  irrecv.enableIRIn(); // Start the receiver
+  LowPower.sleep(20000);
 }
 
 void loop()
 {
   // Toggle the color
 
-  // if (buttonPressed)
-  // {
-  //   zToggle = !zToggle;
-  //   pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
-  //                                   : pixels.Color(0xAF, 0, 0xAF));
-  //   pixels.show();
-  //   buttonPressed = false;
-  // }
-
-  // LowPower.sleep(10000);
+  if (buttonPressed)
+  {
+    zToggle = !zToggle;
+    pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
+                                    : pixels.Color(0xAF, 0, 0xAF));
+    pixels.show();
+    buttonPressed = false;
+  }
 
   // TESTING IR
+  if (irActivity)
+  {
+    irrecv.enableIRIn(); // Start the receiver
+    irActivity = false;
+  }
 
   if (irrecv.decode())
   {
