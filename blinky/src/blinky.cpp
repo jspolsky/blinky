@@ -5,6 +5,7 @@
 #include <Adafruit_IS31FL3731.h>
 #include <ArduinoLowPower.h>
 #include <Adafruit_NeoPixel.h>
+#define DECODE_NEC
 #include <IRremote.h>
 
 Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
@@ -28,7 +29,6 @@ volatile unsigned long last_button_time = 0;
 const unsigned long debounceDelay = 50;
 
 IRrecv irrecv(A1);
-decode_results results;
 
 void buttonPressISR()
 {
@@ -69,8 +69,6 @@ void setup()
   ledmatrix.autoPlay(125);
 
   pixels.begin();
-  pixels.setPixelColor(0, pixels.Color(0x65, 0x43, 0x21));
-  pixels.show();
 
   LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
 
@@ -95,10 +93,15 @@ void loop()
 
   // TESTING IR
 
-  if (irrecv.decode(&results))
+  if (irrecv.decode())
   {
-    Serial.println(results.value, HEX);
-    irrecv.resume(); // Receive the next value
+    if (irrecv.decodedIRData.address == 0xCFFE)
+    {
+      // it's for us!
+      pixels.setPixelColor(0, pixels.ColorHSV(irrecv.decodedIRData.command << 8));
+      pixels.show();
+    }
+
+    IrReceiver.resume();
   }
-  delay(100);
 }
