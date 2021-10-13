@@ -6,4 +6,6 @@ namespace Irreceive
 {
     void setup();
     void loop();
+    bool can_sleep();
+    void sleep();
 }

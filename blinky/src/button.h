@@ -6,4 +6,5 @@ namespace Button
 {
     void setup();
     void loop();
+    void sleep();
 }

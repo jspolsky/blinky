@@ -15,17 +15,23 @@ namespace Button
 
     void buttonPressISR()
     {
-        unsigned long button_time = millis();
-        if (button_time - last_button_time > debounceDelay)
-        {
-            buttonPressed = 1;
-            last_button_time = button_time;
-        }
+        // UNDONE BUTTON DEBOUNCING IS INTERFERING WITH SLEEP
+
+        // unsigned long button_time = millis();
+        // if (button_time - last_button_time > debounceDelay)
+        // {
+        buttonPressed = 1;
+        //     last_button_time = button_time;
+        // }
     }
 
     void setup()
     {
         pinMode(BUTTON_PIN, INPUT_PULLUP);
+    }
+
+    void sleep()
+    {
         LowPower.attachInterruptWakeup(BUTTON_PIN, buttonPressISR, FALLING);
     }
 

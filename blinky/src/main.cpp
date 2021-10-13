@@ -12,12 +12,18 @@ void setup()
   Util::setup();
   Button::setup();
   Irreceive::setup();
-
-  LowPower.sleep(20000);
 }
 
 void loop()
 {
   Button::loop();
   Irreceive::loop();
+
+  if (Irreceive::can_sleep())
+  {
+    // Util::setColorRGB(0, 0, 0);
+    Button::sleep();
+    Irreceive::sleep();
+    LowPower.deepSleep();
+  }
 }
