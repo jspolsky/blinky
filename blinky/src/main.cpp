@@ -4,13 +4,12 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_IS31FL3731.h>
 #include <ArduinoLowPower.h>
-#include <Adafruit_NeoPixel.h>
 #define DECODE_NEC
 #include <IRremote.h>
 
 #include "matrix.h"
+#include "util.h"
 
-Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
 bool zToggle = 0;
 
 volatile uint8_t buttonPressed = 0; // changes to 1 when the interrupt fires
@@ -47,8 +46,7 @@ void setup()
   pinMode(A1, INPUT_PULLUP);
 
   Matrix::setup();
-
-  pixels.begin();
+  Util::setup();
 
   LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
   LowPower.attachInterruptWakeup(A1, irActivityISR, FALLING);
@@ -63,9 +61,11 @@ void loop()
   if (buttonPressed)
   {
     zToggle = !zToggle;
-    pixels.setPixelColor(0, zToggle ? pixels.Color(0, 0xAF, 0)
-                                    : pixels.Color(0xAF, 0, 0xAF));
-    pixels.show();
+    if (zToggle)
+      Util::setColorRGB(0, 0xAF, 0);
+    else
+      Util::setColorRGB(0xAF, 0, 0xAF);
+
     buttonPressed = false;
   }
 
@@ -81,8 +81,7 @@ void loop()
     if (irrecv.decodedIRData.address == 0xCFFE)
     {
       // it's for us!
-      pixels.setPixelColor(0, pixels.ColorHSV(irrecv.decodedIRData.command << 8));
-      pixels.show();
+      Util::setColorHSV(irrecv.decodedIRData.command);
     }
 
     IrReceiver.resume();
