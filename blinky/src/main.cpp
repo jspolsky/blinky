@@ -21,7 +21,7 @@ void loop()
 
   if (Irreceive::can_sleep())
   {
-    // Util::setColorRGB(0, 0, 0);
+    Util::setColorRGB(0, 0, 0);
     Button::sleep();
     Irreceive::sleep();
     LowPower.deepSleep();
