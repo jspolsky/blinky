@@ -2,6 +2,7 @@
 #include <ArduinoLowPower.h>
 #include "util.h"
 #include "button.h"
+#include "pins.h"
 
 #define debounceDelay 50
 
@@ -24,7 +25,8 @@ namespace Button
 
     void setup()
     {
-        LowPower.attachInterruptWakeup(A0, buttonPressISR, FALLING);
+        pinMode(BUTTON_PIN, INPUT_PULLUP);
+        LowPower.attachInterruptWakeup(BUTTON_PIN, buttonPressISR, FALLING);
     }
 
     void loop()
