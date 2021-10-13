@@ -43,8 +43,6 @@ namespace Irreceive
     void setup()
     {
         pinMode(IRRECEIVE_PIN, INPUT_PULLUP);
-        pinMode(IRRECEIVE_VCC_PIN, OUTPUT);
-        digitalWrite(IRRECEIVE_VCC_PIN, HIGH);
     }
 
     void loop()
