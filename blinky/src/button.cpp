@@ -9,8 +9,10 @@ namespace Button
     volatile bool fDown = false;
     volatile bool fUp = false;
     unsigned long tmDown = 0L;
+    bool fInSwap = false;
 
-    const unsigned long SHORT_CLICK_MS = 10L; // how long button must be pressed to read a short click
+    const unsigned long SHORT_CLICK_MS = 10L;  // how long button must be pressed to read a short click
+    const unsigned long LONG_CLICK_MS = 1000L; // how long button must be pressed to read a long click
 
     void buttonISR()
     {
@@ -50,9 +52,38 @@ namespace Button
             if (tmDown && tmDown + SHORT_CLICK_MS < millis())
             {
                 // register as UP
-                Util::setColorRGB(0, 0, 0xFF);
+                if (fInSwap)
+                {
+                    fnEndSwap();
+                    fInSwap = false;
+                }
+                else
+                {
+                    fnSwitch();
+                }
                 tmDown = 0L;
             }
         }
+        else if (tmDown && tmDown + LONG_CLICK_MS < millis())
+        {
+            // in this situation we will not be sleeping, because tmDown is nonzero
+            fInSwap = true;
+            fnStartSwap();
+        }
+    }
+
+    void fnStartSwap()
+    {
+        Util::setColorRGB(0x65, 0x43, 0x21);
+    }
+
+    void fnEndSwap()
+    {
+        Util::setColorRGB(0, 0, 0);
+    }
+
+    void fnSwitch()
+    {
+        Util::setColorRGB(0, 0, 0xFF);
     }
 }

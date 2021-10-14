@@ -8,7 +8,7 @@
 
 void setup()
 {
-  Matrix::setup();
+  // Matrix::setup();
   Util::setup();
   Button::setup();
   //  Irreceive::setup();
@@ -21,7 +21,6 @@ void loop()
 
   if (Irreceive::can_sleep() && Button::can_sleep())
   {
-    //    Util::setColorRGB(0, 0, 0);
     Button::sleep();
     //    Irreceive::sleep();
     LowPower.sleep();
