@@ -4,25 +4,19 @@
 #include "button.h"
 #include "pins.h"
 
-#define debounceDelay 50
-
 namespace Button
 {
-    bool zToggle = 0;
-    volatile uint8_t buttonPressed = 0; // changes to 1 when the interrupt fires
-    volatile unsigned long button_time = 0;
-    volatile unsigned long last_button_time = 0;
+    volatile bool fDown = false;
+    volatile bool fUp = false;
+    unsigned long tmDown = 0L;
 
-    void buttonPressISR()
+    const unsigned long SHORT_CLICK_MS = 10L; // how long button must be pressed to read a short click
+
+    void buttonISR()
     {
-        // UNDONE BUTTON DEBOUNCING IS INTERFERING WITH SLEEP
-
-        // unsigned long button_time = millis();
-        // if (button_time - last_button_time > debounceDelay)
-        // {
-        buttonPressed = 1;
-        //     last_button_time = button_time;
-        // }
+        int state = digitalRead(BUTTON_PIN);
+        fDown = (state == LOW);
+        fUp = (state == HIGH);
     }
 
     void setup()
@@ -30,23 +24,35 @@ namespace Button
         pinMode(BUTTON_PIN, INPUT_PULLUP);
     }
 
+    bool can_sleep()
+    {
+        return tmDown == 0L       // don't sleep while button is down to keep millis counting
+               && !fDown && !fUp; // don't sleep if an action is pending
+    }
+
     void sleep()
     {
-        LowPower.attachInterruptWakeup(BUTTON_PIN, buttonPressISR, FALLING);
+        LowPower.attachInterruptWakeup(BUTTON_PIN, buttonISR, CHANGE);
     }
 
     void loop()
     {
-
-        if (buttonPressed)
+        if (fDown)
         {
-            zToggle = !zToggle;
-            if (zToggle)
-                Util::setColorRGB(0, 0xAF, 0);
-            else
-                Util::setColorRGB(0xAF, 0, 0xAF);
-
-            buttonPressed = false;
+            Util::setColorRGB(0, 0xFF, 0);
+            fDown = false;
+            tmDown = millis();
+        }
+        else if (fUp)
+        {
+            Util::setColorRGB(0, 0, 0);
+            fUp = false;
+            if (tmDown && tmDown + SHORT_CLICK_MS < millis())
+            {
+                // register as UP
+                Util::setColorRGB(0, 0, 0xFF);
+                tmDown = 0L;
+            }
         }
     }
 }

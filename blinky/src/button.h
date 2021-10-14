@@ -7,4 +7,5 @@ namespace Button
     void setup();
     void loop();
     void sleep();
+    bool can_sleep();
 }
