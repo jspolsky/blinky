@@ -24,19 +24,39 @@ namespace Matrix
             while (1)
                 ;
         }
-
-        // Write all 8 frames
-
-        const uint8_t *pnext = a;
-
-        for (uint8_t frame = 0; frame < 8; frame++)
-        {
-            ledmatrix.setFrame(frame);
-            for (int x = 0; x < 16; x++)
-                for (int y = 0; y < 9; y++)
-                    ledmatrix.drawPixel(15 - x, y, gamma_scale[(*pnext++) >> 4]);
-        }
-
-        ledmatrix.autoPlay(125);
     }
+
+    void showChar(char c)
+    {
+        ledmatrix.autoPlayStop();
+        ledmatrix.drawChar(0, 0, c, 0x3333, 0x0000, 1);
+    }
+
+    void displayAnimation(uint16_t code)
+    {
+        // UNDONE have more animations
+        // for now there is just one (0)
+        // everything else displays as an ASCII thing
+
+        if (code == 0)
+        {
+            const uint8_t *pnext = a; // UNDONE 'a' is the only animation i have right now
+
+            for (uint8_t frame = 0; frame < 8; frame++) // write 8 frames then animate
+            {
+                ledmatrix.setFrame(frame);
+                for (int x = 0; x < 16; x++)
+                    for (int y = 0; y < 9; y++)
+                        ledmatrix.drawPixel(15 - x, y, gamma_scale[(*pnext++) >> 4]);
+            }
+
+            ledmatrix.autoPlay(55);
+        }
+        else
+        {
+            // TODO get more animations. For now show A-Z
+            showChar((code % 26) + 'A' - 1);
+        }
+    }
+
 }

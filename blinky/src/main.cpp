@@ -8,7 +8,8 @@
 
 void setup()
 {
-  // Matrix::setup();
+  Matrix::setup();
+  Matrix::displayAnimation(0);
   Util::setup();
   Button::setup();
   //  Irreceive::setup();

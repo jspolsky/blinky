@@ -9,4 +9,5 @@
 namespace Matrix
 {
     void setup();
+    void displayAnimation(uint16_t code);
 }

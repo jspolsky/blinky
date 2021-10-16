@@ -3,6 +3,7 @@
 #include "util.h"
 #include "button.h"
 #include "pins.h"
+#include "matrix.h"
 
 namespace Button
 {
@@ -75,15 +76,18 @@ namespace Button
     void fnStartSwap()
     {
         Util::setColorRGB(0x65, 0x43, 0x21);
+        Matrix::displayAnimation(1);
     }
 
     void fnEndSwap()
     {
         Util::setColorRGB(0, 0, 0);
+        Matrix::displayAnimation(2);
     }
 
     void fnSwitch()
     {
         Util::setColorRGB(0, 0, 0xFF);
+        Matrix::displayAnimation(0);
     }
 }

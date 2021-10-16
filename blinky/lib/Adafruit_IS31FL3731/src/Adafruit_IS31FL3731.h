@@ -46,6 +46,7 @@ public:
   void setFrame(uint8_t b);
   void displayFrame(uint8_t frame);
   void autoPlay(uint16_t msDelay);
+  void autoPlayStop();
 
 protected:
   bool selectBank(uint8_t bank);

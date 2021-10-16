@@ -228,7 +228,7 @@ void Adafruit_IS31FL3731::displayFrame(uint8_t frame)
 
 /**************************************************************************/
 /*!
-    @brief Go into autoplay mode, endlessly, showing all frames, 253ms delay
+    @brief Go into autoplay mode, endlessly, showing all frames
     @param msDelay Sets delay in milliseconds, must be 11 - 704
 */
 /**************************************************************************/
@@ -247,6 +247,18 @@ void Adafruit_IS31FL3731::autoPlay(uint16_t msDelay)
   writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUTOPLAY_WAY_OF_DISPLAY, 0); // 0 means all frames, endlessly
   writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUTOPLAY_DELAY_TIME, msDelay / 11);
   writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_AUTOPLAYMODE);
+}
+
+/**************************************************************************/
+/*!
+    @brief End autoplay
+*/
+/**************************************************************************/
+void Adafruit_IS31FL3731::autoPlayStop()
+{
+  writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
+  setFrame(0);
+  displayFrame(0);
 }
 
 /**************************************************************************/
