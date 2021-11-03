@@ -44,12 +44,17 @@ namespace IR
     void start()
     {
         Util::setColorRGB(0x65, 0x43, 0x21);
-        Matrix::displayAnimation(3);
+        Matrix::displayAnimation(5);
+
+        IrSender.begin(IRSEND_PIN);
+        IrSender.sendNEC(0xCFFE, 0x13, 0);
+
+        Matrix::displayAnimation(6);
     }
 
     void end()
     {
         Util::setColorRGB(0, 0, 0);
-        Matrix::displayAnimation(4);
+        Matrix::displayAnimation(0);
     }
 }
