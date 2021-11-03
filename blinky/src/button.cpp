@@ -11,6 +11,9 @@ namespace Button
     volatile bool fUp = false;
     unsigned long tmDown = 0L;
     bool fInSwap = false;
+    static CALLBACK *fnLongPressStart;
+    static CALLBACK *fnLongPressEnd;
+    static CALLBACK *fnShortPress;
 
     const unsigned long SHORT_CLICK_MS = 10L;  // how long button must be pressed to read a short click
     const unsigned long LONG_CLICK_MS = 1000L; // how long button must be pressed to read a long click
@@ -22,8 +25,12 @@ namespace Button
         fUp = (state == HIGH);
     }
 
-    void setup()
+    void setup(CALLBACK *_fnLongPressStart, CALLBACK *_fnLongPressEnd, CALLBACK *_fnShortPress)
     {
+        fnLongPressStart = _fnLongPressStart;
+        fnLongPressEnd = _fnLongPressEnd;
+        fnShortPress = _fnShortPress;
+
         pinMode(BUTTON_PIN, INPUT_PULLUP);
     }
 
@@ -55,12 +62,12 @@ namespace Button
                 // register as UP
                 if (fInSwap)
                 {
-                    fnEndSwap();
+                    fnLongPressEnd();
                     fInSwap = false;
                 }
                 else
                 {
-                    fnSwitch();
+                    fnShortPress();
                 }
                 tmDown = 0L;
             }
@@ -69,25 +76,8 @@ namespace Button
         {
             // in this situation we will not be sleeping, because tmDown is nonzero
             fInSwap = true;
-            fnStartSwap();
+            fnLongPressStart();
         }
     }
 
-    void fnStartSwap()
-    {
-        Util::setColorRGB(0x65, 0x43, 0x21);
-        Matrix::displayAnimation(1);
-    }
-
-    void fnEndSwap()
-    {
-        Util::setColorRGB(0, 0, 0);
-        Matrix::displayAnimation(2);
-    }
-
-    void fnSwitch()
-    {
-        Util::setColorRGB(0, 0, 0xFF);
-        Matrix::displayAnimation(0);
-    }
 }
