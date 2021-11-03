@@ -4,7 +4,7 @@
 #include "matrix.h"
 #include "util.h"
 #include "button.h"
-#include "irreceive.h"
+#include "ir.h"
 
 void LongPressStart();
 void LongPressEnd();
@@ -16,13 +16,13 @@ void setup()
   Matrix::displayAnimation(0);
   Util::setup();
   Button::setup(LongPressStart, LongPressEnd, ShortPress);
-  Irreceive::setup();
+  IR::setup();
 }
 
 void loop()
 {
   Button::loop();
-  Irreceive::loop();
+  IR::loop();
 
   if (Button::can_sleep())
   {

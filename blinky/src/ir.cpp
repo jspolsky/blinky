@@ -3,10 +3,10 @@
 #include <IRremote.h>
 
 #include "util.h"
-#include "irreceive.h"
+#include "ir.h"
 #include "pins.h"
 
-namespace Irreceive
+namespace IR
 {
     IRrecv irrecv(IRRECEIVE_PIN);
 
