@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <ArduinoLowPower.h>
-#include "util.h"
 #include "button.h"
 #include "pins.h"
 #include "matrix.h"
@@ -49,13 +48,11 @@ namespace Button
     {
         if (fDown)
         {
-            Util::setColorRGB(0, 0xFF, 0);
             fDown = false;
             tmDown = millis();
         }
         else if (fUp)
         {
-            Util::setColorRGB(0, 0, 0);
             fUp = false;
             if (tmDown && tmDown + SHORT_CLICK_MS < millis())
             {
@@ -72,7 +69,7 @@ namespace Button
                 tmDown = 0L;
             }
         }
-        else if (tmDown && tmDown + LONG_CLICK_MS < millis())
+        else if (!fInSwap && tmDown && tmDown + LONG_CLICK_MS < millis())
         {
             // in this situation we will not be sleeping, because tmDown is nonzero
             fInSwap = true;
