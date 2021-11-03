@@ -12,18 +12,17 @@ void setup()
   Matrix::displayAnimation(0);
   Util::setup();
   Button::setup();
-  //  Irreceive::setup();
+  Irreceive::setup();
 }
 
 void loop()
 {
   Button::loop();
-  //  Irreceive::loop();
+  Irreceive::loop();
 
-  if (Irreceive::can_sleep() && Button::can_sleep())
+  if (Button::can_sleep())
   {
     Button::sleep();
-    //    Irreceive::sleep();
     LowPower.sleep();
   }
 }
