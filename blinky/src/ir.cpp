@@ -3,6 +3,7 @@
 #include <IRremote.h>
 
 #include "util.h"
+#include "matrix.h"
 #include "ir.h"
 #include "pins.h"
 
@@ -29,5 +30,26 @@ namespace IR
 
             IrReceiver.resume();
         }
+    }
+
+    bool can_sleep()
+    {
+        return true;
+    }
+
+    void sleep()
+    {
+    }
+
+    void start()
+    {
+        Util::setColorRGB(0x65, 0x43, 0x21);
+        Matrix::displayAnimation(3);
+    }
+
+    void end()
+    {
+        Util::setColorRGB(0, 0, 0);
+        Matrix::displayAnimation(4);
     }
 }

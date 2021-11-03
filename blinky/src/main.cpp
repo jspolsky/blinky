@@ -24,9 +24,10 @@ void loop()
   Button::loop();
   IR::loop();
 
-  if (Button::can_sleep())
+  if (Button::can_sleep() && IR::can_sleep())
   {
     Button::sleep();
+    IR::sleep();
     LowPower.sleep();
   }
 }
@@ -37,14 +38,12 @@ void loop()
 
 void LongPressStart()
 {
-  Util::setColorRGB(0x65, 0x43, 0x21);
-  Matrix::displayAnimation(1);
+  IR::start();
 }
 
 void LongPressEnd()
 {
-  Util::setColorRGB(0, 0, 0);
-  Matrix::displayAnimation(2);
+  IR::end();
 }
 
 void ShortPress()
