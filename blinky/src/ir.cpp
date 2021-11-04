@@ -43,7 +43,6 @@ namespace IR
 
     void start()
     {
-        Util::setColorRGB(0x65, 0x43, 0x21);
         Matrix::displayAnimation(5);
 
         IrSender.begin(IRSEND_PIN);

@@ -48,6 +48,5 @@ void LongPressEnd()
 
 void ShortPress()
 {
-  Util::setColorRGB(0, 0, 0xFF);
   Matrix::displayAnimation(0);
 }

@@ -2,7 +2,7 @@
 #include <ArduinoLowPower.h>
 #include "button.h"
 #include "pins.h"
-#include "matrix.h"
+#include "util.h"
 
 namespace Button
 {
@@ -50,12 +50,14 @@ namespace Button
         {
             fDown = false;
             tmDown = millis();
+            Util::setColorRGB(0x10, 0, 0);
         }
         else if (fUp)
         {
             fUp = false;
             if (tmDown && tmDown + SHORT_CLICK_MS < millis())
             {
+                Util::setColorRGB(0, 0, 0);
                 // register as UP
                 if (fInSwap)
                 {
@@ -73,6 +75,7 @@ namespace Button
         {
             // in this situation we will not be sleeping, because tmDown is nonzero
             fInSwap = true;
+            Util::setColorRGB(0xFF, 0, 0);
             fnLongPressStart();
         }
     }
