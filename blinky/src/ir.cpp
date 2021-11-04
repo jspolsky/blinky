@@ -26,6 +26,8 @@ namespace IR
 
     void setup()
     {
+        pinMode(IRPOWER_PIN, OUTPUT);
+        digitalWrite(IRPOWER_PIN, LOW);
         irstate = idle;
     }
 
@@ -58,6 +60,7 @@ namespace IR
             }
             else
             {
+                digitalWrite(IRPOWER_PIN, HIGH);
                 IrReceiver.begin(IRRECEIVE_PIN);
                 irstate = listening;
                 randomSeed(tmlistening = millis());
@@ -75,6 +78,7 @@ namespace IR
                 received = true;
                 Util::setColorHSV(IrReceiver.decodedIRData.command);
                 IrReceiver.end();
+                digitalWrite(IRPOWER_PIN, LOW);
                 irstate = sending;
             }
             else
@@ -84,6 +88,7 @@ namespace IR
                 if (tmlistening + msrandomwait < millis())
                 {
                     IrReceiver.end();
+                    digitalWrite(IRPOWER_PIN, LOW);
                     irstate = sending;
                 }
                 else
@@ -116,6 +121,11 @@ namespace IR
     {
         Util::setColorRGB(0, 0, 0);
         Matrix::displayAnimation(0);
+        if (irstate == listening)
+        {
+            IrReceiver.end();
+            digitalWrite(IRPOWER_PIN, LOW);
+        }
         irstate = idle;
     }
 }
