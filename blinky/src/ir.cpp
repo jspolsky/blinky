@@ -9,16 +9,44 @@
 
 namespace IR
 {
+    enum IRState
+    {
+        idle,     // Not doing anything
+        starting, // Button just went down... need to SEND
+    };
+
+    static IRState irstate;
+
     // IRrecv irrecv(IRRECEIVE_PIN);
 
     void setup()
     {
+        irstate = idle;
+
         // pinMode(IRRECEIVE_PIN, INPUT_PULLUP);
         // irrecv.enableIRIn(); // Start the receiver
     }
 
     void loop()
     {
+        switch (irstate)
+        {
+        case idle:
+            break;
+
+        case starting:
+            Matrix::displayAnimation(5);
+
+            IrSender.begin(IRSEND_PIN);
+            IrSender.sendNEC(0xCFFE, 0x13, 0);
+
+            Matrix::displayAnimation(6);
+            irstate = idle;
+            break;
+
+        default:
+            break;
+        }
 
         // if (irrecv.decode())
         // {
@@ -43,17 +71,13 @@ namespace IR
 
     void start()
     {
-        Matrix::displayAnimation(5);
-
-        IrSender.begin(IRSEND_PIN);
-        IrSender.sendNEC(0xCFFE, 0x13, 0);
-
-        Matrix::displayAnimation(6);
+        irstate = starting;
     }
 
     void end()
     {
         Util::setColorRGB(0, 0, 0);
         Matrix::displayAnimation(0);
+        irstate = idle;
     }
 }
