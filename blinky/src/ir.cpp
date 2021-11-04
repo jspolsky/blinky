@@ -7,24 +7,23 @@
 #include "ir.h"
 #include "pins.h"
 
+// TODO  Run the power for the IR receiver off of a pin to minimize idle consumption
+
 namespace IR
 {
     enum IRState
     {
-        idle,     // Not doing anything
-        starting, // Button just went down... need to SEND
+        idle,      // Not doing anything
+        starting,  // Button just went down... need to send IR code to peer
+        sent,      // Just sent IR code, ready to start receiving
+        listening, // Listening for IR codes from peer
     };
 
     static IRState irstate;
 
-    // IRrecv irrecv(IRRECEIVE_PIN);
-
     void setup()
     {
         irstate = idle;
-
-        // pinMode(IRRECEIVE_PIN, INPUT_PULLUP);
-        // irrecv.enableIRIn(); // Start the receiver
     }
 
     void loop()
@@ -35,29 +34,39 @@ namespace IR
             break;
 
         case starting:
-            Matrix::displayAnimation(5);
+            Matrix::displayAnimation(1);
 
             IrSender.begin(IRSEND_PIN);
             IrSender.sendNEC(0xCFFE, 0x13, 0);
 
-            Matrix::displayAnimation(6);
-            irstate = idle;
+            irstate = sent;
+            break;
+
+        case sent:
+            Matrix::displayAnimation(2);
+
+            IrReceiver.begin(IRRECEIVE_PIN);
+
+            irstate = listening;
+            break;
+
+        case listening:
+            Matrix::displayAnimation(3);
+
+            if (IrReceiver.decode())
+            {
+                if (IrReceiver.decodedIRData.address == 0xCFFE)
+                {
+                    // received!
+                    Util::setColorHSV(IrReceiver.decodedIRData.command);
+                }
+            }
+            IrReceiver.resume();
             break;
 
         default:
             break;
         }
-
-        // if (irrecv.decode())
-        // {
-        //     if (irrecv.decodedIRData.address == 0xCFFE)
-        //     {
-        //         // it's for us!
-        //         Util::setColorHSV(irrecv.decodedIRData.command);
-        //     }
-
-        //     IrReceiver.resume();
-        // }
     }
 
     bool can_sleep()
