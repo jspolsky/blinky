@@ -50,7 +50,7 @@ namespace Button
         {
             fDown = false;
             tmDown = millis();
-            Util::setColorRGB(0x10, 0, 0);
+            Util::setColorRGB(0x0, 0x0, 0x10);
         }
         else if (fUp)
         {
@@ -75,7 +75,7 @@ namespace Button
         {
             // in this situation we will not be sleeping, because tmDown is nonzero
             fInSwap = true;
-            Util::setColorRGB(0xFF, 0, 0);
+            Util::setColorRGB(0, 0, 0xFF);
             fnLongPressStart();
         }
     }
