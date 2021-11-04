@@ -9,27 +9,27 @@
 
 namespace IR
 {
-    IRrecv irrecv(IRRECEIVE_PIN);
+    // IRrecv irrecv(IRRECEIVE_PIN);
 
     void setup()
     {
-        pinMode(IRRECEIVE_PIN, INPUT_PULLUP);
-        irrecv.enableIRIn(); // Start the receiver
+        // pinMode(IRRECEIVE_PIN, INPUT_PULLUP);
+        // irrecv.enableIRIn(); // Start the receiver
     }
 
     void loop()
     {
 
-        if (irrecv.decode())
-        {
-            if (irrecv.decodedIRData.address == 0xCFFE)
-            {
-                // it's for us!
-                Util::setColorHSV(irrecv.decodedIRData.command);
-            }
+        // if (irrecv.decode())
+        // {
+        //     if (irrecv.decodedIRData.address == 0xCFFE)
+        //     {
+        //         // it's for us!
+        //         Util::setColorHSV(irrecv.decodedIRData.command);
+        //     }
 
-            IrReceiver.resume();
-        }
+        //     IrReceiver.resume();
+        // }
     }
 
     bool can_sleep()
