@@ -14,12 +14,15 @@ namespace IR
     enum IRState
     {
         idle,      // Not doing anything
-        starting,  // Button just went down... need to send IR code to peer
+        sending,   // Button just went down... need to send IR code to peer
         sent,      // Just sent IR code, ready to start receiving
         listening, // Listening for IR codes from peer
     };
 
     static IRState irstate;
+    static unsigned long tmlistening;  // When we started listening
+    static unsigned long msrandomwait; // Random number of ms we back off to listen
+    static bool received;              // True when we've received a message and can stop listening
 
     void setup()
     {
@@ -31,9 +34,10 @@ namespace IR
         switch (irstate)
         {
         case idle:
+            received = false;
             break;
 
-        case starting:
+        case sending:
             Matrix::displayAnimation(1);
 
             IrSender.begin(IRSEND_PIN);
@@ -45,23 +49,48 @@ namespace IR
         case sent:
             Matrix::displayAnimation(2);
 
-            IrReceiver.begin(IRRECEIVE_PIN);
+            if (received)
+            {
+                // once we have received peer's animation, we will
+                // continue to transmit every 100 ms
+                delay(100);
+                irstate = sending;
+            }
+            else
+            {
+                IrReceiver.begin(IRRECEIVE_PIN);
+                irstate = listening;
+                randomSeed(tmlistening = millis());
+                msrandomwait = 300L + random(300L);
 
-            irstate = listening;
+                Matrix::displayAnimation(3);
+            }
             break;
 
         case listening:
-            Matrix::displayAnimation(3);
 
-            if (IrReceiver.decode())
+            if (IrReceiver.decode() && IrReceiver.decodedIRData.address == 0xCFFE)
             {
-                if (IrReceiver.decodedIRData.address == 0xCFFE)
+                // received!
+                received = true;
+                Util::setColorHSV(IrReceiver.decodedIRData.command);
+                IrReceiver.end();
+                irstate = sending;
+            }
+            else
+            {
+                // Have we been listening long enough?
+                // Send again.
+                if (tmlistening + msrandomwait < millis())
                 {
-                    // received!
-                    Util::setColorHSV(IrReceiver.decodedIRData.command);
+                    IrReceiver.end();
+                    irstate = sending;
+                }
+                else
+                {
+                    IrReceiver.resume();
                 }
             }
-            IrReceiver.resume();
             break;
 
         default:
@@ -80,7 +109,7 @@ namespace IR
 
     void start()
     {
-        irstate = starting;
+        irstate = sending;
     }
 
     void end()
