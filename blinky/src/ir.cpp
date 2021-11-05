@@ -7,8 +7,6 @@
 #include "ir.h"
 #include "pins.h"
 
-// TODO  Run the power for the IR receiver off of a pin to minimize idle consumption
-
 namespace IR
 {
     enum IRState
@@ -16,11 +14,13 @@ namespace IR
         idle,      // Not doing anything
         sending,   // Button just went down... need to send IR code to peer
         sent,      // Just sent IR code, ready to start receiving
+        pausing,   // Just sent IR code, but already received from peer, so pausing before next send
         listening, // Listening for IR codes from peer
     };
 
     static IRState irstate;
     static unsigned long tmlistening;  // When we started listening
+    static unsigned long tmpausing;    // When we started pausing
     static unsigned long msrandomwait; // Random number of ms we back off to listen
     static bool received;              // True when we've received a message and can stop listening
 
@@ -53,10 +53,10 @@ namespace IR
 
             if (received)
             {
-                // once we have received peer's animation, we will
-                // continue to transmit every 100 ms
-                delay(100);
-                irstate = sending;
+                // we already have their code, so we don't have to
+                // listen. Instead pause 100ms and then send again
+                irstate = pausing;
+                tmpausing = millis();
             }
             else
             {
@@ -64,9 +64,16 @@ namespace IR
                 IrReceiver.begin(IRRECEIVE_PIN);
                 irstate = listening;
                 randomSeed(tmlistening = millis());
-                msrandomwait = 300L + random(300L);
+                msrandomwait = 100L + random(500L);
 
                 Matrix::displayAnimation(3);
+            }
+            break;
+
+        case pausing:
+            if (tmpausing + 100L < millis())
+            {
+                irstate = sending;
             }
             break;
 
