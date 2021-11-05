@@ -23,6 +23,9 @@ namespace IR
     static unsigned long tmpausing;    // When we started pausing
     static unsigned long msrandomwait; // Random number of ms we back off to listen
     static bool received;              // True when we've received a message and can stop listening
+    static bool buttonReleased;        // True when the button has been released
+    static unsigned long tmreleased;   // When that happened
+    static unsigned long tmstart;      // When we started the protocol
 
     void setup()
     {
@@ -33,6 +36,26 @@ namespace IR
 
     void loop()
     {
+        if ((irstate != idle && tmstart + 30000L < millis()) || // end protocol after 30 seconds no matter what
+            (buttonReleased && tmreleased + 3000L < millis()))  // end protocol 3 seconds after button released
+        {
+            // Rather than stopping as soon as the button is
+            // released, keep running the protocol for a few
+            // seconds so that people can still swap animations
+            // when they are having trouble keeping the dang
+            // button down
+
+            buttonReleased = false;
+            Util::setColorRGB(0, 0, 0);
+            Matrix::displayAnimation(0);
+            if (irstate == listening)
+            {
+                IrReceiver.end();
+                digitalWrite(IRPOWER_PIN, LOW);
+            }
+            irstate = idle;
+        }
+
         switch (irstate)
         {
         case idle:
@@ -112,7 +135,7 @@ namespace IR
 
     bool can_sleep()
     {
-        return true;
+        return irstate == idle;
     }
 
     void sleep()
@@ -121,18 +144,15 @@ namespace IR
 
     void start()
     {
+        buttonReleased = false;
+        tmreleased = 0L;
+        tmstart = millis();
         irstate = sending;
     }
 
     void end()
     {
-        Util::setColorRGB(0, 0, 0);
-        Matrix::displayAnimation(0);
-        if (irstate == listening)
-        {
-            IrReceiver.end();
-            digitalWrite(IRPOWER_PIN, LOW);
-        }
-        irstate = idle;
+        buttonReleased = true;
+        tmreleased = millis();
     }
 }
