@@ -45,7 +45,7 @@ public:
   void audioSync(bool sync);
   void setFrame(uint8_t b);
   void displayFrame(uint8_t frame);
-  void autoPlay(uint16_t msDelay);
+  void autoPlay(uint16_t msDelay, uint8_t numFrames);
   void autoPlayStop();
 
 protected:
