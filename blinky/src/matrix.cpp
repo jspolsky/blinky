@@ -55,8 +55,8 @@ namespace Matrix
         // UNDONE have more animations
         // for now there is just one (0)
         // everything else displays as an ASCII thing
-        const uint8_t *bmp = bmp_bouncyheart2; // UNDONE this is the only animation we have right now
-        const uint8_t numFrames = cframes_bouncyheart2;
+        const uint8_t *bmp = bmp__exchange; // UNDONE this is the only animation we have right now
+        const uint8_t numFrames = cframes__exchange;
 
         if (code == 0)
         {
@@ -65,8 +65,8 @@ namespace Matrix
             for (uint8_t frame = 0; frame < numFrames; frame++) // write 8 frames then animate
             {
                 ledmatrix.setFrame(frame);
-                for (int x = 0; x < 16; x++)
-                    for (int y = 0; y < 9; y++)
+                for (int y = 0; y < 9; y++)
+                    for (int x = 0; x < 16; x++)
                         ledmatrix.drawPixel(15 - x, y, gamma_scale[(*pnext++) >> 4]);
             }
 

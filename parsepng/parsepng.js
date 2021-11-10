@@ -67,9 +67,9 @@ getPixels(args[0], function (err, pixels) {
   console.log(`const uint8_t bmp_${variable_name}[] = \{`);
 
   for (let frame = 0; frame < number_of_frames; frame++) {
-    for (let y = 0; y <= 15; y++) {
+    for (let x = 0; x <= 8; x++) {
       let row = "";
-      for (let x = 0; x <= 8; x++) {
+      for (let y = 0; y <= 15; y++) {
         row += getAndFormatByte(frame * 9 + x, y);
       }
       console.log(`\t${row}`);
