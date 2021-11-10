@@ -10,7 +10,8 @@ const uint8_t gamma_scale[] = {0, 1, 2, 4,
                                46, 53, 61, 69};
 
 #define ____ 0
-#include "../../hexels/bouncyheart.h"
+#include "../../hexels/bouncyheart2.h"
+#include "../../hexels/_exchange.h"
 
 namespace Matrix
 {
@@ -37,12 +38,14 @@ namespace Matrix
         // UNDONE have more animations
         // for now there is just one (0)
         // everything else displays as an ASCII thing
+        const uint8_t *bmp = bmp__exchange; // UNDONE this is the only animation we have right now
+        const uint8_t numFrames = cframes__exchange;
 
         if (code == 0)
         {
-            const uint8_t *pnext = a; // UNDONE 'a' is the only animation i have right now
+            const uint8_t *pnext = bmp;
 
-            for (uint8_t frame = 0; frame < 8; frame++) // write 8 frames then animate
+            for (uint8_t frame = 0; frame < numFrames; frame++) // write 8 frames then animate
             {
                 ledmatrix.setFrame(frame);
                 for (int x = 0; x < 16; x++)
@@ -50,7 +53,7 @@ namespace Matrix
                         ledmatrix.drawPixel(15 - x, y, gamma_scale[(*pnext++) >> 4]);
             }
 
-            ledmatrix.autoPlay(55);
+            ledmatrix.autoPlay(55, numFrames);
         }
         else
         {

@@ -16,11 +16,12 @@
 // it to be stored in the flash/program area.
 //
 
+var path = require("path");
 var getPixels = require("get-pixels");
 
 var args = process.argv.slice(2);
-if (args.length < 2) {
-  console.error(`Usage: node parsepng <inputfile> <variablename>`);
+if (args.length != 1) {
+  console.error(`Usage: node parsepng <inputfile>`);
   return;
 }
 
@@ -60,7 +61,10 @@ getPixels(args[0], function (err, pixels) {
     return "0x" + ("0" + grey.toString(16)).slice(-2) + ", ";
   };
 
-  console.log(`const uint8_t ${args[1]}[] = \{`);
+  const variable_name = path.basename(args[0], ".png");
+
+  console.log(`const uint8_t cframes_${variable_name} = ${number_of_frames};`);
+  console.log(`const uint8_t bmp_${variable_name}[] = \{`);
 
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let y = 0; y <= 15; y++) {
