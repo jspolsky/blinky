@@ -4,13 +4,17 @@
 // those bitmaps.
 //
 // This program reads a PNG file containing a strip of bitmaps
-// in comic-strip-format. The strip is 16 pixels high and 72 pixels wide.
-// The first frame is in the leftmost 9x16 pixel block, etc.
+// in comic-strip-format. The strip is always 16 pixels high,
+// and it is [9 x number_of_frames] pixels wide, for
+// example, 72 pixels wide for the longest 8 pixel animation.
+//
+// Use a full range of greyscale, from 0x00000 to 0xFFFFFF.
 //
 // It converts to greyscale (ignoring Alpha) and generates a C++ array
 // with the raw pixel data. This is simply compiled into the blinky
 // code base using a "const" declaration, which, on ARM M0 chips, causes
 // it to be stored in the flash/program area.
+//
 
 var getPixels = require("get-pixels");
 
@@ -26,8 +30,17 @@ getPixels(args[0], function (err, pixels) {
     return;
   }
 
-  if (pixels.shape[0] !== 72 || pixels.shape[1] !== 16) {
-    console.error("Image must be 72 pixels wide by 16 pixels high");
+  if (pixels.shape[0] < 9 || pixels.shape[0] > 72 || pixels.shape[0] % 9 != 0) {
+    console.error(
+      "Image must be a multiple of 9 pixels wide, no more than 72 pixels"
+    );
+    return;
+  }
+
+  const number_of_frames = pixels.shape[0] / 9;
+
+  if (pixels.shape[1] !== 16) {
+    console.error("Image must be 16 pixels high");
     return;
   }
 
@@ -49,7 +62,7 @@ getPixels(args[0], function (err, pixels) {
 
   console.log(`const uint8_t ${args[1]}[] = \{`);
 
-  for (let frame = 0; frame < 8; frame++) {
+  for (let frame = 0; frame < number_of_frames; frame++) {
     for (let y = 0; y <= 15; y++) {
       let row = "";
       for (let x = 0; x <= 8; x++) {
