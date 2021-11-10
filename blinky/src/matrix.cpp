@@ -4,14 +4,31 @@
 #include "matrix.h"
 
 // The lookup table to make the brightness changes be more visible
-const uint8_t gamma_scale[] = {0, 1, 2, 4,
-                               6, 10, 13, 18,
-                               22, 28, 33, 39,
-                               46, 53, 61, 69};
+// Limiting max brightness to save battery and because 47 is still
+// pretty bright
+const uint8_t gamma_scale[] = {
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    15,
+    19,
+    24,
+    30,
+    37,
+    47,
+};
 
 #define ____ 0
 #include "../../hexels/bouncyheart2.h"
 #include "../../hexels/_exchange.h"
+#include "../../hexels/greyscale.h"
 
 namespace Matrix
 {
@@ -38,8 +55,8 @@ namespace Matrix
         // UNDONE have more animations
         // for now there is just one (0)
         // everything else displays as an ASCII thing
-        const uint8_t *bmp = bmp__exchange; // UNDONE this is the only animation we have right now
-        const uint8_t numFrames = cframes__exchange;
+        const uint8_t *bmp = bmp_bouncyheart2; // UNDONE this is the only animation we have right now
+        const uint8_t numFrames = cframes_bouncyheart2;
 
         if (code == 0)
         {
