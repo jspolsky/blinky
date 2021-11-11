@@ -5,6 +5,7 @@
 #include "util.h"
 #include "button.h"
 #include "ir.h"
+#include "inventory.h"
 
 void LongPressStart();
 void LongPressEnd();
@@ -13,7 +14,7 @@ void ShortPress();
 void setup()
 {
   Matrix::setup();
-  Matrix::displayAnimation(0);
+  Matrix::displayAnimation(Inventory::getCurrentAnimation());
   Util::setup();
   Button::setup(LongPressStart, LongPressEnd, ShortPress);
   IR::setup();
@@ -48,5 +49,5 @@ void LongPressEnd()
 
 void ShortPress()
 {
-  Matrix::displayAnimation(0);
+  Matrix::displayAnimation(Inventory::nextAnimation());
 }

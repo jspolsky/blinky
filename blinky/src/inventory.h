@@ -16,7 +16,7 @@ namespace Inventory
 
     // returns the next animation that we also own,
     // round-robin
-    uint16_t getNextAnimation();
+    uint16_t nextAnimation();
 
     // receives an animation from a friend and adds
     // it to the inventory of animations we own
