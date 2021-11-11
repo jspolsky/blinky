@@ -21,9 +21,23 @@ namespace Inventory
     void setup()
     {
         inventory_t inventory = flash_inventory.read();
-        myAnimation = inventory.myAnimation++;
-        flash_inventory.write(inventory);
-
+        if (inventory.header[0] == 'O' && inventory.header[1] == 'K')
+        {
+            myAnimation = inventory.myAnimation;
+        }
+        else
+        {
+            // Oh hai. First time waking up after a flash.
+            // We need to pick a random animation to be OUR animation.
+            //
+            pinMode(A6, INPUT);
+            randomSeed(analogRead(A6)); // this pin is floating so it generates just
+                                        // enough noise to be different every time
+            myAnimation = inventory.myAnimation = random(26);
+            inventory.header[0] = 'O';
+            inventory.header[1] = 'K';
+            flash_inventory.write(inventory);
+        }
         currentAnimation = myAnimation;
     }
 
