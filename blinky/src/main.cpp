@@ -13,6 +13,7 @@ void ShortPress();
 
 void setup()
 {
+  Inventory::setup();
   Matrix::setup();
   Matrix::displayAnimation(Inventory::getCurrentAnimation());
   Util::setup();
