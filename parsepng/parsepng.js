@@ -46,6 +46,10 @@ getPixels(args[0], function (err, pixels) {
   }
 
   const getOneByte = (x, y) => {
+    
+    static luminositySum = 0;
+    static luminosityCount = 0;
+
     const red = pixels.get(x, y, 0);
     const green = pixels.get(x, y, 0);
     const blue = pixels.get(x, y, 0);
@@ -53,6 +57,8 @@ getPixels(args[0], function (err, pixels) {
     // luminosity formula, in case the incoming image isn't greyscale already
     const grey = Math.round(0.2126 * red + 0.7152 * green + 0.0722 * blue);
     if (grey > 255) grey = 255;
+
+    const shade = grey >> 4;
 
     return grey >> 4;
   };
