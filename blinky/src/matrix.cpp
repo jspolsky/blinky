@@ -34,6 +34,9 @@ namespace Matrix
 {
     Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 
+    const uint8_t *rgbmp[] = {bmp_bouncyheart2, bmp__exchange, bmp_greyscale};
+    const uint8_t rgcframes[] = {cframes_bouncyheart2, cframes__exchange, cframes_greyscale};
+
     void setup()
     {
         if (!ledmatrix.begin())
@@ -47,22 +50,18 @@ namespace Matrix
     void showChar(char c)
     {
         ledmatrix.autoPlayStop();
+        ledmatrix.clear();
         ledmatrix.drawChar(0, 0, c, 0x3333, 0x0000, 1);
     }
 
     void displayAnimation(uint16_t code)
     {
-        // UNDONE have more animations
-        // for now there is just one (0)
-        // everything else displays as an ASCII thing
-        const uint8_t *bmp = bmp_bouncyheart2; // UNDONE this is the only animation we have right now
-        const uint8_t numFrames = cframes_bouncyheart2;
 
-        if (code == 0)
+        if (code < 3)
         {
-            const uint8_t *pnext = bmp;
+            const uint8_t *pnext = rgbmp[code];
 
-            for (uint8_t frame = 0; frame < numFrames; frame++) // write 8 frames then animate
+            for (uint8_t frame = 0; frame < rgcframes[code]; frame++) // write 8 frames then animate
             {
                 ledmatrix.setFrame(frame);
                 for (int y = 0; y < 9; y++)
@@ -77,7 +76,7 @@ namespace Matrix
                     }
             }
 
-            ledmatrix.autoPlay(55, numFrames);
+            ledmatrix.autoPlay(55, rgcframes[code]);
         }
         else
         {
