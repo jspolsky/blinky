@@ -71,7 +71,6 @@ getPixels(args[0], function (err, pixels) {
     for (let x = 0; x <= 8; x++) {
       let row = "";
       for (let y = 0; y <= 15; y += 2) {
-        // TODO get TWO bytes, pack them in one.
         row += formatTwoNibbles(
           getOneByte(frame * 9 + x, y),
           getOneByte(frame * 9 + x, y + 1)
