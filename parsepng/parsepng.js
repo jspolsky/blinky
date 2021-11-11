@@ -45,7 +45,7 @@ getPixels(args[0], function (err, pixels) {
     return;
   }
 
-  const getAndFormatByte = (x, y) => {
+  const getOneByte = (x, y) => {
     const red = pixels.get(x, y, 0);
     const green = pixels.get(x, y, 0);
     const blue = pixels.get(x, y, 0);
@@ -54,11 +54,12 @@ getPixels(args[0], function (err, pixels) {
     const grey = Math.round(0.2126 * red + 0.7152 * green + 0.0722 * blue);
     if (grey > 255) grey = 255;
 
-    if (grey === 0) return "____, ";
-    // remember to #define ____ to 0.
-    // this just makes it easier to see the shape
+    return grey >> 4;
+  };
 
-    return "0x" + ("0" + grey.toString(16)).slice(-2) + ", ";
+  const formatTwoNibbles = (nib1, nib2) => {
+    if (!nib1 && !nib2) return "____, ";
+    else return `0x${nib1.toString(16)}${nib2.toString(16)}, `;
   };
 
   const variable_name = path.basename(args[0], ".png");
@@ -69,8 +70,12 @@ getPixels(args[0], function (err, pixels) {
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
       let row = "";
-      for (let y = 0; y <= 15; y++) {
-        row += getAndFormatByte(frame * 9 + x, y);
+      for (let y = 0; y <= 15; y += 2) {
+        // TODO get TWO bytes, pack them in one.
+        row += formatTwoNibbles(
+          getOneByte(frame * 9 + x, y),
+          getOneByte(frame * 9 + x, y + 1)
+        );
       }
       console.log(`\t${row}`);
     }
