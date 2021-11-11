@@ -4,6 +4,7 @@
 
 #include "util.h"
 #include "matrix.h"
+#include "inventory.h"
 #include "ir.h"
 #include "pins.h"
 
@@ -47,7 +48,7 @@ namespace IR
 
             buttonReleased = false;
             Util::setColorRGB(0, 0, 0);
-            Matrix::displayAnimation(0);
+            Matrix::displayAnimation(Inventory::getCurrentAnimation());
             if (irstate == listening)
             {
                 IrReceiver.end();
