@@ -14,14 +14,14 @@ namespace Button
     static CALLBACK *fnLongPressEnd;
     static CALLBACK *fnShortPress;
 
-    const unsigned long SHORT_CLICK_MS = 10L;  // how long button must be pressed to read a short click
+    const unsigned long SHORT_CLICK_MS = 50L;  // how long button must be pressed to read a short click
     const unsigned long LONG_CLICK_MS = 1000L; // how long button must be pressed to read a long click
 
     void buttonISR()
     {
         int state = digitalRead(BUTTON_PIN);
-        fDown = (state == LOW);
-        fUp = (state == HIGH);
+        fDown = (!fDown && state == LOW);
+        fUp = (!fUp && state == HIGH);
     }
 
     void setup(CALLBACK *_fnLongPressStart, CALLBACK *_fnLongPressEnd, CALLBACK *_fnShortPress)
