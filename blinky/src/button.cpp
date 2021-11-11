@@ -14,7 +14,7 @@ namespace Button
     static CALLBACK *fnLongPressEnd;
     static CALLBACK *fnShortPress;
 
-    const unsigned long SHORT_CLICK_MS = 50L;  // how long button must be pressed to read a short click
+    const unsigned long SHORT_CLICK_MS = 10L;  // how long button must be pressed to read a short click
     const unsigned long LONG_CLICK_MS = 1000L; // how long button must be pressed to read a long click
 
     void buttonISR()
@@ -55,21 +55,38 @@ namespace Button
         else if (fUp)
         {
             fUp = false;
-            if (tmDown && tmDown + SHORT_CLICK_MS < millis())
+
+            // Don't remember when the button went down? Weird. Ok just throw it away
+            if (!tmDown)
+            {
+                Util::setColorRGB(0, 0, 0);
+                return;
+            }
+
+            // End the swap if it's happening
+            if (fInSwap)
+            {
+                Util::setColorRGB(0, 0, 0);
+                fInSwap = false;
+                fnLongPressEnd();
+                tmDown = 0L;
+                return;
+            }
+
+            // Has it been down for long enough to count as a short press?
+            if (tmDown + SHORT_CLICK_MS < millis())
             {
                 Util::setColorRGB(0, 0, 0);
                 // register as UP
-                if (fInSwap)
-                {
-                    fnLongPressEnd();
-                    fInSwap = false;
-                }
-                else
-                {
-                    fnShortPress();
-                }
+                fnShortPress();
                 tmDown = 0L;
+                return;
             }
+
+            // Otherwise, this is a bounce ... throw it away
+            tmDown = 0L;
+            Util::setColorRGB(0, 0, 0);
+            return;
         }
         else if (!fInSwap && tmDown && tmDown + LONG_CLICK_MS < millis())
         {

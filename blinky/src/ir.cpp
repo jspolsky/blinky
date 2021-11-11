@@ -47,7 +47,6 @@ namespace IR
             // button down
 
             buttonReleased = false;
-            Util::setColorRGB(0, 0, 0);
             Matrix::displayAnimation(Inventory::getCurrentAnimation());
             if (irstate == listening)
             {
