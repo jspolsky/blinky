@@ -6,6 +6,8 @@
 #pragma once
 #include <Adafruit_IS31FL3731.h>
 
+#define EXCHANGE_ANIMATION 0xFFFF
+
 namespace Matrix
 {
     void setup();

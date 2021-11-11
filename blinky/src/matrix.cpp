@@ -34,8 +34,8 @@ namespace Matrix
 {
     Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 
-    const uint8_t *rgbmp[] = {bmp_bouncyheart2, bmp__exchange, bmp_greyscale};
-    const uint8_t rgcframes[] = {cframes_bouncyheart2, cframes__exchange, cframes_greyscale};
+    const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_greyscale};
+    const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_greyscale};
 
     void setup()
     {
@@ -54,25 +54,44 @@ namespace Matrix
         ledmatrix.drawChar(0, 0, c, 0x3333, 0x0000, 1);
     }
 
-    void showGreyscale16(uint8_t v)
-    {
+    // void showGreyscale16(uint8_t v)
+    // {
 
-        // v is 0 (black) to 15 (white)
-        ledmatrix.autoPlayStop();
+    //     // v is 0 (black) to 15 (white)
+    //     ledmatrix.autoPlayStop();
 
-        for (int y = 0; y < 9; y++)
-            for (int x = 0; x < 16; x++)
-                ledmatrix.drawPixel(15 - x, y, gamma_scale[v]);
-    }
+    //     for (int y = 0; y < 9; y++)
+    //         for (int x = 0; x < 16; x++)
+    //             ledmatrix.drawPixel(15 - x, y, gamma_scale[v]);
+    // }
 
     void displayAnimation(uint16_t code)
     {
 
-        if (code < 3)
-        {
-            const uint8_t *pnext = rgbmp[code];
+        uint8_t const *bitmap = NULL;
+        uint8_t cframes = 0;
 
-            for (uint8_t frame = 0; frame < rgcframes[code]; frame++) // write 8 frames then animate
+        if (code == EXCHANGE_ANIMATION)
+        {
+            bitmap = rgbmp[0];
+            cframes = rgcframes[0];
+        }
+        else if (code < 2)
+        {
+            bitmap = rgbmp[code + 1];
+            cframes = rgcframes[code + 1];
+        }
+        else if (code >= 2)
+        {
+            // TODO get more animations. For now show A-Z
+            showChar((code % 26) + 'A');
+        }
+
+        if (bitmap)
+        {
+            const uint8_t *pnext = bitmap;
+
+            for (uint8_t frame = 0; frame < cframes; frame++) // write 8 frames then animate
             {
                 ledmatrix.setFrame(frame);
                 for (int y = 0; y < 9; y++)
@@ -87,17 +106,7 @@ namespace Matrix
                     }
             }
 
-            ledmatrix.autoPlay(55, rgcframes[code]);
-        }
-        else if (code < 19)
-        {
-            showGreyscale16(code - 3);
-        }
-        else
-        {
-            // TODO get more animations. For now show A-Z
-            showChar((code % 26) + 'A' - 1);
+            ledmatrix.autoPlay(55, cframes);
         }
     }
-
 }

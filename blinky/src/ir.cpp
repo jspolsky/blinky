@@ -63,8 +63,6 @@ namespace IR
             break;
 
         case sending:
-            Matrix::displayAnimation(1);
-
             IrSender.begin(IRSEND_PIN);
             IrSender.sendNEC(0xCFFE, 0x13, 0);
 
@@ -72,8 +70,6 @@ namespace IR
             break;
 
         case sent:
-            Matrix::displayAnimation(2);
-
             if (received)
             {
                 // we already have their code, so we don't have to
@@ -88,8 +84,6 @@ namespace IR
                 irstate = listening;
                 randomSeed(tmlistening = millis());
                 msrandomwait = 100L + random(500L);
-
-                Matrix::displayAnimation(3);
             }
             break;
 
@@ -147,6 +141,7 @@ namespace IR
         buttonReleased = false;
         tmreleased = 0L;
         tmstart = millis();
+        Matrix::displayAnimation(EXCHANGE_ANIMATION);
         irstate = sending;
     }
 
