@@ -54,6 +54,17 @@ namespace Matrix
         ledmatrix.drawChar(0, 0, c, 0x3333, 0x0000, 1);
     }
 
+    void showGreyscale16(uint8_t v)
+    {
+
+        // v is 0 (black) to 15 (white)
+        ledmatrix.autoPlayStop();
+
+        for (int y = 0; y < 9; y++)
+            for (int x = 0; x < 16; x++)
+                ledmatrix.drawPixel(15 - x, y, gamma_scale[v]);
+    }
+
     void displayAnimation(uint16_t code)
     {
 
@@ -77,6 +88,10 @@ namespace Matrix
             }
 
             ledmatrix.autoPlay(55, rgcframes[code]);
+        }
+        else if (code < 19)
+        {
+            showGreyscale16(code - 3);
         }
         else
         {

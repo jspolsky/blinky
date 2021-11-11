@@ -31,3 +31,4 @@ const uint8_t bmp__exchange[] = {
 	0xa0, 0x0a, ____, 0xa0, ____, 0xa0, 0x0a, ____, 
 
 };
+// Average luminosity: 10.393518518518519 Est mA consumption: 8.824566605555557 

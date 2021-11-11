@@ -45,11 +45,12 @@ getPixels(args[0], function (err, pixels) {
     return;
   }
 
-  const getOneByte = (x, y) => {
-    
-    static luminositySum = 0;
-    static luminosityCount = 0;
+  const gamma_scale = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 19, 24, 30, 37, 47];
 
+  let luminositySum = 0;
+  let luminosityCount = 0;
+
+  const getOneByte = (x, y) => {
     const red = pixels.get(x, y, 0);
     const green = pixels.get(x, y, 0);
     const blue = pixels.get(x, y, 0);
@@ -59,6 +60,8 @@ getPixels(args[0], function (err, pixels) {
     if (grey > 255) grey = 255;
 
     const shade = grey >> 4;
+    luminositySum += gamma_scale[shade];
+    luminosityCount++;
 
     return grey >> 4;
   };
@@ -88,4 +91,12 @@ getPixels(args[0], function (err, pixels) {
   }
 
   console.log("};");
+
+  console.log(
+    `// Average luminosity: ${
+      luminositySum / luminosityCount
+    } Est mA consumption: ${
+      2.5 + 0.60851064 * (luminositySum / luminosityCount)
+    } `
+  );
 });

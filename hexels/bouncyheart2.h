@@ -81,3 +81,4 @@ const uint8_t bmp_bouncyheart2[] = {
 	____, ____, ____, ____, ____, ____, ____, ____, 
 
 };
+// Average luminosity: 2.5277777777777777 Est mA consumption: 4.0381796733333335 
