@@ -37,7 +37,7 @@ namespace IR
 
     void loop()
     {
-        if ((irstate != idle && tmstart + 30000L < millis()) || // end protocol after 30 seconds no matter what
+        if ((irstate != idle && tmstart + 15000L < millis()) || // end protocol after 15 seconds no matter what
             (buttonReleased && tmreleased + 3000L < millis()))  // end protocol 3 seconds after button released
         {
             // Rather than stopping as soon as the button is
