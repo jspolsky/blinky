@@ -79,6 +79,7 @@ namespace Inventory
         {
             inventory.rgbitUnlocked[animation / 8] |= (1 << (animation % 8));
             flash_inventory.write(inventory);
+            currentAnimation = animation;
         }
     }
 }

@@ -64,7 +64,7 @@ namespace IR
 
         case sending:
             IrSender.begin(IRSEND_PIN);
-            IrSender.sendNEC(0xCFFE, 0x13, 0);
+            IrSender.sendNEC(0xCFFE, Inventory::getMyAnimation(), 0);
 
             irstate = sent;
             break;
@@ -100,9 +100,12 @@ namespace IR
             {
                 // received!
                 received = true;
-                Util::setColorHSV(IrReceiver.decodedIRData.command);
                 IrReceiver.end();
                 digitalWrite(IRPOWER_PIN, LOW);
+
+                Matrix::displayAnimation(IrReceiver.decodedIRData.command);
+                Inventory::addToInventory(IrReceiver.decodedIRData.command);
+
                 irstate = sending;
             }
             else
