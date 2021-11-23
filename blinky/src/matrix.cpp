@@ -1,7 +1,10 @@
 #include <Arduino.h>
 #include <Adafruit_IS31FL3731.h>
 
+#include "pins.h"
+#include "inventory.h"
 #include "matrix.h"
+#include "util.h"
 
 // The lookup table to make the brightness changes be more visible
 // Limiting max brightness to save battery and because 47 is still
@@ -37,15 +40,29 @@ namespace Matrix
 
     const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_man};
     const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_man};
+    static bool powerState = false;
 
     void setup()
     {
-        if (!ledmatrix.begin())
+        pinMode(MATRIX_ENABLE_PIN, OUTPUT);
+        power(true);
+        ledmatrix.begin();
+    }
+
+    void power(bool bOn)
+    {
+        if (powerState == false && bOn)
         {
-            Serial.println("IS31 not found");
-            while (1)
-                ;
+            // turn on
+            digitalWrite(MATRIX_ENABLE_PIN, HIGH);
         }
+        else if (powerState == true && !bOn)
+        {
+            // turn off
+            digitalWrite(MATRIX_ENABLE_PIN, LOW);
+        }
+
+        powerState = bOn;
     }
 
     void showChar(char c)

@@ -43,17 +43,18 @@ void loop()
 
 void LongPressStart()
 {
-  IR::start();
   PowerSave::reset();
+  IR::start();
 }
 
 void LongPressEnd()
 {
+  PowerSave::reset();
   IR::end();
 }
 
 void ShortPress()
 {
-  Matrix::displayAnimation(Inventory::nextAnimation());
   PowerSave::reset();
+  Matrix::displayAnimation(Inventory::nextAnimation());
 }

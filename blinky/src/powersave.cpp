@@ -1,11 +1,12 @@
 #include <Arduino.h>
 #include <RTCZero.h>
 #include "powersave.h"
+#include "matrix.h"
 #include "util.h"
 
-#define WAKEUP_MINUTES 0
-#define WAKEUP_SECONDS 2
-#define NUMBER_OF_WAKEUPS 5
+#define WAKEUP_MINUTES 5
+#define WAKEUP_SECONDS 0
+#define NUMBER_OF_WAKEUPS 24 /* 5 minutes * 24 wakeups = 2 hours */
 
 namespace PowerSave
 {
@@ -26,20 +27,25 @@ namespace PowerSave
         rtc.setDate(1, 1, 5);
         rtc.setAlarmTime(0, WAKEUP_MINUTES, WAKEUP_SECONDS); // ten seconds right now
         rtc.enableAlarm(rtc.MATCH_HHMMSS);
-        rtc.attachInterrupt(alarmMatch);
     }
 
     void reset()
     {
         // user pressed a button
         alarmCount = 0;
+
+        Matrix::power(true);
+
         setAlarm();
     }
 
     void setup()
     {
         alarmCount = 0;
+
         rtc.begin();
+        rtc.attachInterrupt(alarmMatch);
+
         setAlarm();
     }
 
@@ -52,9 +58,8 @@ namespace PowerSave
 
             if (alarmCount >= NUMBER_OF_WAKEUPS)
             {
-                Util::setColorRGB(255, 255, 255);
-                delay(200);
-                Util::setColorRGB(0, 0, 0);
+
+                Matrix::power(false);
                 alarmCount = 0;
             }
 

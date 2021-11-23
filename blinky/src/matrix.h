@@ -12,4 +12,5 @@ namespace Matrix
 {
     void setup();
     void displayAnimation(uint16_t code);
+    void power(bool bOn); // turn the matrix on and off
 }
