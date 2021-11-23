@@ -35,9 +35,9 @@ namespace Inventory
             // We need to pick a random animation to be OUR animation.
             //
             pinMode(A6, INPUT);
-            randomSeed(analogRead(A6)); // this pin is floating so it generates just
-                                        // enough noise to be different every time
-            myAnimation = inventory.myAnimation = random(26);
+            randomSeed(analogRead(A6));              // this pin is floating so it generates just
+                                                     // enough noise to be different every time
+            myAnimation = inventory.myAnimation = 0; // random(2);
             inventory.header[0] = 'O';
             inventory.header[1] = 'K';
 

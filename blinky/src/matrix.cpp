@@ -29,13 +29,14 @@ const uint8_t gamma_scale[] = {
 #include "../../hexels/bouncyheart2.h"
 #include "../../hexels/_exchange.h"
 #include "../../hexels/greyscale.h"
+#include "../../hexels/man.h"
 
 namespace Matrix
 {
     Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 
-    const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_greyscale};
-    const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_greyscale};
+    const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_man};
+    const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_man};
 
     void setup()
     {
