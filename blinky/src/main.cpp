@@ -6,6 +6,7 @@
 #include "button.h"
 #include "ir.h"
 #include "inventory.h"
+#include "powersave.h"
 
 void LongPressStart();
 void LongPressEnd();
@@ -19,10 +20,12 @@ void setup()
   Util::setup();
   Button::setup(LongPressStart, LongPressEnd, ShortPress);
   IR::setup();
+  PowerSave::setup();
 }
 
 void loop()
 {
+  PowerSave::loop();
   Button::loop();
   IR::loop();
 
@@ -41,6 +44,7 @@ void loop()
 void LongPressStart()
 {
   IR::start();
+  PowerSave::reset();
 }
 
 void LongPressEnd()
@@ -51,4 +55,5 @@ void LongPressEnd()
 void ShortPress()
 {
   Matrix::displayAnimation(Inventory::nextAnimation());
+  PowerSave::reset();
 }
