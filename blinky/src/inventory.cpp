@@ -37,7 +37,7 @@ namespace Inventory
             pinMode(A6, INPUT);
             randomSeed(analogRead(A6));              // this pin is floating so it generates just
                                                      // enough noise to be different every time
-            myAnimation = inventory.myAnimation = 0; // random(2);
+            myAnimation = inventory.myAnimation = 0; // TODO random(2);
             inventory.header[0] = 'O';
             inventory.header[1] = 'K';
 

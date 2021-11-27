@@ -4,9 +4,9 @@
 #include "matrix.h"
 #include "util.h"
 
-#define WAKEUP_MINUTES 5
+#define WAKEUP_MINUTES 1 /* should be 5 */
 #define WAKEUP_SECONDS 0
-#define NUMBER_OF_WAKEUPS 24 /* 5 minutes * 24 wakeups = 2 hours */
+#define NUMBER_OF_WAKEUPS 5 /* should be 24 */ /* 5 minutes * 24 wakeups = 2 hours */
 
 namespace PowerSave
 {
@@ -25,7 +25,7 @@ namespace PowerSave
         rtc.disableAlarm();
         rtc.setTime(0, 0, 0);
         rtc.setDate(1, 1, 5);
-        rtc.setAlarmTime(0, WAKEUP_MINUTES, WAKEUP_SECONDS); // ten seconds right now
+        rtc.setAlarmTime(0, WAKEUP_MINUTES, WAKEUP_SECONDS);
         rtc.enableAlarm(rtc.MATCH_HHMMSS);
     }
 
