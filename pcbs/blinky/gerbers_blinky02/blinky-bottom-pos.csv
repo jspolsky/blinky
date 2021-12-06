@@ -1,0 +1,5 @@
+Ref,Val,Package,PosX,PosY,Rot,Side
+"BT1","CR2032","BatteryHolder_Keystone_3034_Minimum_Pad",48.600000,31.400000,90.000000,bottom
+"BT2","CR2032","BatteryHolder_Keystone_3034_Minimum_Pad",19.400000,31.400000,270.000000,bottom
+"J1","JACK IN","Debug_Pad_02x05",34.100000,63.400000,270.000000,bottom
+"J2","NEOPIXEL","Debug_Pad_01x03",48.680000,11.960000,180.000000,bottom

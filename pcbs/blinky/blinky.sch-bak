@@ -4393,7 +4393,7 @@ U 1 1 61DA6F70
 P 10500 2550
 F 0 "J2" H 10580 2592 50  0000 L CNN
 F 1 "NEOPIXEL" H 10580 2501 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x03_P1.00mm_Horizontal" H 10500 2550 50  0001 C CNN
+F 2 "Joels KiCad Footprint Library:Debug_Pad_01x03" H 10500 2550 50  0001 C CNN
 F 3 "~" H 10500 2550 50  0001 C CNN
 	1    10500 2550
 	1    0    0    -1  
@@ -4419,4 +4419,48 @@ Wire Wire Line
 	9950 2550 10300 2550
 Wire Wire Line
 	9950 2650 10300 2650
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 62A5CDC2
+P 9850 6750
+F 0 "H5" H 9950 6796 50  0000 L CNN
+F 1 "Mouse Bites" H 9950 6705 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_5mm_Wide" H 9850 6750 50  0001 C CNN
+F 3 "~" H 9850 6750 50  0001 C CNN
+	1    9850 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H6
+U 1 1 62A5D9CF
+P 9850 7000
+F 0 "H6" H 9950 7046 50  0000 L CNN
+F 1 "Mouse Bites" H 9950 6955 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_5mm_Wide" H 9850 7000 50  0001 C CNN
+F 3 "~" H 9850 7000 50  0001 C CNN
+	1    9850 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 61B38826
+P 9850 7550
+F 0 "H?" H 9950 7596 50  0000 L CNN
+F 1 "JLCPCB Mounting Hole" H 9950 7505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2mm" H 9850 7550 50  0001 C CNN
+F 3 "~" H 9850 7550 50  0001 C CNN
+	1    9850 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 61D1A081
+P 9850 7850
+F 0 "H?" H 9950 7896 50  0000 L CNN
+F 1 "JLCPCB Mounting Hole" H 9950 7805 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2mm" H 9850 7850 50  0001 C CNN
+F 3 "~" H 9850 7850 50  0001 C CNN
+	1    9850 7850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

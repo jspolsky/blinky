@@ -1,4 +1,4 @@
-19168230764259129
+19171507697273129
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -55034,6 +55034,13 @@ MIC5225-SOT23-5LD
 5
 5
 Joels KiCad Footprint Library
+Mouse_Bite_5mm_Wide
+
+
+0
+0
+0
+Joels KiCad Footprint Library
 NXP-TO-236AB-0-0-0
 
 
@@ -55166,6 +55173,13 @@ WS2811
 0
 8
 8
+Joels KiCad Footprint Library
+mouse-bite-5mm-slot
+
+
+0
+0
+0
 Jumper
 SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm
 SMD Solder Jumper, 1x1.5mm Pads, 0.3mm gap, bridged with 2 copper strips

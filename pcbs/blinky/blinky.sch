@@ -4419,4 +4419,59 @@ Wire Wire Line
 	9950 2550 10300 2550
 Wire Wire Line
 	9950 2650 10300 2650
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 62A5CDC2
+P 9850 6750
+F 0 "H5" H 9950 6796 50  0000 L CNN
+F 1 "Mouse Bites" H 9950 6705 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_5mm_Wide" H 9850 6750 50  0001 C CNN
+F 3 "~" H 9850 6750 50  0001 C CNN
+	1    9850 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H6
+U 1 1 62A5D9CF
+P 9850 7000
+F 0 "H6" H 9950 7046 50  0000 L CNN
+F 1 "Mouse Bites" H 9950 6955 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_5mm_Wide" H 9850 7000 50  0001 C CNN
+F 3 "~" H 9850 7000 50  0001 C CNN
+	1    9850 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H7
+U 1 1 61B38826
+P 9850 7550
+F 0 "H7" H 9950 7596 50  0000 L CNN
+F 1 "JLCPCB Mounting Hole" H 9950 7505 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 9850 7550 50  0001 C CNN
+F 3 "~" H 9850 7550 50  0001 C CNN
+	1    9850 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H8
+U 1 1 61D1A081
+P 9850 7850
+F 0 "H8" H 9950 7896 50  0000 L CNN
+F 1 "JLCPCB Mounting Hole" H 9950 7805 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 9850 7850 50  0001 C CNN
+F 3 "~" H 9850 7850 50  0001 C CNN
+	1    9850 7850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H9
+U 1 1 61DBC4A5
+P 9850 8150
+F 0 "H9" H 9950 8196 50  0000 L CNN
+F 1 "JLCPCB Mounting Hole" H 9950 8105 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 9850 8150 50  0001 C CNN
+F 3 "~" H 9850 8150 50  0001 C CNN
+	1    9850 8150
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
