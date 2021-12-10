@@ -38,8 +38,16 @@ namespace Matrix
 {
     Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 
+#ifdef PREVIEW
+    const uint8_t *rgbmp[] = {bmp__exchange, bmp_greyscale};
+    const uint8_t rgcframes[] = {cframes__exchange, cframes_greyscale};
+#endif
+
+#ifdef BLINKY
     const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_man};
     const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_man};
+#endif
+
     static bool powerState = false;
 
     void setup()

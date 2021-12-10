@@ -18,13 +18,18 @@ void setup()
   Matrix::setup();
   Matrix::displayAnimation(Inventory::getCurrentAnimation());
   Util::setup();
+
+#ifdef BLINKY
   Button::setup(LongPressStart, LongPressEnd, ShortPress);
   IR::setup();
   PowerSave::setup();
+#endif
 }
 
 void loop()
 {
+
+#ifdef BLINKY
   PowerSave::loop();
   Button::loop();
   IR::loop();
@@ -35,6 +40,7 @@ void loop()
     IR::sleep();
     LowPower.sleep();
   }
+#endif
 }
 
 /**************************
