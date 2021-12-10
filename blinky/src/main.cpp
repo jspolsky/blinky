@@ -24,6 +24,12 @@ void setup()
   IR::setup();
   PowerSave::setup();
 #endif
+
+#ifdef PREVIEW
+  Serial.begin(9600);
+  while (!Serial)
+    ;
+#endif
 }
 
 void loop()
@@ -40,6 +46,20 @@ void loop()
     IR::sleep();
     LowPower.sleep();
   }
+#endif
+
+#ifdef PREVIEW
+
+  if (Serial.available() > 0)
+  {
+    int b = Serial.read();
+
+    if (b == '?')
+    {
+      Serial.println("Blinky Preview Ready");
+    }
+  }
+
 #endif
 }
 

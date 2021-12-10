@@ -16,18 +16,58 @@
 // it to be stored in the flash/program area.
 //
 
-var path = require("path");
-var getPixels = require("get-pixels");
+const path = require("path");
+const getPixels = require("get-pixels");
+const SerialPort = require("serialport");
+const fs = require("fs");
 
-var args = process.argv.slice(2);
-if (args.length != 1) {
-  console.error(`Usage: node parsepng <inputfile>`);
+const args = process.argv.slice(2);
+
+if (args.length === 0) {
+  console.error(
+    `Usage: node parsepng [-s speed] [-w] inputfile <outputfile>
+       -s sets delay between frames in ms, must be between 11 and 704, default 55
+       -w will keep running, watching the file for changes
+       if outputfile is omitted, sends pixels to a Blinky Previewer via USB`
+  );
   return;
 }
 
-getPixels(args[0], function (err, pixels) {
+// Parse the command line
+
+let inputFileName = "";
+let outputFileName = "";
+let delay = 55;
+let watch = false;
+
+let ixArg = 0;
+while (ixArg < args.length) {
+  if (args[ixArg] === "-w") {
+    watch = true;
+  } else if (args[ixArg] === "-s") {
+    delay = parseInt(args[++ixArg]);
+    if (isNaN(delay) || delay < 11 || delay > 704) {
+      console.error("invalid delay - must be 11 to 704 (in milliseconds)");
+      return;
+    }
+  } else if (args[ixArg].startsWith("-")) {
+    console.error(`invalid flag ${args[ixArg]}`);
+    return;
+  } else if (inputFileName === "") {
+    inputFileName = args[ixArg];
+  } else if (outputFileName === "") {
+    outputFileName = args[ixArg];
+  } else {
+    console.error("too many arguments");
+    return;
+  }
+
+  ixArg++;
+}
+
+getPixels(inputFileName, function (err, pixels) {
   if (err) {
-    console.error("Image file not found / not valid");
+    console.error(`input file ${inputFileName} not found or not a PNG file`);
     return;
   }
 
@@ -71,10 +111,12 @@ getPixels(args[0], function (err, pixels) {
     else return `0x${nib1.toString(16)}${nib2.toString(16)}, `;
   };
 
-  const variable_name = path.basename(args[0], ".png");
+  const variable_name = path.basename(inputFileName, ".png");
 
-  console.log(`const uint8_t cframes_${variable_name} = ${number_of_frames};`);
-  console.log(`const uint8_t bmp_${variable_name}[] = \{`);
+  var imageAsCCode =
+    `const uint8_t cframes_${variable_name} = ${number_of_frames};\n` +
+    `const uint32_t delay_${variable_name} = ${delay};\n` +
+    `const uint8_t bmp_${variable_name}[] = \{\n`;
 
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
@@ -85,17 +127,64 @@ getPixels(args[0], function (err, pixels) {
           getOneByte(frame * 9 + x, y + 1)
         );
       }
-      console.log(`\t${row}`);
+      imageAsCCode += `\t${row}\n`;
     }
-    console.log("");
+    imageAsCCode += "\n";
   }
 
-  console.log("};");
+  imageAsCCode += `};`;
+
+  if (outputFileName !== "") {
+    //
+    // Write animation as C code to file
+    //
+
+    fs.writeFile(outputFileName, imageAsCCode, (err) => {
+      if (err) {
+        console.error(`Error writing output file ${outputFileName}`);
+        console.error(err);
+        return;
+      }
+    });
+  } else {
+    //
+    // Send output to USB port for preview
+    //
+
+    // find the path. If there is not exactly one Adafruit USB port,
+    // give up
+
+    var cPorts = 0;
+    var sPath = "";
+
+    SerialPort.list().then(
+      (ports) => {
+        ports.forEach((port) => {
+          if (port.manufacturer && port.manufacturer.startsWith("Adafruit")) {
+            sPath = port.path;
+            cPorts++;
+          }
+        });
+        if (cPorts > 1) {
+          console.error(
+            "More than one USB device found ... not sure who to talk to"
+          );
+          return;
+        }
+
+        if (cPorts < 1) {
+          console.error("Can't find Blinky Previewer connected to USB");
+          return;
+        }
+      },
+      (err) => console.error(err)
+    );
+  }
 
   console.log(
-    `// Average luminosity: ${
+    `Average luminosity: ${
       luminositySum / luminosityCount
-    } Est mA consumption: ${
+    }\nEst mA consumption: ${
       2.5 + 0.60851064 * (luminositySum / luminosityCount)
     } `
   );

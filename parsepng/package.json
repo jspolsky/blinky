@@ -9,6 +9,7 @@
   "author": "joel@spolsky.com",
   "license": "MIT",
   "dependencies": {
-    "get-pixels": "^3.3.3"
+    "get-pixels": "^3.3.3",
+    "serialport": "^9.2.8"
   }
 }
