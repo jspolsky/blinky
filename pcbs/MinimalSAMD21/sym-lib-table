@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name MinimalSAMD21-rescue)(type Legacy)(uri ${KIPRJMOD}/MinimalSAMD21-rescue.lib)(options "")(descr ""))
+)
