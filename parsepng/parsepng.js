@@ -118,6 +118,8 @@ getPixels(inputFileName, function (err, pixels) {
     `const uint32_t delay_${variable_name} = ${delay};\n` +
     `const uint8_t bmp_${variable_name}[] = \{\n`;
 
+  var imageAsByteArray = [];
+
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
       let row = "";
@@ -125,6 +127,9 @@ getPixels(inputFileName, function (err, pixels) {
         row += formatTwoNibbles(
           getOneByte(frame * 9 + x, y),
           getOneByte(frame * 9 + x, y + 1)
+        );
+        imageAsByteArray.push(
+          getOneByte(frame * 9 + x, y) * 16 + getOneByte(frame * 9 + x, y + 1)
         );
       }
       imageAsCCode += `\t${row}\n`;
@@ -176,6 +181,30 @@ getPixels(inputFileName, function (err, pixels) {
           console.error("Can't find Blinky Previewer connected to USB");
           return;
         }
+
+        // If we made it this far, send the data to the previewer
+        const port = new SerialPort(sPath, function (err) {
+          if (err) {
+            console.error("Open port error ", err.message);
+            return;
+          }
+        });
+
+        port.write("!"); // starts transmission
+
+        const header = [
+          // first byte: number of frames
+          number_of_frames,
+
+          // second byte: hi order, delay in ms
+          parseInt(delay / 256),
+
+          // third byte: lo order, delay in ms
+          delay % 256,
+        ];
+
+        port.write(header);
+        port.write(imageAsByteArray);
       },
       (err) => console.error(err)
     );

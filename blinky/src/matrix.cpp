@@ -91,6 +91,28 @@ namespace Matrix
     //             ledmatrix.drawPixel(15 - x, y, gamma_scale[v]);
     // }
 
+    void displayAnimation(uint8_t cframes, uint16_t delay, uint8_t const *bitmap)
+    {
+        const uint8_t *pnext = bitmap;
+
+        for (uint8_t frame = 0; frame < cframes; frame++) // write 8 frames then animate
+        {
+            ledmatrix.setFrame(frame);
+            for (int y = 0; y < 9; y++)
+                for (int x = 0; x < 16; x += 2)
+                {
+                    const uint8_t twoNibbles = *pnext++;
+                    const uint8_t firstNibble = (twoNibbles & 0xF0) >> 4;
+                    const uint8_t secondNibble = (twoNibbles & 0x0F);
+
+                    ledmatrix.drawPixel(15 - x, y, gamma_scale[firstNibble]);
+                    ledmatrix.drawPixel(15 - (x + 1), y, gamma_scale[secondNibble]);
+                }
+        }
+
+        ledmatrix.autoPlay(delay, cframes);
+    }
+
     void displayAnimation(uint16_t code)
     {
 
@@ -115,24 +137,7 @@ namespace Matrix
 
         if (bitmap)
         {
-            const uint8_t *pnext = bitmap;
-
-            for (uint8_t frame = 0; frame < cframes; frame++) // write 8 frames then animate
-            {
-                ledmatrix.setFrame(frame);
-                for (int y = 0; y < 9; y++)
-                    for (int x = 0; x < 16; x += 2)
-                    {
-                        const uint8_t twoNibbles = *pnext++;
-                        const uint8_t firstNibble = (twoNibbles & 0xF0) >> 4;
-                        const uint8_t secondNibble = (twoNibbles & 0x0F);
-
-                        ledmatrix.drawPixel(15 - x, y, gamma_scale[firstNibble]);
-                        ledmatrix.drawPixel(15 - (x + 1), y, gamma_scale[secondNibble]);
-                    }
-            }
-
-            ledmatrix.autoPlay(55, cframes);
+            displayAnimation(cframes, 55, bitmap);
         }
     }
 }
