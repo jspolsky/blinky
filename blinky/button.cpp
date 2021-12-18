@@ -24,6 +24,14 @@ namespace Button
     fnShortPress = _fnShortPress;
 
     pinMode(PIN_BUTTON, INPUT);
+
+    // setup is only called when we have woken up from 
+    // deep sleep due to the button being pressed, so
+    // go into button down mode
+
+    fButtonDown = true;
+    tmDown = millis();
+    Util::setColorRGB(255,0,0);
   }
 
   void loop()
