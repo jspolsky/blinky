@@ -23,7 +23,7 @@ namespace Button
     fnLongPressEnd = _fnLongPressEnd;
     fnShortPress = _fnShortPress;
 
-    pinMode(PIN_BUTTON, INPUT_PULLUP);
+    pinMode(PIN_BUTTON, INPUT);
   }
 
   void loop()
