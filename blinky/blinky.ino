@@ -1,26 +1,19 @@
 // blinky for the ESP32C3
 
-#include <Adafruit_NeoPixel.h>
-#include "pins.h"
-
-Adafruit_NeoPixel strip(1, PIN_ONBOARD_NEOPIXEL, NEO_GRB + NEO_KHZ800);
+#include "util.h"
 
 void setup()
 {
 
-  // well this is a start
+  Util::setup();
 
-  strip.begin();
-  strip.show();
-  strip.setBrightness(50);
+  // well this is a start
 }
 
 void loop()
 {
-
-  static uint16_t hue = 0;
-  strip.setPixelColor(0, Adafruit_NeoPixel::ColorHSV(hue));
-  strip.show();
-  hue += 65536 / 90;
-  delay(100);
+  static uint8_t hue = 0;
+  Util::setColorHSV(hue, 255, 255);
+  hue++;
+  delay(25);
 }
