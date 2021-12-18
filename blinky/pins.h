@@ -1,0 +1,2 @@
+
+#define PIN_ONBOARD_NEOPIXEL 8

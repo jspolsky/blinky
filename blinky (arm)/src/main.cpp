@@ -69,6 +69,7 @@ void loop()
       animation_data_index = 0;
       waiting_for_cframes = false;
       waiting_for_animation = true;
+      Util::setColorRGB(255, 0, 0);
     }
     else if (waiting_for_animation)
     {
@@ -80,6 +81,7 @@ void loop()
         waiting_for_animation = false;
         uint16_t delay = animation_data[0] * 16 + animation_data[1];
         Matrix::displayAnimation(cframes, delay, animation_data + 2);
+        Util::setColorRGB(0, 0, 255);
       }
     }
     else
