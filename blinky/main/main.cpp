@@ -14,21 +14,22 @@ extern "C"
 #include "esp_sleep.h"
 }
 
-#include "rgbled.h"
-
-void setup()
-{
-    rgbled::setup();
-}
+#include "pins.h"
+#include "button.h"
 
 extern "C" void app_main(void)
 {
-    setup();
 
-    // Show simple rainbow chasing pattern
-    ESP_LOGI(TAG, "LED Rainbow Chase Start");
-    rgbled::show_rainbow();
+    switch (esp_sleep_get_wakeup_cause())
+    {
+    case ESP_SLEEP_WAKEUP_GPIO:
+        button::wakeup();
+        break;
 
-    esp_deep_sleep_enable_gpio_wakeup(BIT(GPIO_NUM_2), ESP_GPIO_WAKEUP_GPIO_HIGH);
+    default:
+        break;
+    }
+
+    esp_deep_sleep_enable_gpio_wakeup(BIT(PIN_BUTTON), ESP_GPIO_WAKEUP_GPIO_HIGH);
     esp_deep_sleep_start();
 }
