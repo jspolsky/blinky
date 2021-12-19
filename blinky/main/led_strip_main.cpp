@@ -14,6 +14,7 @@ extern "C"
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "driver/rmt.h"
+#include "esp_sleep.h"
 #include "led_strip.h"
 }
 
@@ -21,7 +22,7 @@ static const char *TAG = "example";
 
 #define RMT_TX_CHANNEL RMT_CHANNEL_0
 
-#define EXAMPLE_CHASE_SPEED_MS (300)
+#define EXAMPLE_CHASE_SPEED_MS (60)
 
 /**
  * @brief Simple helper function, converting HSV color space to RGB color space
@@ -120,13 +121,16 @@ extern "C" void app_main(void)
 
     // Show simple rainbow chasing pattern
     ESP_LOGI(TAG, "LED Rainbow Chase Start");
-    while (true)
-    {
 
-        for (int i = 0; i < 360; i += 20)
-        {
-            show_color(i);
-            vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
-        }
+    for (int i = 0; i < 360; i += 20)
+    {
+        show_color(i);
+        vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
     }
+
+    strip->set_pixel(strip, 0, 0, 0, 0);
+    strip->refresh(strip, 100);
+
+    esp_deep_sleep_enable_gpio_wakeup(BIT(GPIO_NUM_2), ESP_GPIO_WAKEUP_GPIO_HIGH);
+    esp_deep_sleep_start();
 }
