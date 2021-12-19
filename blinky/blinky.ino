@@ -4,6 +4,8 @@
 #include "pins.h"
 #include "button.h"
 
+RTC_DATA_ATTR uint8_t hue = 0;
+
 void setup()
 {
 
@@ -12,21 +14,16 @@ void setup()
   // SLEEP MANAGEMENT
   //
 
-  Util::setColorRGB(255,255,255);
+  Util::setColorHSV(hue, 255, 255);
 
   if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_GPIO)
   {
-    Util::setColorRGB(255,0,0);
-  }
-  else 
-  {
-    esp_deep_sleep_enable_gpio_wakeup( BIT(PIN_BUTTON), ESP_GPIO_WAKEUP_GPIO_HIGH );
-    esp_deep_sleep_start();
+    Util::setColorHSV(hue, 255, 255);
+    hue = (hue + 40) % 255;
   }
 
-  // ok yeah we just woke up
-  //Button::setup(LongPressStart, LongPressEnd, ShortPress);
-
+  esp_deep_sleep_enable_gpio_wakeup( BIT(PIN_BUTTON), ESP_GPIO_WAKEUP_GPIO_HIGH );
+  esp_deep_sleep_start();
 }
 
 void loop()
