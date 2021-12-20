@@ -160,6 +160,10 @@ namespace matrix
         for (int i = 0; i < 144; i++)
             charlieplex_set_led_pwm(i, i, 0);
 
+        // TODO this is slower than expected
+        // I am sure this dang chip has a way to go faster
+        // Look for a way to blast all the bytes in one go, I am sure they have this
+
         // TODO start autoplay
     }
 }
