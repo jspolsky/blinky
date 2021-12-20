@@ -11,6 +11,7 @@ extern "C"
 #include "esp_log.h"
 #include "driver/i2c.h"
 }
+#include <cstring>
 
 #include "pins.h"
 #include "matrix.h"
@@ -80,6 +81,42 @@ namespace matrix
         i2c_master_write_to_device(0, I2C_ADDR_CHARLIEPLEXER, buf, cb, 1000 / portTICK_RATE_MS);
     }
 
+    void charlieplex_select_bank(uint8_t bank)
+    {
+        uint8_t cmd[2] = {ISSI_COMMANDREGISTER, bank};
+        charlieplex_write_buf(cmd, 2);
+    }
+
+    void charlieplex_write_register_byte(uint8_t bank,
+                                         uint8_t reg,
+                                         uint8_t data)
+    {
+        charlieplex_select_bank(bank);
+        uint8_t cmd[2] = {reg, data};
+        charlieplex_write_buf(cmd, 2);
+    }
+
+    void charlieplex_clear()
+    {
+        charlieplex_select_bank(0);
+        uint8_t erasebuf[25];
+
+        memset(erasebuf, 0, 25);
+
+        for (uint8_t i = 0; i < 6; i++)
+        {
+            erasebuf[0] = 0x24 + i * 24;
+            charlieplex_write_buf(erasebuf, 25);
+        }
+    }
+
+    void charlieplex_set_led_pwm(uint8_t lednum, uint8_t pwm, uint8_t bank)
+    {
+        if (lednum > 144)
+            return;
+        charlieplex_write_register_byte(bank, 0x24 + lednum, pwm);
+    }
+
     void setup()
     {
         ESP_LOGI(TAG, "Setting up matrix");
@@ -90,12 +127,29 @@ namespace matrix
         ESP_ERROR_CHECK(i2c_setup());
         ESP_LOGI(TAG, "i2c initialized correctly");
 
-        // TODO all of the things from Adafruit_IS31FL3731::begin, including
-        // clear()
+        // Adafruit does this, it seems to work ?
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
+        vTaskDelay(pdMS_TO_TICKS(10));
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 1);
+
+        // Picture mode. Just display frame 0 for now
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
+
+        charlieplex_clear(); // all leds on & 0 pwm
+
+        for (uint8_t f = 0; f < 8; f++)
+        {
+            for (uint8_t i = 0; i <= 0x11; i++)
+                charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
+        }
+
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
     }
 
     void displayAnimation()
     {
+
         // TODO this is basically the code from old matrix.cpp::displayAnimation
 
         ESP_LOGI(TAG, "Display initial animation");
@@ -103,6 +157,8 @@ namespace matrix
         // TODO get animation pixels, number of frames, and speed
 
         // TODO load all the frames
+        for (int i = 0; i < 144; i++)
+            charlieplex_set_led_pwm(i, i, 0);
 
         // TODO start autoplay
     }
