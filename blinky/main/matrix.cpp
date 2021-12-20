@@ -96,6 +96,18 @@ namespace matrix
         charlieplex_write_buf(cmd, 2);
     }
 
+    void charlieplex_write_register_144(uint8_t bank,
+                                        uint8_t reg,
+                                        const uint8_t *data)
+    {
+        charlieplex_select_bank(bank);
+
+        uint8_t cmd[145];
+        cmd[0] = reg;
+        memcpy((&cmd[1]), data, 144);
+        charlieplex_write_buf(cmd, 145);
+    }
+
     void charlieplex_clear()
     {
         charlieplex_select_bank(0);
@@ -110,11 +122,9 @@ namespace matrix
         }
     }
 
-    void charlieplex_set_led_pwm(uint8_t lednum, uint8_t pwm, uint8_t bank)
+    void charlieplex_set_led_pwm_144(uint8_t *pwm, uint8_t bank)
     {
-        if (lednum > 144)
-            return;
-        charlieplex_write_register_byte(bank, 0x24 + lednum, pwm);
+        charlieplex_write_register_144(bank, 0x24, pwm);
     }
 
     void setup()
@@ -157,12 +167,14 @@ namespace matrix
         // TODO get animation pixels, number of frames, and speed
 
         // TODO load all the frames
-        for (int i = 0; i < 144; i++)
-            charlieplex_set_led_pwm(i, i, 0);
 
-        // TODO this is slower than expected
-        // I am sure this dang chip has a way to go faster
-        // Look for a way to blast all the bytes in one go, I am sure they have this
+        uint8_t matrix[144];
+        for (int i = 0; i < 144; i++)
+        {
+            matrix[i] = i;
+        }
+
+        charlieplex_set_led_pwm_144(matrix, 0);
 
         // TODO start autoplay
     }
