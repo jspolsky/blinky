@@ -1,1 +1,3 @@
-#define PIN_BUTTON GPIO_NUM_2
+#define PIN_BUTTON GPIO_NUM_3
+#define PIN_SDA GPIO_NUM_5
+#define PIN_SCL GPIO_NUM_6
