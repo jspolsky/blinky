@@ -17,6 +17,7 @@ extern "C"
 #include "rgbled.h"
 #include "pins.h"
 #include "button.h"
+#include "matrix.h"
 
 void ShortPress(void);
 void LongPressStart(void);
@@ -24,6 +25,7 @@ void LongPressEnd(void);
 
 extern "C" void app_main(void)
 {
+    matrix::setup();
 
     switch (esp_sleep_get_wakeup_cause())
     {
@@ -35,6 +37,9 @@ extern "C" void app_main(void)
         // TODO remove in final product
         rgbled::setup();
         rgbled::show_rainbow();
+
+        // show the first animation
+        matrix::displayAnimation();
         break;
     }
 

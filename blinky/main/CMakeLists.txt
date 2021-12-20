@@ -1,2 +1,2 @@
-idf_component_register(SRCS "button.cpp" "main.cpp" "rgbled.cpp"
+idf_component_register(SRCS "matrix.cpp" "button.cpp" "main.cpp" "rgbled.cpp"
                        INCLUDE_DIRS ".")
