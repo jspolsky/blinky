@@ -32,7 +32,7 @@ namespace button
         while (gpio_get_level(PIN_BUTTON))
         {
             if (!fInLongPress &&
-                esp_timer_get_time() > (tmStart + pdMS_TO_TICKS(1000)))
+                esp_timer_get_time() > (tmStart + pdMS_TO_TICKS(700)))
             {
                 ESP_LOGI(TAG, "Start Long Press");
                 fInLongPress = true;
