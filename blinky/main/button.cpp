@@ -6,7 +6,6 @@
 // short click - switch animation (on button up)
 // long click - start animation exchange.
 //
-static const char *TAG = "button";
 
 extern "C"
 {
@@ -16,12 +15,11 @@ extern "C"
 }
 
 #include "pins.h"
-#include "rgbled.h"
 #include "button.h"
 
 namespace button
 {
-    void wakeup()
+    void wakeup(CALLBACK *fnShortPress, CALLBACK *fnLongPressStart, CALLBACK *fnLongPressEnd)
     {
         uint64_t tmStart = esp_timer_get_time();
         bool fInLongPress = false;
@@ -34,7 +32,7 @@ namespace button
             if (!fInLongPress &&
                 esp_timer_get_time() > (tmStart + pdMS_TO_TICKS(700)))
             {
-                ESP_LOGI(TAG, "Start Long Press");
+                fnLongPressStart();
                 fInLongPress = true;
             }
 
@@ -44,13 +42,11 @@ namespace button
 
         if (fInLongPress)
         {
-            ESP_LOGI(TAG, "End Long Press");
+            fnLongPressEnd();
         }
         else
         {
-            ESP_LOGI(TAG, "Short Press");
-            rgbled::setup();
-            rgbled::show_rainbow();
+            fnShortPress();
         }
     }
 }
