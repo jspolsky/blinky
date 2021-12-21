@@ -158,22 +158,34 @@ namespace matrix
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
     }
 
-    void displayAnimation()
+    void displayAnimation(uint16_t animationNumber)
     {
 
-        // TODO this is basically the code from old matrix.cpp::displayAnimation
+        ESP_LOGI(TAG, "Display animation %d", animationNumber);
 
-        ESP_LOGI(TAG, "Display initial animation");
+        const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
+        uint16_t delay = animations::getAnimationDelayMs(animationNumber);
 
-        // TODO get animation pixels, number of frames, and speed
-
-        // TODO load all the frames
+        if (delay < 11)
+            delay = 11;
+        if (delay > 693)
+            delay = 0;
 
         uint8_t matrix[144];
-        animations::getAnimationFrame(1, 0, matrix);
+        for (uint8_t framenum = 0; framenum < cFrames; framenum++)
+        {
+            animations::getAnimationFrame(animationNumber, framenum, matrix);
+            charlieplex_set_led_pwm_144(matrix, framenum);
+        }
 
-        charlieplex_set_led_pwm_144(matrix, 0);
-
-        // TODO start autoplay
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                        ISSI_REG_AUTOPLAY_WAY_OF_DISPLAY,
+                                        cFrames & 7); // datasheet page 12 table 10)
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                        ISSI_REG_AUTOPLAY_DELAY_TIME,
+                                        delay / 11);
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                        ISSI_REG_CONFIG,
+                                        ISSI_REG_CONFIG_AUTOPLAYMODE);
     }
 }

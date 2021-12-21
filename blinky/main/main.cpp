@@ -40,7 +40,7 @@ extern "C" void app_main(void)
         rgbled::show_rainbow();
 
         // show the first animation
-        matrix::displayAnimation();
+        matrix::displayAnimation(1);
         break;
     }
 

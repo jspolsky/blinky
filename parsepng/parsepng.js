@@ -130,8 +130,11 @@ getPixels(inputFileName, function (err, pixels) {
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
       for (let y = 0; y <= 15; y += 2) {
+        // the "16 - " logic below is because our
+        // LED board is physically upside down :)
         imageAsByteArray.push(
-          getOneByte(frame * 9 + x, y) * 16 + getOneByte(frame * 9 + x, y + 1)
+          getOneByte(frame * 9 + x, 16 - y) * 16 +
+            getOneByte(frame * 9 + x, 16 - (y + 1))
         );
       }
     }
