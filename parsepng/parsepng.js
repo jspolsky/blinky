@@ -8,18 +8,26 @@
 // and it is [9 x number_of_frames] pixels wide, for
 // example, 72 pixels wide for the longest 8 pixel animation.
 //
-// Use a full range of greyscale, from 0x00000 to 0xFFFFFF.
+// The charlieplexer with LEDs really only shows about 16 shades of
+// grey that are distinguishible to the human eye, so we only
+// need 4 bits per pixel.
 //
-// It converts to greyscale (ignoring Alpha) and generates a C++ array
-// with the raw pixel data. This is simply compiled into the blinky
-// code base using a "const" declaration, which, on ARM M0 chips, causes
-// it to be stored in the flash/program area.
+// For the input file, use a full range of greyscale, from 0x0 to 0xFFFFFF
+// (or even color, which will be converted to greyscale).
+//
+// The output file format will be:
+//
+// byte 0 -- the number of frames, 1-8
+// byte 1 -- high order byte - delay in milliseconds between frames
+// byte 2 -- low order byte  - delay in milliseconds between frames
+// followed by the raw pixel data, where each byte contains two pixels
 //
 
 const path = require("path");
 const getPixels = require("get-pixels");
 const SerialPort = require("serialport");
 const fs = require("fs");
+const Buffer = require("buffer").Buffer;
 
 const args = process.argv.slice(2);
 
@@ -103,48 +111,38 @@ getPixels(inputFileName, function (err, pixels) {
     luminositySum += gamma_scale[shade];
     luminosityCount++;
 
-    return grey >> 4;
+    return shade;
   };
 
-  const formatTwoNibbles = (nib1, nib2) => {
-    if (!nib1 && !nib2) return "____, ";
-    else return `0x${nib1.toString(16)}${nib2.toString(16)}, `;
-  };
+  var imageAsByteArray = [
+    // first byte: number of frames
+    number_of_frames,
 
-  const variable_name = path.basename(inputFileName, ".png");
+    // second byte: hi order, delay in ms
+    parseInt(delay / 256),
 
-  var imageAsCCode =
-    `const uint8_t cframes_${variable_name} = ${number_of_frames};\n` +
-    `const uint32_t delay_${variable_name} = ${delay};\n` +
-    `const uint8_t bmp_${variable_name}[] = \{\n`;
+    // third byte: lo order, delay in ms
+    delay % 256,
+  ];
 
-  var imageAsByteArray = [];
+  console.log(imageAsByteArray);
 
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
-      let row = "";
       for (let y = 0; y <= 15; y += 2) {
-        row += formatTwoNibbles(
-          getOneByte(frame * 9 + x, y),
-          getOneByte(frame * 9 + x, y + 1)
-        );
         imageAsByteArray.push(
           getOneByte(frame * 9 + x, y) * 16 + getOneByte(frame * 9 + x, y + 1)
         );
       }
-      imageAsCCode += `\t${row}\n`;
     }
-    imageAsCCode += "\n";
   }
-
-  imageAsCCode += `};`;
 
   if (outputFileName !== "") {
     //
-    // Write animation as C code to file
+    // Write animation as binary to file
     //
 
-    fs.writeFile(outputFileName, imageAsCCode, (err) => {
+    fs.writeFile(outputFileName, Buffer.from(imageAsByteArray), (err) => {
       if (err) {
         console.error(`Error writing output file ${outputFileName}`);
         console.error(err);
@@ -191,19 +189,6 @@ getPixels(inputFileName, function (err, pixels) {
         });
 
         port.write("!"); // starts transmission
-
-        const header = [
-          // first byte: number of frames
-          number_of_frames,
-
-          // second byte: hi order, delay in ms
-          parseInt(delay / 256),
-
-          // third byte: lo order, delay in ms
-          delay % 256,
-        ];
-
-        port.write(header);
         port.write(imageAsByteArray);
       },
       (err) => console.error(err)
