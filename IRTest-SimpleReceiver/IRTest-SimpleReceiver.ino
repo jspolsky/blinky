@@ -33,13 +33,13 @@ Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
 
 void setup() {
 
+  delay(1000);
+
 
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     for(;;); // Don't proceed, loop forever
   }
-
-  delay(1000);
 
   // Show initial display buffer contents on the screen --
   // the library initializes this with an Adafruit splash screen.
