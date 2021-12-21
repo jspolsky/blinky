@@ -15,6 +15,7 @@ extern "C"
 
 #include "pins.h"
 #include "matrix.h"
+#include "animations.h"
 
 namespace matrix
 {
@@ -169,10 +170,7 @@ namespace matrix
         // TODO load all the frames
 
         uint8_t matrix[144];
-        for (int i = 0; i < 144; i++)
-        {
-            matrix[i] = i;
-        }
+        animations::getAnimationFrame(1, 0, matrix);
 
         charlieplex_set_led_pwm_144(matrix, 0);
 

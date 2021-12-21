@@ -34,7 +34,8 @@ extern "C" void app_main(void)
         break;
 
     default: /* initial power up */
-        // TODO remove in final product
+
+        // TODO remove rgbled in final product
         rgbled::setup();
         rgbled::show_rainbow();
 
