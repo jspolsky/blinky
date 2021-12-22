@@ -14,7 +14,7 @@
 //    through the target_add_binary_data directives in CMakeLists.txt
 //  - this file, and its header, are responsible for injesting all the animations
 //    from the CMakeLists.txt file and providing the bits to the matrix for display.
-static const char *TAG = "animations";
+[[maybe_unused]] static const char *TAG = "animations";
 
 extern "C"
 {

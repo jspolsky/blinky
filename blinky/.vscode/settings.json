@@ -1,6 +1,7 @@
 {
   "C_Cpp.intelliSenseEngine": "Tag Parser",
   "files.associations": {
-    "random": "cpp"
+    "random": "cpp",
+    "string_view": "cpp"
   }
 }

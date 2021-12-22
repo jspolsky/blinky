@@ -13,9 +13,10 @@ extern "C"
 #include "led_strip.h"
 }
 
+#include "pins.h"
 #include "rgbled.h"
 
-#define RMT_TX_CHANNEL RMT_CHANNEL_0
+#define RMT_TX_CHANNEL RMT_CHANNEL_TX_RGB
 #define EXAMPLE_CHASE_SPEED_MS (60)
 
 #define LOCAL_RMT_DEFAULT_CONFIG_TX(gpio, channel_id)          \
@@ -43,7 +44,7 @@ namespace rgbled
 
     void setup()
     {
-        rmt_config_t config = LOCAL_RMT_DEFAULT_CONFIG_TX((gpio_num_t)CONFIG_EXAMPLE_RMT_TX_GPIO, RMT_TX_CHANNEL);
+        rmt_config_t config = LOCAL_RMT_DEFAULT_CONFIG_TX(PIN_RGB, RMT_TX_CHANNEL);
 
         // set counter clock to 40MHz
         config.clk_div = 2;

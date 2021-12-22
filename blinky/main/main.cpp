@@ -18,6 +18,7 @@ extern "C"
 #include "pins.h"
 #include "button.h"
 #include "matrix.h"
+#include "ir.h"
 
 void ShortPress(void);
 void LongPressStart(void);
@@ -41,6 +42,9 @@ extern "C" void app_main(void)
 
         // show the first animation
         matrix::displayAnimation(1);
+
+        ir::example_ir_tx_task(0xCFFE, 0x13);
+
         break;
     }
 
