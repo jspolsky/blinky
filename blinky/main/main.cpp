@@ -29,7 +29,6 @@ void LongPressEnd(void);
 
 extern "C" void app_main(void)
 {
-    inventory::setup();
     matrix::setup();
 
     switch (esp_sleep_get_wakeup_cause())
@@ -39,6 +38,11 @@ extern "C" void app_main(void)
         break;
 
     default: /* initial power up */
+
+        inventory::setup();
+        inventory::addToInventory(1);
+        inventory::addToInventory(2);
+        inventory::addToInventory(3);
 
         // TODO remove rgbled in final product
         rgbled::setup();
@@ -60,6 +64,7 @@ extern "C" void app_main(void)
 void ShortPress()
 {
     ESP_LOGI(TAG, "Short Press");
+    matrix::displayAnimation(inventory::nextAnimation());
 }
 
 void LongPressStart()

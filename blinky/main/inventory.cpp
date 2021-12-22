@@ -29,9 +29,9 @@ namespace inventory
         uint8_t rgbitUnlocked[MAX_ANIMATION / 8]; // Packed bits indicating which animations (up to 512) are unlocked by this blinky
     };
 
-    uint16_t myAnimation = 0;
-    uint16_t currentAnimation = 0;
-    inventory_t inventory;
+    RTC_DATA_ATTR uint16_t myAnimation = 0;
+    RTC_DATA_ATTR uint16_t currentAnimation = 0;
+    RTC_DATA_ATTR inventory_t inventory;
 
     const char NVS_NAMESPACE[] = "blinky";
     const char NVS_KEY[] = "inventory";
@@ -119,6 +119,7 @@ namespace inventory
         }
 
         currentAnimation = animation;
+        ESP_LOGI(TAG, "Next animation is %d", currentAnimation);
         return (currentAnimation);
     }
 
