@@ -12,6 +12,8 @@ extern "C"
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "esp_sleep.h"
+#include "nvs_flash.h"
+#include "nvs.h"
 }
 
 #include "rgbled.h"
@@ -19,6 +21,7 @@ extern "C"
 #include "button.h"
 #include "matrix.h"
 #include "ir.h"
+#include "inventory.h"
 
 void ShortPress(void);
 void LongPressStart(void);
@@ -26,6 +29,7 @@ void LongPressEnd(void);
 
 extern "C" void app_main(void)
 {
+    inventory::setup();
     matrix::setup();
 
     switch (esp_sleep_get_wakeup_cause())
@@ -41,10 +45,10 @@ extern "C" void app_main(void)
         rgbled::show_rainbow();
 
         // show the first animation
-        matrix::displayAnimation(1);
+        matrix::displayAnimation(inventory::getCurrentAnimation());
 
-        ir::ir_transmit(0xCFFE, 0x13);
-        ir::ir_receive();
+        // ir::ir_transmit(0xCFFE, 0x13);
+        // ir::ir_receive();
 
         break;
     }
