@@ -137,17 +137,21 @@ namespace matrix
 
         ESP_ERROR_CHECK(i2c_setup());
         ESP_LOGI(TAG, "i2c initialized correctly");
+    }
 
-        // Adafruit does this, it seems to work ?
+    void displayAnimation(uint16_t animationNumber)
+    {
+        ESP_LOGI(TAG, "Display animation %d", animationNumber);
+
+        // software shutdown. Appears to turn the screen off while still letting
+        // us write to the chip.
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
-        vTaskDelay(pdMS_TO_TICKS(10));
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 1);
+
+        charlieplex_clear(); // all leds on & 0 pwm
 
         // Picture mode. Just display frame 0 for now
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
-
-        charlieplex_clear(); // all leds on & 0 pwm
 
         for (uint8_t f = 0; f < 8; f++)
         {
@@ -156,12 +160,6 @@ namespace matrix
         }
 
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
-    }
-
-    void displayAnimation(uint16_t animationNumber)
-    {
-
-        ESP_LOGI(TAG, "Display animation %d", animationNumber);
 
         const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
         uint16_t delay = animations::getAnimationDelayMs(animationNumber);
@@ -187,5 +185,10 @@ namespace matrix
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
                                         ISSI_REG_CONFIG,
                                         ISSI_REG_CONFIG_AUTOPLAYMODE);
+
+        // vTaskDelay(pdMS_TO_TICKS(10));   // legacy adafruit thing.
+
+        // Turn the matrix back on
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 1);
     }
 }
