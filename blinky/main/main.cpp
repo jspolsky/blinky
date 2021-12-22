@@ -40,9 +40,6 @@ extern "C" void app_main(void)
     default: /* initial power up */
 
         inventory::setup();
-        inventory::addToInventory(1);
-        inventory::addToInventory(2);
-        inventory::addToInventory(3);
 
         // TODO remove rgbled in final product
         rgbled::setup();
