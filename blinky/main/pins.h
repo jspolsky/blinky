@@ -3,6 +3,7 @@
 #define PIN_SCL GPIO_NUM_6
 #define PIN_RGB GPIO_NUM_8
 #define PIN_IR_TX GPIO_NUM_18
+#define PIN_IR_RX GPIO_NUM_19
 
 #define I2C_ADDR_CHARLIEPLEXER 0x74
 

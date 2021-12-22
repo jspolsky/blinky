@@ -43,7 +43,8 @@ extern "C" void app_main(void)
         // show the first animation
         matrix::displayAnimation(1);
 
-        ir::example_ir_tx_task(0xCFFE, 0x13);
+        ir::ir_transmit(0xCFFE, 0x13);
+        ir::ir_receive();
 
         break;
     }

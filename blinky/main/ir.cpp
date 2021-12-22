@@ -35,23 +35,41 @@ extern "C"
         }                                                      \
     }
 
+#define LOCAL_RMT_DEFAULT_CONFIG_RX(gpio, channel_id)         \
+    {                                                         \
+        .rmt_mode = RMT_MODE_RX,                              \
+        .channel = channel_id,                                \
+        .gpio_num = gpio,                                     \
+        .clk_div = 80,                                        \
+        .mem_block_num = 1,                                   \
+        .flags = 0,                                           \
+        .rx_config = {.idle_threshold = 12000,                \
+                      .filter_ticks_thresh = 100,             \
+                      .filter_en = true,                      \
+                      .rm_carrier = 1,                        \
+                      .carrier_freq_hz = 38000,               \
+                      .carrier_duty_percent = 33,             \
+                      .carrier_level = RMT_CARRIER_LEVEL_HIGH \
+        }                                                     \
+    }
+
 namespace ir
 {
-    static rmt_channel_t example_tx_channel = RMT_CHANNEL_1;
-    // static rmt_channel_t example_rx_channel = RMT_CHANNEL_2;
+    static rmt_channel_t tx_channel = RMT_CHANNEL_1;
+    static rmt_channel_t rx_channel = RMT_CHANNEL_2;
 
-    void example_ir_tx_task(uint32_t addr, uint32_t cmd)
+    void ir_transmit(uint32_t addr, uint32_t cmd)
     {
 
         rmt_item32_t *items = NULL;
         size_t length = 0;
         ir_builder_t *ir_builder = NULL;
 
-        rmt_config_t rmt_tx_config = LOCAL_RMT_DEFAULT_CONFIG_TX(PIN_IR_TX, example_tx_channel);
+        rmt_config_t rmt_tx_config = LOCAL_RMT_DEFAULT_CONFIG_TX(PIN_IR_TX, tx_channel);
         rmt_tx_config.tx_config.carrier_en = true;
         rmt_config(&rmt_tx_config);
-        rmt_driver_install(example_tx_channel, 0, 0);
-        ir_builder_config_t ir_builder_config = IR_BUILDER_DEFAULT_CONFIG((ir_dev_t)example_tx_channel);
+        rmt_driver_install(tx_channel, 0, 0);
+        ir_builder_config_t ir_builder_config = IR_BUILDER_DEFAULT_CONFIG((ir_dev_t)tx_channel);
         ir_builder_config.flags |= IR_TOOLS_FLAGS_PROTO_EXT; // Using extended IR protocols (both NEC and RC5 have extended version)
         ir_builder = ir_builder_rmt_new_nec(&ir_builder_config);
 
@@ -60,11 +78,54 @@ namespace ir
         ESP_ERROR_CHECK(ir_builder->build_frame(ir_builder, addr, cmd));
         ESP_ERROR_CHECK(ir_builder->get_result(ir_builder, &items, &length));
         //To send data according to the waveform items.
-        rmt_write_items(example_tx_channel, items, length, 1);
+        rmt_write_items(tx_channel, items, length, 1);
         // Send repeat code
 
         ir_builder->del(ir_builder);
-        rmt_driver_uninstall(example_tx_channel);
+        rmt_driver_uninstall(tx_channel);
+    }
+
+    void ir_receive()
+    {
+        uint32_t addr = 0;
+        uint32_t cmd = 0;
+        size_t length = 0;
+        bool repeat = false;
+        RingbufHandle_t rb = NULL;
+        rmt_item32_t *items = NULL;
+
+        rmt_config_t rmt_rx_config = LOCAL_RMT_DEFAULT_CONFIG_RX(PIN_IR_RX, rx_channel);
+        rmt_config(&rmt_rx_config);
+        rmt_driver_install(rx_channel, 1000, 0);
+        ir_parser_config_t ir_parser_config = IR_PARSER_DEFAULT_CONFIG((ir_dev_t)rx_channel);
+        //        ir_parser_config.flags |= IR_TOOLS_FLAGS_PROTO_EXT; // Using extended IR protocols (both NEC and RC5 have extended version)
+        ir_parser_t *ir_parser = NULL;
+        ir_parser = ir_parser_rmt_new_nec(&ir_parser_config);
+
+        //get RMT RX ringbuffer
+        rmt_get_ringbuf_handle(rx_channel, &rb);
+        assert(rb != NULL);
+        // Start receive
+        rmt_rx_start(rx_channel, true);
+        while (1)
+        {
+            items = (rmt_item32_t *)xRingbufferReceive(rb, &length, portMAX_DELAY);
+            if (items)
+            {
+                length /= 4; // one RMT = 4 Bytes
+                if (ir_parser->input(ir_parser, items, length) == ESP_OK)
+                {
+                    if (ir_parser->get_scan_code(ir_parser, &addr, &cmd, &repeat) == ESP_OK)
+                    {
+                        ESP_LOGI(TAG, "Scan Code %s --- addr: 0x%04x cmd: 0x%04x", repeat ? "(repeat)" : "", addr, cmd);
+                    }
+                }
+                //after parsing the data, return spaces to ringbuffer.
+                vRingbufferReturnItem(rb, (void *)items);
+            }
+        }
+        ir_parser->del(ir_parser);
+        rmt_driver_uninstall(rx_channel);
     }
 
 }
