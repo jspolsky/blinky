@@ -47,10 +47,10 @@ extern "C"
         .rx_config = {.idle_threshold = 12000,                \
                       .filter_ticks_thresh = 100,             \
                       .filter_en = true,                      \
-                      .rm_carrier = 1,                        \
-                      .carrier_freq_hz = 38000,               \
-                      .carrier_duty_percent = 33,             \
-                      .carrier_level = RMT_CARRIER_LEVEL_HIGH \
+                      .rm_carrier = 0,                        \
+                      .carrier_freq_hz = 0,                   \
+                      .carrier_duty_percent = 0,              \
+                      .carrier_level = (rmt_carrier_level_t)0 \
         }                                                     \
     }
 
@@ -59,8 +59,14 @@ namespace ir
     static rmt_channel_t tx_channel = RMT_CHANNEL_1;
     static rmt_channel_t rx_channel = RMT_CHANNEL_2;
 
-    void transmit(uint32_t addr, uint32_t cmd)
+    static uint16_t myAnimation;
+
+    void transmit(void *arg)
     {
+        uint16_t *pcmd = (uint16_t *)arg;
+
+        uint32_t addr = NEC_ADDRESS_BLINKY;
+        uint32_t cmd = (uint32_t)*pcmd;
 
         rmt_item32_t *items = NULL;
         size_t length = 0;
@@ -70,6 +76,7 @@ namespace ir
         rmt_tx_config.tx_config.carrier_en = true;
         rmt_config(&rmt_tx_config);
         rmt_driver_install(tx_channel, 0, 0);
+
         ir_builder_config_t ir_builder_config = IR_BUILDER_DEFAULT_CONFIG((ir_dev_t)tx_channel);
         ir_builder_config.flags |= IR_TOOLS_FLAGS_PROTO_EXT; // Using extended IR protocols (both NEC and RC5 have extended version)
         ir_builder = ir_builder_rmt_new_nec(&ir_builder_config);
@@ -84,10 +91,13 @@ namespace ir
 
         ir_builder->del(ir_builder);
         rmt_driver_uninstall(tx_channel);
+        vTaskDelete(NULL);
     }
 
-    void receive()
+    void receive(void *arg)
     {
+        uint16_t *pcmd = (uint16_t *)arg;
+
         uint32_t addr = 0;
         uint32_t cmd = 0;
         size_t length = 0;
@@ -127,6 +137,7 @@ namespace ir
         }
         ir_parser->del(ir_parser);
         rmt_driver_uninstall(rx_channel);
+        vTaskDelete(NULL);
     }
 
     // the exchange protocol consists of sending our animation to peer, then
@@ -139,11 +150,16 @@ namespace ir
     // never run more than 15 seconds.
     //
     //
-    void exchange_protocol(uint16_t myAnimation)
+    void exchange_protocol(uint16_t _myAnimation)
     {
         ESP_LOGI(TAG, "Exchange protocol starting");
         uint64_t tmStart = esp_timer_get_time();
         uint64_t tmButtonUp = 0;
+
+        myAnimation = _myAnimation; // can't be in the stack according to task rules
+
+        xTaskCreate(receive, "ir_rx_task", 2048, &myAnimation, 10, NULL);
+        xTaskCreate(transmit, "ir_tx_task", 2048, &myAnimation, 10, NULL);
 
         while (true)
         {
@@ -165,19 +181,13 @@ namespace ir
                 break;
             }
 
-            //
-            // send my thing
-            //
-            transmit(NEC_ADDRESS_BLINKY, myAnimation);
-
-            //
-            // TODO receive their thing
-            //
-
             vTaskDelay(10);
         }
 
         ESP_LOGI(TAG, "Exchange protocol ending");
+
+        // when this function we go into deep sleep again.
+        // That will kill both tasks.
     }
 
 }
