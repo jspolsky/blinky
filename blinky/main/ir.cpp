@@ -139,7 +139,7 @@ namespace ir
     // never run more than 15 seconds.
     //
     //
-    void exchange_protocol()
+    void exchange_protocol(uint16_t myAnimation)
     {
         ESP_LOGI(TAG, "Exchange protocol starting");
         uint64_t tmStart = esp_timer_get_time();
@@ -166,8 +166,9 @@ namespace ir
             }
 
             //
-            // TODO send my thing
+            // send my thing
             //
+            transmit(NEC_ADDRESS_BLINKY, myAnimation);
 
             //
             // TODO receive their thing

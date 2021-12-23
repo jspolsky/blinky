@@ -29,7 +29,6 @@ namespace inventory
         uint8_t rgbitUnlocked[MAX_ANIMATION / 8]; // Packed bits indicating which animations (up to 512) are unlocked by this blinky
     };
 
-    RTC_DATA_ATTR uint16_t myAnimation = 0;
     RTC_DATA_ATTR uint16_t currentAnimation = 0;
     RTC_DATA_ATTR inventory_t inventory;
 
@@ -97,7 +96,10 @@ namespace inventory
         nvs_close(hnvs);
     }
 
-    uint16_t getMyAnimation() { return myAnimation; }
+    uint16_t getMyAnimation()
+    {
+        return inventory.myAnimation;
+    }
     uint16_t getCurrentAnimation() { return currentAnimation; }
 
     bool isAnimationInInventory(uint16_t animation)
