@@ -19,7 +19,7 @@ extern "C"
 
 namespace button
 {
-    void wakeup(CALLBACK *fnShortPress, CALLBACK *fnLongPressStart, CALLBACK *fnLongPressEnd)
+    void wakeup(CALLBACK *fnShortPress, CALLBACK *fnLongPress)
     {
         uint64_t tmStart = esp_timer_get_time();
         bool fInLongPress = false;
@@ -27,12 +27,12 @@ namespace button
         gpio_set_direction(PIN_BUTTON, gpio_mode_t(GPIO_MODE_DEF_INPUT));
         gpio_set_pull_mode(PIN_BUTTON, GPIO_PULLDOWN_ONLY);
 
-        while (gpio_get_level(PIN_BUTTON))
+        while (buttonDown())
         {
             if (!fInLongPress &&
                 esp_timer_get_time() > (tmStart + pdMS_TO_TICKS(700)))
             {
-                fnLongPressStart();
+                fnLongPress();
                 fInLongPress = true;
             }
 
@@ -40,13 +40,14 @@ namespace button
             vTaskDelay(pdMS_TO_TICKS(100));
         }
 
-        if (fInLongPress)
-        {
-            fnLongPressEnd();
-        }
-        else
+        if (!fInLongPress)
         {
             fnShortPress();
         }
+    }
+
+    bool buttonDown()
+    {
+        return gpio_get_level(PIN_BUTTON);
     }
 }

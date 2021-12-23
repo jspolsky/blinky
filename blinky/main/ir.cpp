@@ -15,6 +15,7 @@ extern "C"
 
 #include "pins.h"
 #include "ir.h"
+#include "button.h"
 
 #define LOCAL_RMT_DEFAULT_CONFIG_TX(gpio, channel_id)          \
     {                                                          \
@@ -126,6 +127,56 @@ namespace ir
         }
         ir_parser->del(ir_parser);
         rmt_driver_uninstall(rx_channel);
+    }
+
+    // the exchange protocol consists of sending our animation to peer, then
+    // listening for a random amount of time (100-600 ms) to see if they have
+    // send us one
+    //
+    // it ends about five seconds after the button is released.
+    //
+    // don't bother listening if we already got their animation.
+    // never run more than 15 seconds.
+    //
+    //
+    void exchange_protocol()
+    {
+        ESP_LOGI(TAG, "Exchange protocol starting");
+        uint64_t tmStart = esp_timer_get_time();
+        uint64_t tmButtonUp = 0;
+
+        while (true)
+        {
+            if (tmStart + 15000000 < esp_timer_get_time())
+            {
+                ESP_LOGI(TAG, "Exchange protocol timeout");
+                break;
+            }
+
+            if (tmButtonUp == 0 && !button::buttonDown())
+            {
+                ESP_LOGI(TAG, "Exchange protocol detected button came up");
+                tmButtonUp = esp_timer_get_time();
+            }
+
+            if (tmButtonUp && tmButtonUp + 3000000 < esp_timer_get_time())
+            {
+                ESP_LOGI(TAG, "Button came up 3 seconds ago");
+                break;
+            }
+
+            //
+            // TODO send my thing
+            //
+
+            //
+            // TODO receive their thing
+            //
+
+            vTaskDelay(10);
+        }
+
+        ESP_LOGI(TAG, "Exchange protocol ending");
     }
 
 }

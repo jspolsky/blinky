@@ -24,8 +24,7 @@ extern "C"
 #include "inventory.h"
 
 void ShortPress(void);
-void LongPressStart(void);
-void LongPressEnd(void);
+void LongPress(void);
 
 extern "C" void app_main(void)
 {
@@ -34,7 +33,7 @@ extern "C" void app_main(void)
     switch (esp_sleep_get_wakeup_cause())
     {
     case ESP_SLEEP_WAKEUP_GPIO:
-        button::wakeup(ShortPress, LongPressStart, LongPressEnd);
+        button::wakeup(ShortPress, LongPress);
         break;
 
     default: /* initial power up */
@@ -47,9 +46,6 @@ extern "C" void app_main(void)
 
         // show the first animation
         matrix::displayAnimation(inventory::getCurrentAnimation());
-
-        ir::transmit(0xCFFE, 0x13);
-        ir::receive();
 
         break;
     }
@@ -64,12 +60,10 @@ void ShortPress()
     matrix::displayAnimation(inventory::nextAnimation());
 }
 
-void LongPressStart()
+void LongPress()
 {
     ESP_LOGI(TAG, "Long Press Start");
-}
-
-void LongPressEnd()
-{
-    ESP_LOGI(TAG, "Long Press End");
+    matrix::displayAnimation(0);
+    ir::exchange_protocol();
+    matrix::displayAnimation(inventory::getCurrentAnimation());
 }
