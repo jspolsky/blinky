@@ -12,9 +12,11 @@ extern "C"
 #include "esp_log.h"
 #include "nvs_flash.h"
 #include "nvs.h"
+#include "driver/gpio.h"
 }
 #include <cstring>
 
+#include "pins.h"
 #include "inventory.h"
 #include "animations.h"
 
@@ -37,6 +39,17 @@ namespace inventory
 
     void setup()
     {
+        // if pin 7 is high, reset!
+
+        gpio_set_direction(PIN_RESET_INVENTORY, gpio_mode_t(GPIO_MODE_DEF_INPUT));
+        gpio_set_pull_mode(PIN_RESET_INVENTORY, GPIO_PULLDOWN_ONLY);
+        bool bInventoryReset = gpio_get_level(PIN_RESET_INVENTORY);
+
+        if (bInventoryReset)
+        {
+            ESP_LOGI(TAG, "requested inventory reset");
+        }
+
         memset(&inventory, 0, sizeof(inventory));
 
         esp_err_t err = nvs_flash_init();
@@ -57,7 +70,7 @@ namespace inventory
         size_t cb = 0;
         err = nvs_get_blob(hnvs, NVS_KEY, NULL, &cb);
 
-        if (err == ESP_ERR_NVS_NOT_FOUND)
+        if (err == ESP_ERR_NVS_NOT_FOUND || bInventoryReset)
         {
             ESP_LOGI(TAG, "Nothing stored yet.");
 
@@ -105,7 +118,8 @@ namespace inventory
     bool isAnimationInInventory(uint16_t animation)
     {
         return (animation < MAX_ANIMATION) &&
-               !!(inventory.rgbitUnlocked[animation / 8] & (1 << (animation % 8)));
+               !!(inventory.rgbitUnlocked[animation / 8] & (1 << (animation % 8))) &&
+               animation != 0;
     }
 
     uint16_t nextAnimation()
@@ -127,7 +141,7 @@ namespace inventory
 
     void addToInventory(uint16_t animation)
     {
-        if (animation < MAX_ANIMATION)
+        if (animation < MAX_ANIMATION && animation != 0)
         {
             inventory.rgbitUnlocked[animation / 8] |= (1 << (animation % 8));
             currentAnimation = animation;
