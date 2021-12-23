@@ -11,11 +11,14 @@ extern "C"
 #include "esp_log.h"
 #include "driver/rmt.h"
 #include "ir_tools.h"
+#include "nvs_flash.h"
+#include "nvs.h"
 }
 
 #include "pins.h"
 #include "ir.h"
 #include "button.h"
+#include "inventory.h"
 
 #define LOCAL_RMT_DEFAULT_CONFIG_TX(gpio, channel_id)          \
     {                                                          \
@@ -85,9 +88,15 @@ namespace ir
         // Send new key code
         ESP_ERROR_CHECK(ir_builder->build_frame(ir_builder, addr, cmd));
         ESP_ERROR_CHECK(ir_builder->get_result(ir_builder, &items, &length));
-        //To send data according to the waveform items.
-        rmt_write_items(tx_channel, items, length, 1);
-        // Send repeat code
+
+        while (1)
+        {
+            rmt_write_items(tx_channel, items, length, 1);
+
+            // Wait a random amount of time to avoid collisions
+            uint32_t msToWait = 100 + esp_random() % 500;
+            vTaskDelay(pdMS_TO_TICKS(msToWait));
+        }
 
         ir_builder->del(ir_builder);
         rmt_driver_uninstall(tx_channel);
@@ -118,6 +127,7 @@ namespace ir
         assert(rb != NULL);
         // Start receive
         rmt_rx_start(rx_channel, true);
+        bool fReceived = false;
         while (1)
         {
             items = (rmt_item32_t *)xRingbufferReceive(rb, &length, portMAX_DELAY);
@@ -128,7 +138,16 @@ namespace ir
                 {
                     if (ir_parser->get_scan_code(ir_parser, &addr, &cmd, &repeat) == ESP_OK)
                     {
-                        ESP_LOGI(TAG, "Scan Code %s --- addr: 0x%04x cmd: 0x%04x", repeat ? "(repeat)" : "", addr, cmd);
+                        // ignore my own animation -- I sent it myself
+                        if (addr == NEC_ADDRESS_BLINKY && *pcmd != cmd && !fReceived)
+                        {
+                            ESP_LOGI(TAG, "Received animation %d", cmd);
+
+                            ESP_ERROR_CHECK(nvs_flash_init());
+                            inventory::addToInventory(cmd);
+
+                            fReceived = true;
+                        }
                     }
                 }
                 //after parsing the data, return spaces to ringbuffer.
