@@ -48,8 +48,8 @@ extern "C" void app_main(void)
         // show the first animation
         matrix::displayAnimation(inventory::getCurrentAnimation());
 
-        // ir::ir_transmit(0xCFFE, 0x13);
-        // ir::ir_receive();
+        ir::transmit(0xCFFE, 0x13);
+        ir::receive();
 
         break;
     }

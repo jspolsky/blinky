@@ -58,7 +58,7 @@ namespace ir
     static rmt_channel_t tx_channel = RMT_CHANNEL_1;
     static rmt_channel_t rx_channel = RMT_CHANNEL_2;
 
-    void ir_transmit(uint32_t addr, uint32_t cmd)
+    void transmit(uint32_t addr, uint32_t cmd)
     {
 
         rmt_item32_t *items = NULL;
@@ -85,7 +85,7 @@ namespace ir
         rmt_driver_uninstall(tx_channel);
     }
 
-    void ir_receive()
+    void receive()
     {
         uint32_t addr = 0;
         uint32_t cmd = 0;
