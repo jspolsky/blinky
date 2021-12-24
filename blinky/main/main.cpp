@@ -26,8 +26,11 @@ extern "C"
 void ShortPress(void);
 void LongPress(void);
 
+RTC_DATA_ATTR bool fWasAsleep = false;
+
 extern "C" void app_main(void)
 {
+
     ir::setup();
     matrix::setup();
 
@@ -41,6 +44,7 @@ extern "C" void app_main(void)
 
     case ESP_SLEEP_WAKEUP_TIMER:
         ESP_LOGI(TAG, "time up!");
+        fWasAsleep = true;
         matrix::powerOff();
         break;
 
@@ -70,7 +74,18 @@ extern "C" void app_main(void)
 void ShortPress()
 {
     ESP_LOGI(TAG, "Short Press");
-    matrix::displayAnimation(inventory::nextAnimation());
+
+    // short press on wakeup from sleep should not advance to the next
+    // animation
+    if (fWasAsleep)
+    {
+        fWasAsleep = false;
+        matrix::displayAnimation(inventory::getCurrentAnimation());
+    }
+    else
+    {
+        matrix::displayAnimation(inventory::nextAnimation());
+    }
 }
 
 void LongPress()
