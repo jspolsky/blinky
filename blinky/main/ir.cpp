@@ -19,6 +19,7 @@ extern "C"
 #include "ir.h"
 #include "button.h"
 #include "inventory.h"
+#include "matrix.h"
 
 #define LOCAL_RMT_DEFAULT_CONFIG_TX(gpio, channel_id)          \
     {                                                          \
@@ -128,7 +129,7 @@ namespace ir
         // Start receive
         rmt_rx_start(rx_channel, true);
         bool fReceived = false;
-        while (1)
+        while (!fReceived)
         {
             items = (rmt_item32_t *)xRingbufferReceive(rb, &length, portMAX_DELAY);
             if (items)
@@ -144,7 +145,7 @@ namespace ir
                             ESP_LOGI(TAG, "Received animation %d", cmd);
 
                             ESP_ERROR_CHECK(nvs_flash_init());
-                            inventory::addToInventory(cmd);
+                            matrix::displayAnimation(inventory::addToInventory(cmd));
 
                             fReceived = true;
                         }

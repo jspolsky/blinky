@@ -19,6 +19,8 @@ extern "C"
 
 namespace matrix
 {
+    QueueHandle_t queue;
+
     esp_err_t i2c_setup()
     {
         int i2c_master_port = 0;
@@ -54,18 +56,21 @@ namespace matrix
         err = i2c_master_start(handle);
         if (err != ESP_OK)
         {
+            ESP_LOGE(TAG, "err %d", err);
             goto end;
         }
 
         err = i2c_master_write_byte(handle, device_address << 1 | I2C_MASTER_WRITE, true);
         if (err != ESP_OK)
         {
+            ESP_LOGE(TAG, "err %d", err);
             goto end;
         }
 
         err = i2c_master_write(handle, write_buffer, write_size, true);
         if (err != ESP_OK)
         {
+            ESP_LOGE(TAG, "err %d", err);
             goto end;
         }
 
@@ -79,7 +84,7 @@ namespace matrix
 
     void charlieplex_write_buf(uint8_t *buf, size_t cb)
     {
-        i2c_master_write_to_device(0, I2C_ADDR_CHARLIEPLEXER, buf, cb, 1000 / portTICK_RATE_MS);
+        i2c_master_write_to_device(0, I2C_ADDR_CHARLIEPLEXER, buf, cb, pdMS_TO_TICKS(500));
     }
 
     void charlieplex_select_bank(uint8_t bank)
@@ -128,7 +133,7 @@ namespace matrix
         charlieplex_write_register_144(bank, 0x24, pwm);
     }
 
-    void setup()
+    void workerTask(void *arg)
     {
         ESP_LOGI(TAG, "Setting up matrix");
 
@@ -137,58 +142,77 @@ namespace matrix
 
         ESP_ERROR_CHECK(i2c_setup());
         ESP_LOGI(TAG, "i2c initialized correctly");
+
+        while (1)
+        {
+            uint16_t animationNumber;
+            xQueueReceive(queue, &animationNumber, portMAX_DELAY);
+            ESP_LOGI(TAG, "Queue trying to show animation %d", animationNumber);
+
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
+
+            charlieplex_clear(); // all leds on & 0 pwm
+
+            // Picture mode. Just display frame 0 for now
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
+
+            for (uint8_t f = 0; f < 8; f++)
+            {
+                for (uint8_t i = 0; i <= 0x11; i++)
+                {
+                    charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
+                }
+            }
+
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
+
+            const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
+            uint16_t delay = animations::getAnimationDelayMs(animationNumber);
+
+            if (delay < 11)
+                delay = 11;
+            if (delay > 693)
+                delay = 0;
+
+            uint8_t matrix[144];
+            for (uint8_t framenum = 0; framenum < cFrames; framenum++)
+            {
+                animations::getAnimationFrame(animationNumber, framenum, matrix);
+                charlieplex_set_led_pwm_144(matrix, framenum);
+            }
+
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                            ISSI_REG_AUTOPLAY_WAY_OF_DISPLAY,
+                                            cFrames & 7); // datasheet page 12 table 10)
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                            ISSI_REG_AUTOPLAY_DELAY_TIME,
+                                            delay / 11);
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
+                                            ISSI_REG_CONFIG,
+                                            ISSI_REG_CONFIG_AUTOPLAYMODE);
+
+            // Turn the matrix back on
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 1);
+        }
+
+        vTaskDelete(NULL);
+    }
+
+    void setup()
+    {
+        queue = xQueueCreate(16, sizeof(uint16_t));
+        xTaskCreate(workerTask, "matrix", 10000, NULL, 1, NULL);
     }
 
     void displayAnimation(uint16_t animationNumber)
     {
-        ESP_LOGI(TAG, "Display animation %d", animationNumber);
+        ESP_LOGI(TAG, "Display animation %d adding to queue", animationNumber);
+        xQueueSend(queue, &animationNumber, portMAX_DELAY);
 
-        // software shutdown. Appears to turn the screen off while still letting
-        // us write to the chip.
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
+        // Wait for any animations to be sent to charlieplexer.
+        vTaskDelay(pdMS_TO_TICKS(250));
 
-        charlieplex_clear(); // all leds on & 0 pwm
-
-        // Picture mode. Just display frame 0 for now
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
-
-        for (uint8_t f = 0; f < 8; f++)
-        {
-            for (uint8_t i = 0; i <= 0x11; i++)
-                charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
-        }
-
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
-
-        const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
-        uint16_t delay = animations::getAnimationDelayMs(animationNumber);
-
-        if (delay < 11)
-            delay = 11;
-        if (delay > 693)
-            delay = 0;
-
-        uint8_t matrix[144];
-        for (uint8_t framenum = 0; framenum < cFrames; framenum++)
-        {
-            animations::getAnimationFrame(animationNumber, framenum, matrix);
-            charlieplex_set_led_pwm_144(matrix, framenum);
-        }
-
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
-                                        ISSI_REG_AUTOPLAY_WAY_OF_DISPLAY,
-                                        cFrames & 7); // datasheet page 12 table 10)
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
-                                        ISSI_REG_AUTOPLAY_DELAY_TIME,
-                                        delay / 11);
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG,
-                                        ISSI_REG_CONFIG,
-                                        ISSI_REG_CONFIG_AUTOPLAYMODE);
-
-        // vTaskDelay(pdMS_TO_TICKS(10));   // legacy adafruit thing.
-
-        // Turn the matrix back on
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 1);
+        return;
     }
 }

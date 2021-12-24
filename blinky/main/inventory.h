@@ -17,6 +17,7 @@ namespace inventory
 
     // receives an animation from a friend and adds
     // it to the inventory of animations we own
-    void addToInventory(uint16_t);
+    //
+    uint16_t addToInventory(uint16_t);
 
 }

@@ -139,7 +139,7 @@ namespace inventory
         return (currentAnimation);
     }
 
-    void addToInventory(uint16_t animation)
+    uint16_t addToInventory(uint16_t animation)
     {
         if (animation < MAX_ANIMATION && animation != 0)
         {
@@ -153,6 +153,8 @@ namespace inventory
             ESP_ERROR_CHECK(nvs_commit(hnvs));
             nvs_close(hnvs);
         }
+
+        return currentAnimation;
     }
 
 }

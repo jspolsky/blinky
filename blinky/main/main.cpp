@@ -46,7 +46,6 @@ extern "C" void app_main(void)
 
         // show the first animation
         matrix::displayAnimation(inventory::getCurrentAnimation());
-
         break;
     }
 
