@@ -64,7 +64,7 @@ extern "C" void app_main(void)
     if (wakeup_cause != ESP_SLEEP_WAKEUP_TIMER)
     {
         //  don't wake up more than once from timer
-        esp_sleep_enable_timer_wakeup(5 * 1000 * 1000);
+        esp_sleep_enable_timer_wakeup(2ULL * 60ULL * 60ULL * 1000ULL * 1000ULL);
     }
 
     esp_deep_sleep_enable_gpio_wakeup(BIT(PIN_BUTTON), ESP_GPIO_WAKEUP_GPIO_HIGH);
