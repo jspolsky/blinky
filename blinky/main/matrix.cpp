@@ -124,6 +124,20 @@ namespace matrix
         charlieplex_write_buf(cmd, 145);
     }
 
+    void charlieplex_clear()
+    {
+        charlieplex_select_bank(0);
+        uint8_t erasebuf[25];
+
+        memset(erasebuf, 0, 25);
+
+        for (uint8_t i = 0; i < 6; i++)
+        {
+            erasebuf[0] = 0x24 + i * 24;
+            charlieplex_write_buf(erasebuf, 25);
+        }
+    }
+
     void charlieplex_set_led_pwm_144(uint8_t *pwm, uint8_t bank)
     {
         charlieplex_write_register_144(bank, 0x24, pwm);
@@ -133,6 +147,21 @@ namespace matrix
     {
 
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
+
+        charlieplex_clear(); // all leds on & 0 pwm
+
+        // Picture mode. Just display frame 0 for now
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
+
+        for (uint8_t f = 0; f < 8; f++)
+        {
+            for (uint8_t i = 0; i <= 0x11; i++)
+            {
+                charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
+            }
+        }
+
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
 
         const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
