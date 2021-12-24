@@ -37,6 +37,8 @@ namespace inventory
     const char NVS_NAMESPACE[] = "blinky";
     const char NVS_KEY[] = "inventory";
 
+    bool f_nvs_flash_init_called = false;
+
     void setup()
     {
         // if pin 7 is high, reset!
@@ -63,6 +65,7 @@ namespace inventory
             err = nvs_flash_init();
         }
         ESP_ERROR_CHECK(err);
+        f_nvs_flash_init_called = true;
 
         nvs_handle_t hnvs;
         ESP_ERROR_CHECK(nvs_open(NVS_NAMESPACE, NVS_READWRITE, &hnvs));
@@ -147,6 +150,13 @@ namespace inventory
             currentAnimation = animation;
 
             nvs_handle_t hnvs;
+
+            if (!f_nvs_flash_init_called)
+            {
+                ESP_ERROR_CHECK(nvs_flash_init());
+                f_nvs_flash_init_called = true;
+            }
+
             ESP_ERROR_CHECK(nvs_open(NVS_NAMESPACE, NVS_READWRITE, &hnvs));
             size_t cb = sizeof(inventory);
             ESP_ERROR_CHECK(nvs_set_blob(hnvs, NVS_KEY, &inventory, cb));

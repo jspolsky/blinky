@@ -64,6 +64,7 @@ namespace ir
     static rmt_channel_t rx_channel = RMT_CHANNEL_2;
 
     static uint16_t myAnimation;
+    QueueHandle_t queue;
 
     void transmit(void *arg)
     {
@@ -142,11 +143,8 @@ namespace ir
                         // ignore my own animation -- I sent it myself
                         if (addr == NEC_ADDRESS_BLINKY && *pcmd != cmd && !fReceived)
                         {
-                            ESP_LOGI(TAG, "Received animation %d", cmd);
-
-                            ESP_ERROR_CHECK(nvs_flash_init());
-                            matrix::displayAnimation(inventory::addToInventory(cmd));
-
+                            ESP_LOGI(TAG, "Thread received animation %d", cmd);
+                            xQueueSend(queue, &cmd, 0);
                             fReceived = true;
                         }
                     }
@@ -177,6 +175,7 @@ namespace ir
         uint64_t tmButtonUp = 0;
 
         myAnimation = _myAnimation; // can't be in the stack according to task rules
+        queue = xQueueCreate(16, sizeof(uint16_t));
 
         xTaskCreate(receive, "ir_rx_task", 2048, &myAnimation, 10, NULL);
         xTaskCreate(transmit, "ir_tx_task", 2048, &myAnimation, 10, NULL);
@@ -201,13 +200,19 @@ namespace ir
                 break;
             }
 
+            uint16_t receivedAnimation = 0;
+            if (xQueueReceive(queue, &receivedAnimation, 0))
+            {
+                ESP_LOGI(TAG, "thread notified me that it received animation %d", receivedAnimation);
+                matrix::displayAnimation(inventory::addToInventory(receivedAnimation));
+            }
+
             vTaskDelay(10);
         }
 
         ESP_LOGI(TAG, "Exchange protocol ending");
 
-        // when this function we go into deep sleep again.
-        // That will kill both tasks.
+        // when this function returns we go into deep sleep again.
     }
 
 }
