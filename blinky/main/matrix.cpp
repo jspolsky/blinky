@@ -143,6 +143,11 @@ namespace matrix
         charlieplex_write_register_144(bank, 0x24, pwm);
     }
 
+    void powerOff()
+    {
+        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
+    }
+
     void displayAnimation(uint16_t animationNumber, bool fAtPowerOn)
     {
 

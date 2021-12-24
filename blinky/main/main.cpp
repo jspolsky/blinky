@@ -31,10 +31,17 @@ extern "C" void app_main(void)
     ir::setup();
     matrix::setup();
 
-    switch (esp_sleep_get_wakeup_cause())
+    esp_sleep_wakeup_cause_t wakeup_cause = esp_sleep_get_wakeup_cause();
+
+    switch (wakeup_cause)
     {
     case ESP_SLEEP_WAKEUP_GPIO:
         button::wakeup(ShortPress, LongPress);
+        break;
+
+    case ESP_SLEEP_WAKEUP_TIMER:
+        ESP_LOGI(TAG, "time up!");
+        matrix::powerOff();
         break;
 
     default: /* initial power up */
@@ -48,6 +55,12 @@ extern "C" void app_main(void)
         // show the first animation
         matrix::displayAnimation(inventory::getCurrentAnimation(), true);
         break;
+    }
+
+    if (wakeup_cause != ESP_SLEEP_WAKEUP_TIMER)
+    {
+        //  don't wake up more than once from timer
+        esp_sleep_enable_timer_wakeup(5 * 1000 * 1000);
     }
 
     esp_deep_sleep_enable_gpio_wakeup(BIT(PIN_BUTTON), ESP_GPIO_WAKEUP_GPIO_HIGH);

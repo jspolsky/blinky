@@ -4,6 +4,7 @@ namespace matrix
 {
     void setup();
     void displayAnimation(uint16_t animationNumber, bool fAtPowerOn = false);
+    void powerOff();
 
     const uint8_t ISSI_COMMANDREGISTER = 0xFD;
     const uint8_t ISSI_BANK_FUNCTIONREG = 0x0B;

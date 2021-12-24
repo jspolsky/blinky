@@ -68,6 +68,8 @@ namespace ir
 
     void setup()
     {
+        gpio_set_direction(PIN_IR_RX_POWER, GPIO_MODE_OUTPUT);
+        gpio_set_level(PIN_IR_RX_POWER, 0);
     }
 
     void transmit(void *arg)
@@ -120,6 +122,9 @@ namespace ir
         RingbufHandle_t rb = NULL;
         rmt_item32_t *items = NULL;
 
+        // power up the IR receiver
+        gpio_set_level(PIN_IR_RX_POWER, 1);
+
         rmt_config_t rmt_rx_config = LOCAL_RMT_DEFAULT_CONFIG_RX(PIN_IR_RX, rx_channel);
         rmt_config(&rmt_rx_config);
         rmt_driver_install(rx_channel, 1000, 0);
@@ -131,6 +136,7 @@ namespace ir
         //get RMT RX ringbuffer
         rmt_get_ringbuf_handle(rx_channel, &rb);
         assert(rb != NULL);
+
         // Start receive
         rmt_rx_start(rx_channel, true);
         bool fReceived = false;
@@ -159,6 +165,10 @@ namespace ir
         }
         ir_parser->del(ir_parser);
         rmt_driver_uninstall(rx_channel);
+
+        // power down the IR receiver
+        gpio_set_level(PIN_IR_RX_POWER, 0);
+
         vTaskDelete(NULL);
     }
 
