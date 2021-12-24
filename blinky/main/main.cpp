@@ -62,6 +62,5 @@ void ShortPress()
 void LongPress()
 {
     ESP_LOGI(TAG, "Long Press Start");
-    matrix::displayAnimation(0);
     ir::exchange_protocol(inventory::getMyAnimation());
 }

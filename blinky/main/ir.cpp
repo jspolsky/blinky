@@ -173,6 +173,8 @@ namespace ir
         ESP_LOGI(TAG, "Exchange protocol starting");
         uint64_t tmStart = esp_timer_get_time();
         uint64_t tmButtonUp = 0;
+        bool fNewAnimationReceived = false;
+        matrix::displayAnimation(0);
 
         myAnimation = _myAnimation; // can't be in the stack according to task rules
         queue = xQueueCreate(16, sizeof(uint16_t));
@@ -205,12 +207,17 @@ namespace ir
             {
                 ESP_LOGI(TAG, "thread notified me that it received animation %d", receivedAnimation);
                 matrix::displayAnimation(inventory::addToInventory(receivedAnimation));
+                fNewAnimationReceived = true;
             }
 
             vTaskDelay(10);
         }
 
         ESP_LOGI(TAG, "Exchange protocol ending");
+        if (!fNewAnimationReceived)
+        {
+            matrix::displayAnimation(inventory::getCurrentAnimation());
+        }
 
         // when this function returns we go into deep sleep again.
     }
