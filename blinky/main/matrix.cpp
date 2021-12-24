@@ -143,26 +143,29 @@ namespace matrix
         charlieplex_write_register_144(bank, 0x24, pwm);
     }
 
-    void displayAnimation(uint16_t animationNumber)
+    void displayAnimation(uint16_t animationNumber, bool fAtPowerOn)
     {
 
         charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0);
 
-        charlieplex_clear(); // all leds on & 0 pwm
-
-        // Picture mode. Just display frame 0 for now
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
-
-        for (uint8_t f = 0; f < 8; f++)
+        if (fAtPowerOn)
         {
-            for (uint8_t i = 0; i <= 0x11; i++)
-            {
-                charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
-            }
-        }
+            charlieplex_clear(); // all leds on & 0 pwm
 
-        charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
+            // Picture mode. Just display frame 0 for now
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG, ISSI_REG_CONFIG_PICTUREMODE);
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_PICTUREFRAME, 0);
+
+            for (uint8_t f = 0; f < 8; f++)
+            {
+                for (uint8_t i = 0; i <= 0x11; i++)
+                {
+                    charlieplex_write_register_byte(f, i, 0xff); // each 8 LEDs on
+                }
+            }
+
+            charlieplex_write_register_byte(ISSI_BANK_FUNCTIONREG, ISSI_REG_AUDIOSYNC, 0); // not doing audio sync ever
+        }
 
         const uint8_t cFrames = animations::getAnimationFrameCount(animationNumber);
         uint16_t delay = animations::getAnimationDelayMs(animationNumber);

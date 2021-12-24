@@ -2,6 +2,7 @@
 
 namespace ir
 {
+    void setup();
     void transmit(void *arg);
     void receive(void *arg);
 

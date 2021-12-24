@@ -66,6 +66,10 @@ namespace ir
     static uint16_t myAnimation;
     QueueHandle_t queue;
 
+    void setup()
+    {
+    }
+
     void transmit(void *arg)
     {
         uint16_t *pcmd = (uint16_t *)arg;

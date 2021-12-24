@@ -28,6 +28,7 @@ void LongPress(void);
 
 extern "C" void app_main(void)
 {
+    ir::setup();
     matrix::setup();
 
     switch (esp_sleep_get_wakeup_cause())
@@ -45,7 +46,7 @@ extern "C" void app_main(void)
         rgbled::show_rainbow();
 
         // show the first animation
-        matrix::displayAnimation(inventory::getCurrentAnimation());
+        matrix::displayAnimation(inventory::getCurrentAnimation(), true);
         break;
     }
 
