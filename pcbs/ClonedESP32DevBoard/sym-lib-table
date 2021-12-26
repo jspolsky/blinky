@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ClonedESP32DevBoard-rescue)(type Legacy)(uri ${KIPRJMOD}/ClonedESP32DevBoard-rescue.lib)(options "")(descr ""))
+)

@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Joels_KiCad_Symbol_Library:Adafruit_CP2104_Friend J1
+L ClonedESP32DevBoard-rescue:Adafruit_CP2104_Friend-Joels_KiCad_Symbol_Library J1
 U 1 1 61BD45F6
 P 1850 1450
 F 0 "J1" H 1875 1565 50  0000 C CNN
@@ -514,7 +514,7 @@ Wire Notes Line
 Wire Notes Line
 	1050 6750 1050 5100
 $Comp
-L Joels_KiCad_Symbol_Library:MIC5225-3.3YM5 U2
+L ClonedESP32DevBoard-rescue:MIC5225-3.3YM5-Joels_KiCad_Symbol_Library U2
 U 1 1 61C1FF3E
 P 6750 5550
 F 0 "U2" H 7300 5815 50  0000 C CNN
@@ -729,7 +729,7 @@ $EndComp
 Wire Wire Line
 	8100 3750 7850 3750
 $Comp
-L Joels_KiCad_Symbol_Library:ESP32-C3-MINI-1-H4 IC1
+L ClonedESP32DevBoard-rescue:ESP32-C3-MINI-1-H4-Joels_KiCad_Symbol_Library IC1
 U 1 1 61D1A13C
 P 11400 1650
 F 0 "IC1" H 12050 1915 50  0000 C CNN

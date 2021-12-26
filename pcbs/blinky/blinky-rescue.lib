@@ -1,0 +1,175 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# ATSAMD21E18A-AF-Joels_KiCad_Symbol_Library
+#
+DEF ATSAMD21E18A-AF-Joels_KiCad_Symbol_Library U 0 10 Y Y 1 L N
+F0 "U" 1000 400 60 H V C CNN
+F1 "ATSAMD21E18A-AF-Joels_KiCad_Symbol_Library" 1000 300 60 H V C CNN
+F2 "TQFP32_MC_MCH" 1000 240 60 H I C CNN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ TQFP32_MC_MCH
+ TQFP32_MC_MCH-M
+ TQFP32_MC_MCH-L
+$ENDFPLIST
+DRAW
+P 2 1 1 5 300 -1700 1700 -1700 N
+P 2 1 1 5 300 200 300 -1700 N
+P 2 1 1 5 1700 -1700 1700 200 N
+P 2 1 1 5 1700 200 300 200 N
+X PA00 1 0 0 300 R 59 59 1 1 B
+X GND 10 0 -900 300 R 59 59 1 1 W
+X PA08 11 0 -1000 300 R 59 59 1 1 B
+X PA09 12 0 -1100 300 R 59 59 1 1 B
+X PA10 13 0 -1200 300 R 59 59 1 1 B
+X PA11 14 0 -1300 300 R 59 59 1 1 B
+X PA14 15 0 -1400 300 R 59 59 1 1 B
+X PA15 16 0 -1500 300 R 59 59 1 1 B
+X PA16 17 2000 -1500 300 L 59 59 1 1 B
+X PA17 18 2000 -1400 300 L 59 59 1 1 B
+X PA18 19 2000 -1300 300 L 59 59 1 1 B
+X PA01 2 0 -100 300 R 59 59 1 1 B
+X PA19 20 2000 -1200 300 L 59 59 1 1 B
+X PA22 21 2000 -1100 300 L 59 59 1 1 B
+X PA23 22 2000 -1000 300 L 59 59 1 1 B
+X PA24 23 2000 -900 300 L 59 59 1 1 B
+X PA25 24 2000 -800 300 L 59 59 1 1 B
+X PA27 25 2000 -700 300 L 59 59 1 1 B
+X ~RESET 26 2000 -600 300 L 59 59 1 1 I I
+X PA28 27 2000 -500 300 L 59 59 1 1 B
+X GNDA 28 2000 -400 300 L 59 59 1 1 W
+X VDDCORE 29 2000 -300 300 L 59 59 1 1 W
+X PA02 3 0 -200 300 R 59 59 1 1 B
+X VDDIN 30 2000 -200 300 L 59 59 1 1 W
+X PA30/SWCLK 31 2000 -100 300 L 59 59 1 1 B
+X PA31/SWDIO 32 2000 0 300 L 59 59 1 1 B
+X PA03 4 0 -300 300 R 59 59 1 1 B
+X PA04 5 0 -400 300 R 59 59 1 1 B
+X PA05 6 0 -500 300 R 59 59 1 1 B
+X PA06 7 0 -600 300 R 59 59 1 1 B
+X PA07 8 0 -700 300 R 59 59 1 1 B
+X VDDANA 9 0 -800 300 R 59 59 1 1 W
+ENDDRAW
+ENDDEF
+#
+# MIC5225-3.3YM5-Joels_KiCad_Symbol_Library
+#
+DEF MIC5225-3.3YM5-Joels_KiCad_Symbol_Library U 0 40 Y Y 1 L N
+F0 "U" 0 200 50 H V L CNN
+F1 "MIC5225-3.3YM5-Joels_KiCad_Symbol_Library" 0 300 50 H V L CNN
+F2 "Microchip_Technology-SOT23-5LD-PL-1-0-0-*" 0 400 50 H I L CNN
+F3 "http://ww1.microchip.com/downloads/en/DeviceDoc/mic5225.pdf" 0 500 50 H I L CNN
+F4 "1%" 0 600 50 H I L CNN "accuracy percentage"
+F5 "No" 0 700 50 H I L CNN "automotive"
+F6 "IC" 0 800 50 H I L CNN "category"
+F7 "Integrated Circuits (ICs)" 0 900 50 H I L CNN "device class L1"
+F8 "Power Management ICs" 0 1000 50 H I L CNN "device class L2"
+F9 "Voltage Regulators - Linear" 0 1100 50 H I L CNN "device class L3"
+F10 "IC REG LINEAR 3.3V 150MA SOT23-5" 0 1200 50 H I L CNN "digikey description"
+F11 "576-2980-1-ND" 0 1300 50 H I L CNN "digikey part number"
+F12 "310mV" 0 1400 50 H I L CNN "dropout voltage"
+F13 "1.45mm" 0 1500 50 H I L CNN "height"
+F14 "Yes" 0 1600 50 H I L CNN "lead free"
+F15 "4928afa3c5097de1" 0 1700 50 H I L CNN "library id"
+F16 "Microchip Technology" 0 1800 50 H I L CNN "manufacturer"
+F17 "+125°C" 0 1900 50 H I L CNN "max junction temp"
+F18 "16V" 0 2000 50 H I L CNN "max supply voltage"
+F19 "2.3V" 0 2100 50 H I L CNN "min supply voltage"
+F20 "LDO Voltage Regulators High Vin, Low Iq Regulator (Lead Free)\\n\\n" 0 2200 50 H I L CNN "mouser description"
+F21 "998-MIC5225-3.3YM5TR" 0 2300 50 H I L CNN "mouser part number"
+F22 "29-3000uA" 0 2400 50 H I L CNN "nominal supply current"
+F23 "1" 0 2500 50 H I L CNN "number of outputs"
+F24 "150mA" 0 2600 50 H I L CNN "output current"
+F25 "Fixed" 0 2700 50 H I L CNN "output type"
+F26 "3.3V" 0 2800 50 H I L CNN "output voltage"
+F27 "SOT23-5" 0 2900 50 H I L CNN "package"
+F28 "Yes" 0 3000 50 H I L CNN "rohs"
+F29 "0mm" 0 3100 50 H I L CNN "standoff height"
+F30 "+125°C" 0 3200 50 H I L CNN "temperature range high"
+F31 "-40°C" 0 3300 50 H I L CNN "temperature range low"
+DRAW
+S 200 100 900 -500 1 1 0 f
+X IN 1 100 0 100 R 40 40 1 1 W
+X GND 2 1000 -400 100 L 40 40 1 1 W
+X EN 3 100 -400 100 R 40 40 1 1 I
+X NC 4 1000 -200 100 L 40 40 1 1 P
+X OUT 5 1000 0 100 L 40 40 1 1 w
+ENDDRAW
+ENDDEF
+#
+# PMBT2222A,215-Joels_KiCad_Symbol_Library
+#
+DEF PMBT2222A,215-Joels_KiCad_Symbol_Library Q 0 40 Y Y 1 L N
+F0 "Q" 0 300 50 H V L CNN
+F1 "PMBT2222A,215-Joels_KiCad_Symbol_Library" 0 400 50 H V L CNN
+F2 "NXP-TO-236AB-0-0-*" 0 500 50 H I L CNN
+F3 "https://assets.nexperia.com/documents/data-sheet/PMBT2222_PMBT2222A.pdf" 0 600 50 H I L CNN
+F4 "Trans" 0 700 50 H I L CNN "category"
+F5 "TRANS NPN 40V 0.6A SOT23" 0 800 50 H I L CNN "digikey description"
+F6 "1727-2956-1-ND" 0 900 50 H I L CNN "digikey part number"
+F7 "yes" 0 1000 50 H I L CNN "lead free"
+F8 "3ca805172c8d0c0d" 0 1100 50 H I L CNN "library id"
+F9 "NXP" 0 1200 50 H I L CNN "manufacturer"
+F10 "771-PMBT2222A-T/R" 0 1300 50 H I L CNN "mouser part number"
+F11 "SOT23" 0 1400 50 H I L CNN "package"
+F12 "yes" 0 1500 50 H I L CNN "rohs"
+F13 "+150°C" 0 1600 50 H I L CNN "temperature range high"
+F14 "-65°C" 0 1700 50 H I L CNN "temperature range low"
+DRAW
+P 2 1 1 0 200 -50 300 -100 N
+P 2 1 1 0 200 50 300 100 N
+P 2 1 1 0 200 100 200 -100 N
+P 2 1 1 0 240 -90 260 -60 N
+P 2 1 1 0 240 -90 300 -100 N
+P 2 1 1 0 260 -60 300 -100 N
+X base 1 100 0 100 R 40 0 1 1 P
+X emitter 2 300 -200 100 U 40 0 1 1 P
+X collector 3 300 200 100 D 40 0 1 1 P
+ENDDRAW
+ENDDEF
+#
+# TSOP754xxW-Joels_KiCad_Symbol_Library
+#
+DEF TSOP754xxW-Joels_KiCad_Symbol_Library U 0 20 Y Y 1 F N
+F0 "U" -400 300 50 H V L CNN
+F1 "TSOP754xxW-Joels_KiCad_Symbol_Library" -400 -300 50 H V L CNN
+F2 "OptoDevice:Vishay_CAST-4Pin" -50 -375 50 H I C CNN
+F3 "" 650 300 50 H I C CNN
+$FPLIST
+ Vishay*CAST*
+$ENDFPLIST
+DRAW
+A -360 -7 77 1260 -1255 0 0 10 f -405 55 -405 -70
+T 900 -125 10 60 0 0 0 DEMOD Normal 0 C C
+S -240 220 5 -220 0 1 0 N
+S 100 50 50 175 0 1 0 N
+S 300 250 -400 -250 0 1 10 f
+P 2 0 0 0 75 -200 5 -200 N
+P 2 0 0 0 75 200 5 200 N
+P 2 0 1 0 -345 15 -380 50 N
+P 2 0 1 0 -345 15 -365 15 N
+P 2 0 1 0 -345 15 -345 35 N
+P 2 0 1 0 -340 -25 -375 10 N
+P 2 0 1 0 -340 -25 -360 -25 N
+P 2 0 1 0 -340 -25 -340 -5 N
+P 2 0 1 0 -330 -40 -265 -40 N
+P 2 0 1 0 50 -115 5 -115 N
+P 2 0 1 0 50 -75 50 -150 N
+P 2 0 1 0 55 -140 60 -140 N
+P 2 0 1 0 65 -140 60 -140 N
+P 2 0 1 0 65 -140 65 -130 N
+P 2 0 1 0 75 0 75 50 N
+P 3 0 1 0 75 175 75 200 100 200 N
+P 4 0 1 0 -330 25 -265 25 -300 -40 -330 25 F
+P 4 0 1 0 -240 55 -300 55 -300 -70 -240 -70 N
+P 4 0 1 0 50 -125 75 -150 75 -200 100 -200 N
+P 4 0 1 0 50 -100 75 -75 75 0 100 0 N
+X GND 1 400 -200 100 L 50 50 1 1 W
+X Vs 2 400 200 100 L 50 50 1 1 W
+X OUT 3 400 50 100 L 50 50 1 1 O
+X GND 4 400 -100 100 L 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+#End Library
