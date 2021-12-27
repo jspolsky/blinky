@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <ArduinoLowPower.h>
+#include <SPI.h>
 
 #include "matrix.h"
 #include "util.h"
