@@ -1325,4 +1325,3114 @@ Wire Wire Line
 	10650 1550 11000 1550
 Wire Wire Line
 	10650 1650 11000 1650
+$Comp
+L Device:LED D1.1
+U 1 1 61AB81B3
+P 5800 5600
+F 0 "D1.1" V 5800 5650 30  0000 L CNN
+F 1 "LED" V 5838 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 5600 50  0001 C CNN
+F 3 "~" H 5800 5600 50  0001 C CNN
+	1    5800 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.2
+U 1 1 61B0B627
+P 6050 5600
+F 0 "D1.2" V 6043 5680 30  0000 L CNN
+F 1 "LED" V 6088 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 5600 50  0001 C CNN
+F 3 "~" H 6050 5600 50  0001 C CNN
+	1    6050 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.3
+U 1 1 61B10172
+P 6300 5600
+F 0 "D1.3" V 6293 5680 30  0000 L CNN
+F 1 "LED" V 6338 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 5600 50  0001 C CNN
+F 3 "~" H 6300 5600 50  0001 C CNN
+	1    6300 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.4
+U 1 1 61B14BA9
+P 6550 5600
+F 0 "D1.4" V 6543 5680 30  0000 L CNN
+F 1 "LED" V 6588 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 5600 50  0001 C CNN
+F 3 "~" H 6550 5600 50  0001 C CNN
+	1    6550 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.5
+U 1 1 61B1A830
+P 6800 5600
+F 0 "D1.5" V 6793 5680 30  0000 L CNN
+F 1 "LED" V 6838 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 5600 50  0001 C CNN
+F 3 "~" H 6800 5600 50  0001 C CNN
+	1    6800 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.6
+U 1 1 61B1A836
+P 7050 5600
+F 0 "D1.6" V 7043 5680 30  0000 L CNN
+F 1 "LED" V 7088 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 5600 50  0001 C CNN
+F 3 "~" H 7050 5600 50  0001 C CNN
+	1    7050 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.7
+U 1 1 61B1A83C
+P 7300 5600
+F 0 "D1.7" V 7293 5680 30  0000 L CNN
+F 1 "LED" V 7338 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 5600 50  0001 C CNN
+F 3 "~" H 7300 5600 50  0001 C CNN
+	1    7300 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.8
+U 1 1 61B1A842
+P 7550 5600
+F 0 "D1.8" V 7543 5680 30  0000 L CNN
+F 1 "LED" V 7588 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 5600 50  0001 C CNN
+F 3 "~" H 7550 5600 50  0001 C CNN
+	1    7550 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.9
+U 1 1 61B88824
+P 7950 5600
+F 0 "D1.9" V 7943 5680 30  0000 L CNN
+F 1 "LED" V 7988 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 5600 50  0001 C CNN
+F 3 "~" H 7950 5600 50  0001 C CNN
+	1    7950 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.10
+U 1 1 61B8882A
+P 8200 5600
+F 0 "D1.10" V 8193 5680 30  0000 L CNN
+F 1 "LED" V 8238 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 5600 50  0001 C CNN
+F 3 "~" H 8200 5600 50  0001 C CNN
+	1    8200 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.11
+U 1 1 61B88830
+P 8450 5600
+F 0 "D1.11" V 8443 5680 30  0000 L CNN
+F 1 "LED" V 8488 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 5600 50  0001 C CNN
+F 3 "~" H 8450 5600 50  0001 C CNN
+	1    8450 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.12
+U 1 1 61B88836
+P 8700 5600
+F 0 "D1.12" V 8693 5680 30  0000 L CNN
+F 1 "LED" V 8738 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 5600 50  0001 C CNN
+F 3 "~" H 8700 5600 50  0001 C CNN
+	1    8700 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.13
+U 1 1 61B8883C
+P 8950 5600
+F 0 "D1.13" V 8943 5680 30  0000 L CNN
+F 1 "LED" V 8988 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 5600 50  0001 C CNN
+F 3 "~" H 8950 5600 50  0001 C CNN
+	1    8950 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.14
+U 1 1 61B88842
+P 9200 5600
+F 0 "D1.14" V 9193 5680 30  0000 L CNN
+F 1 "LED" V 9238 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 5600 50  0001 C CNN
+F 3 "~" H 9200 5600 50  0001 C CNN
+	1    9200 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.15
+U 1 1 61B88848
+P 9450 5600
+F 0 "D1.15" V 9443 5680 30  0000 L CNN
+F 1 "LED" V 9488 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 5600 50  0001 C CNN
+F 3 "~" H 9450 5600 50  0001 C CNN
+	1    9450 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D1.16
+U 1 1 61B8884E
+P 9700 5600
+F 0 "D1.16" V 9693 5680 30  0000 L CNN
+F 1 "LED" V 9738 5680 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 5600 50  0001 C CNN
+F 3 "~" H 9700 5600 50  0001 C CNN
+	1    9700 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.1
+U 1 1 61BFE66C
+P 5800 6250
+F 0 "D2.1" V 5793 6330 30  0000 L CNN
+F 1 "LED" V 5838 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 6250 50  0001 C CNN
+F 3 "~" H 5800 6250 50  0001 C CNN
+	1    5800 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.2
+U 1 1 61BFE672
+P 6050 6250
+F 0 "D2.2" V 6043 6330 30  0000 L CNN
+F 1 "LED" V 6088 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 6250 50  0001 C CNN
+F 3 "~" H 6050 6250 50  0001 C CNN
+	1    6050 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.3
+U 1 1 61BFE678
+P 6300 6250
+F 0 "D2.3" V 6293 6330 30  0000 L CNN
+F 1 "LED" V 6338 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 6250 50  0001 C CNN
+F 3 "~" H 6300 6250 50  0001 C CNN
+	1    6300 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.4
+U 1 1 61BFE67E
+P 6550 6250
+F 0 "D2.4" V 6543 6330 30  0000 L CNN
+F 1 "LED" V 6588 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 6250 50  0001 C CNN
+F 3 "~" H 6550 6250 50  0001 C CNN
+	1    6550 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.5
+U 1 1 61BFE684
+P 6800 6250
+F 0 "D2.5" V 6793 6330 30  0000 L CNN
+F 1 "LED" V 6838 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 6250 50  0001 C CNN
+F 3 "~" H 6800 6250 50  0001 C CNN
+	1    6800 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.6
+U 1 1 61BFE68A
+P 7050 6250
+F 0 "D2.6" V 7043 6330 30  0000 L CNN
+F 1 "LED" V 7088 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 6250 50  0001 C CNN
+F 3 "~" H 7050 6250 50  0001 C CNN
+	1    7050 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.7
+U 1 1 61BFE690
+P 7300 6250
+F 0 "D2.7" V 7293 6330 30  0000 L CNN
+F 1 "LED" V 7338 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 6250 50  0001 C CNN
+F 3 "~" H 7300 6250 50  0001 C CNN
+	1    7300 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.8
+U 1 1 61BFE696
+P 7550 6250
+F 0 "D2.8" V 7543 6330 30  0000 L CNN
+F 1 "LED" V 7588 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 6250 50  0001 C CNN
+F 3 "~" H 7550 6250 50  0001 C CNN
+	1    7550 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.9
+U 1 1 61BFE69C
+P 7950 6250
+F 0 "D2.9" V 7943 6330 30  0000 L CNN
+F 1 "LED" V 7988 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 6250 50  0001 C CNN
+F 3 "~" H 7950 6250 50  0001 C CNN
+	1    7950 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.10
+U 1 1 61BFE6A2
+P 8200 6250
+F 0 "D2.10" V 8193 6330 30  0000 L CNN
+F 1 "LED" V 8238 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 6250 50  0001 C CNN
+F 3 "~" H 8200 6250 50  0001 C CNN
+	1    8200 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.11
+U 1 1 61BFE6A8
+P 8450 6250
+F 0 "D2.11" V 8443 6330 30  0000 L CNN
+F 1 "LED" V 8488 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 6250 50  0001 C CNN
+F 3 "~" H 8450 6250 50  0001 C CNN
+	1    8450 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.12
+U 1 1 61BFE6AE
+P 8700 6250
+F 0 "D2.12" V 8693 6330 30  0000 L CNN
+F 1 "LED" V 8738 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 6250 50  0001 C CNN
+F 3 "~" H 8700 6250 50  0001 C CNN
+	1    8700 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.13
+U 1 1 61BFE6B4
+P 8950 6250
+F 0 "D2.13" V 8943 6330 30  0000 L CNN
+F 1 "LED" V 8988 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 6250 50  0001 C CNN
+F 3 "~" H 8950 6250 50  0001 C CNN
+	1    8950 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.14
+U 1 1 61BFE6BA
+P 9200 6250
+F 0 "D2.14" V 9193 6330 30  0000 L CNN
+F 1 "LED" V 9238 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 6250 50  0001 C CNN
+F 3 "~" H 9200 6250 50  0001 C CNN
+	1    9200 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.15
+U 1 1 61BFE6C0
+P 9450 6250
+F 0 "D2.15" V 9443 6330 30  0000 L CNN
+F 1 "LED" V 9488 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 6250 50  0001 C CNN
+F 3 "~" H 9450 6250 50  0001 C CNN
+	1    9450 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D2.16
+U 1 1 61BFE6C6
+P 9700 6250
+F 0 "D2.16" V 9693 6330 30  0000 L CNN
+F 1 "LED" V 9738 6330 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 6250 50  0001 C CNN
+F 3 "~" H 9700 6250 50  0001 C CNN
+	1    9700 6250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.10
+U 1 1 61D6EE33
+P 8200 6900
+F 0 "D3.10" V 8193 6980 30  0000 L CNN
+F 1 "LED" V 8238 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 6900 50  0001 C CNN
+F 3 "~" H 8200 6900 50  0001 C CNN
+	1    8200 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.11
+U 1 1 61D6EE39
+P 8450 6900
+F 0 "D3.11" V 8443 6980 30  0000 L CNN
+F 1 "LED" V 8488 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 6900 50  0001 C CNN
+F 3 "~" H 8450 6900 50  0001 C CNN
+	1    8450 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.12
+U 1 1 61D6EE3F
+P 8700 6900
+F 0 "D3.12" V 8693 6980 30  0000 L CNN
+F 1 "LED" V 8738 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 6900 50  0001 C CNN
+F 3 "~" H 8700 6900 50  0001 C CNN
+	1    8700 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.13
+U 1 1 61D6EE45
+P 8950 6900
+F 0 "D3.13" V 8943 6980 30  0000 L CNN
+F 1 "LED" V 8988 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 6900 50  0001 C CNN
+F 3 "~" H 8950 6900 50  0001 C CNN
+	1    8950 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.14
+U 1 1 61D6EE4B
+P 9200 6900
+F 0 "D3.14" V 9193 6980 30  0000 L CNN
+F 1 "LED" V 9238 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 6900 50  0001 C CNN
+F 3 "~" H 9200 6900 50  0001 C CNN
+	1    9200 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.15
+U 1 1 61D6EE51
+P 9450 6900
+F 0 "D3.15" V 9443 6980 30  0000 L CNN
+F 1 "LED" V 9488 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 6900 50  0001 C CNN
+F 3 "~" H 9450 6900 50  0001 C CNN
+	1    9450 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.16
+U 1 1 61D6EE57
+P 9700 6900
+F 0 "D3.16" V 9693 6980 30  0000 L CNN
+F 1 "LED" V 9738 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 6900 50  0001 C CNN
+F 3 "~" H 9700 6900 50  0001 C CNN
+	1    9700 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.1
+U 1 1 6209D248
+P 5800 7550
+F 0 "D4.1" V 5793 7630 30  0000 L CNN
+F 1 "LED" V 5838 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 7550 50  0001 C CNN
+F 3 "~" H 5800 7550 50  0001 C CNN
+	1    5800 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.2
+U 1 1 620B7A15
+P 6050 7550
+F 0 "D4.2" V 6043 7630 30  0000 L CNN
+F 1 "LED" V 6088 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 7550 50  0001 C CNN
+F 3 "~" H 6050 7550 50  0001 C CNN
+	1    6050 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.3
+U 1 1 620D252C
+P 6300 7550
+F 0 "D4.3" V 6293 7630 30  0000 L CNN
+F 1 "LED" V 6338 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 7550 50  0001 C CNN
+F 3 "~" H 6300 7550 50  0001 C CNN
+	1    6300 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.4
+U 1 1 620D2532
+P 6550 7550
+F 0 "D4.4" V 6543 7630 30  0000 L CNN
+F 1 "LED" V 6588 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 7550 50  0001 C CNN
+F 3 "~" H 6550 7550 50  0001 C CNN
+	1    6550 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.5
+U 1 1 620ED9ED
+P 6800 7550
+F 0 "D4.5" V 6793 7630 30  0000 L CNN
+F 1 "LED" V 6838 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 7550 50  0001 C CNN
+F 3 "~" H 6800 7550 50  0001 C CNN
+	1    6800 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.6
+U 1 1 620ED9F3
+P 7050 7550
+F 0 "D4.6" V 7043 7630 30  0000 L CNN
+F 1 "LED" V 7088 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 7550 50  0001 C CNN
+F 3 "~" H 7050 7550 50  0001 C CNN
+	1    7050 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.7
+U 1 1 620ED9F9
+P 7300 7550
+F 0 "D4.7" V 7293 7630 30  0000 L CNN
+F 1 "LED" V 7338 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 7550 50  0001 C CNN
+F 3 "~" H 7300 7550 50  0001 C CNN
+	1    7300 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.8
+U 1 1 620ED9FF
+P 7550 7550
+F 0 "D4.8" V 7543 7630 30  0000 L CNN
+F 1 "LED" V 7588 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 7550 50  0001 C CNN
+F 3 "~" H 7550 7550 50  0001 C CNN
+	1    7550 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.9
+U 1 1 6210B7C8
+P 7950 7550
+F 0 "D4.9" V 7943 7630 30  0000 L CNN
+F 1 "LED" V 7988 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 7550 50  0001 C CNN
+F 3 "~" H 7950 7550 50  0001 C CNN
+	1    7950 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.10
+U 1 1 6210B7CE
+P 8200 7550
+F 0 "D4.10" V 8193 7630 30  0000 L CNN
+F 1 "LED" V 8238 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 7550 50  0001 C CNN
+F 3 "~" H 8200 7550 50  0001 C CNN
+	1    8200 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.11
+U 1 1 6210B7D4
+P 8450 7550
+F 0 "D4.11" V 8443 7630 30  0000 L CNN
+F 1 "LED" V 8488 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 7550 50  0001 C CNN
+F 3 "~" H 8450 7550 50  0001 C CNN
+	1    8450 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.12
+U 1 1 6210B7DA
+P 8700 7550
+F 0 "D4.12" V 8693 7630 30  0000 L CNN
+F 1 "LED" V 8738 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 7550 50  0001 C CNN
+F 3 "~" H 8700 7550 50  0001 C CNN
+	1    8700 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.13
+U 1 1 6210B7E0
+P 8950 7550
+F 0 "D4.13" V 8943 7630 30  0000 L CNN
+F 1 "LED" V 8988 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 7550 50  0001 C CNN
+F 3 "~" H 8950 7550 50  0001 C CNN
+	1    8950 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.14
+U 1 1 6210B7E6
+P 9200 7550
+F 0 "D4.14" V 9193 7630 30  0000 L CNN
+F 1 "LED" V 9238 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 7550 50  0001 C CNN
+F 3 "~" H 9200 7550 50  0001 C CNN
+	1    9200 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.15
+U 1 1 6210B7EC
+P 9450 7550
+F 0 "D4.15" V 9443 7630 30  0000 L CNN
+F 1 "LED" V 9488 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 7550 50  0001 C CNN
+F 3 "~" H 9450 7550 50  0001 C CNN
+	1    9450 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D4.16
+U 1 1 6210B7F2
+P 9700 7550
+F 0 "D4.16" V 9693 7630 30  0000 L CNN
+F 1 "LED" V 9738 7630 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 7550 50  0001 C CNN
+F 3 "~" H 9700 7550 50  0001 C CNN
+	1    9700 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.1
+U 1 1 62178057
+P 5800 8200
+F 0 "D5.1" V 5793 8280 30  0000 L CNN
+F 1 "LED" V 5838 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 8200 50  0001 C CNN
+F 3 "~" H 5800 8200 50  0001 C CNN
+	1    5800 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.2
+U 1 1 62192D2F
+P 6050 8200
+F 0 "D5.2" V 6043 8280 30  0000 L CNN
+F 1 "LED" V 6088 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 8200 50  0001 C CNN
+F 3 "~" H 6050 8200 50  0001 C CNN
+	1    6050 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.3
+U 1 1 621AEAF3
+P 6300 8200
+F 0 "D5.3" V 6293 8280 30  0000 L CNN
+F 1 "LED" V 6338 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 8200 50  0001 C CNN
+F 3 "~" H 6300 8200 50  0001 C CNN
+	1    6300 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.4
+U 1 1 621AEAF9
+P 6550 8200
+F 0 "D5.4" V 6543 8280 30  0000 L CNN
+F 1 "LED" V 6588 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 8200 50  0001 C CNN
+F 3 "~" H 6550 8200 50  0001 C CNN
+	1    6550 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.5
+U 1 1 621C8FBC
+P 6800 8200
+F 0 "D5.5" V 6793 8280 30  0000 L CNN
+F 1 "LED" V 6838 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 8200 50  0001 C CNN
+F 3 "~" H 6800 8200 50  0001 C CNN
+	1    6800 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.6
+U 1 1 621C8FC2
+P 7050 8200
+F 0 "D5.6" V 7043 8280 30  0000 L CNN
+F 1 "LED" V 7088 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 8200 50  0001 C CNN
+F 3 "~" H 7050 8200 50  0001 C CNN
+	1    7050 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.7
+U 1 1 621E2A6F
+P 7300 8200
+F 0 "D5.7" V 7293 8280 30  0000 L CNN
+F 1 "LED" V 7338 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 8200 50  0001 C CNN
+F 3 "~" H 7300 8200 50  0001 C CNN
+	1    7300 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.8
+U 1 1 621E2A75
+P 7550 8200
+F 0 "D5.8" V 7543 8280 30  0000 L CNN
+F 1 "LED" V 7588 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 8200 50  0001 C CNN
+F 3 "~" H 7550 8200 50  0001 C CNN
+	1    7550 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.9
+U 1 1 621FFB08
+P 7950 8200
+F 0 "D5.9" V 7943 8280 30  0000 L CNN
+F 1 "LED" V 7988 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 8200 50  0001 C CNN
+F 3 "~" H 7950 8200 50  0001 C CNN
+	1    7950 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.10
+U 1 1 621FFB0E
+P 8200 8200
+F 0 "D5.10" V 8193 8280 30  0000 L CNN
+F 1 "LED" V 8238 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 8200 50  0001 C CNN
+F 3 "~" H 8200 8200 50  0001 C CNN
+	1    8200 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.11
+U 1 1 621FFB14
+P 8450 8200
+F 0 "D5.11" V 8443 8280 30  0000 L CNN
+F 1 "LED" V 8488 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 8200 50  0001 C CNN
+F 3 "~" H 8450 8200 50  0001 C CNN
+	1    8450 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.12
+U 1 1 621FFB1A
+P 8700 8200
+F 0 "D5.12" V 8693 8280 30  0000 L CNN
+F 1 "LED" V 8738 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 8200 50  0001 C CNN
+F 3 "~" H 8700 8200 50  0001 C CNN
+	1    8700 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.13
+U 1 1 621FFB20
+P 8950 8200
+F 0 "D5.13" V 8943 8280 30  0000 L CNN
+F 1 "LED" V 8988 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 8200 50  0001 C CNN
+F 3 "~" H 8950 8200 50  0001 C CNN
+	1    8950 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.14
+U 1 1 621FFB26
+P 9200 8200
+F 0 "D5.14" V 9193 8280 30  0000 L CNN
+F 1 "LED" V 9238 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 8200 50  0001 C CNN
+F 3 "~" H 9200 8200 50  0001 C CNN
+	1    9200 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.15
+U 1 1 621FFB2C
+P 9450 8200
+F 0 "D5.15" V 9443 8280 30  0000 L CNN
+F 1 "LED" V 9488 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 8200 50  0001 C CNN
+F 3 "~" H 9450 8200 50  0001 C CNN
+	1    9450 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D5.16
+U 1 1 621FFB32
+P 9700 8200
+F 0 "D5.16" V 9693 8280 30  0000 L CNN
+F 1 "LED" V 9738 8280 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 8200 50  0001 C CNN
+F 3 "~" H 9700 8200 50  0001 C CNN
+	1    9700 8200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.2
+U 1 1 622FB38F
+P 6050 8850
+F 0 "D6.2" V 6043 8930 30  0000 L CNN
+F 1 "LED" V 6088 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 8850 50  0001 C CNN
+F 3 "~" H 6050 8850 50  0001 C CNN
+	1    6050 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.3
+U 1 1 62315662
+P 6300 8850
+F 0 "D6.3" V 6293 8930 30  0000 L CNN
+F 1 "LED" V 6338 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 8850 50  0001 C CNN
+F 3 "~" H 6300 8850 50  0001 C CNN
+	1    6300 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.4
+U 1 1 62315668
+P 6550 8850
+F 0 "D6.4" V 6543 8930 30  0000 L CNN
+F 1 "LED" V 6588 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 8850 50  0001 C CNN
+F 3 "~" H 6550 8850 50  0001 C CNN
+	1    6550 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.5
+U 1 1 623305D5
+P 6800 8850
+F 0 "D6.5" V 6793 8930 30  0000 L CNN
+F 1 "LED" V 6838 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 8850 50  0001 C CNN
+F 3 "~" H 6800 8850 50  0001 C CNN
+	1    6800 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.6
+U 1 1 623305DB
+P 7050 8850
+F 0 "D6.6" V 7043 8930 30  0000 L CNN
+F 1 "LED" V 7088 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 8850 50  0001 C CNN
+F 3 "~" H 7050 8850 50  0001 C CNN
+	1    7050 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.7
+U 1 1 623305E1
+P 7300 8850
+F 0 "D6.7" V 7293 8930 30  0000 L CNN
+F 1 "LED" V 7338 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 8850 50  0001 C CNN
+F 3 "~" H 7300 8850 50  0001 C CNN
+	1    7300 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.8
+U 1 1 623305E7
+P 7550 8850
+F 0 "D6.8" V 7543 8930 30  0000 L CNN
+F 1 "LED" V 7588 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 8850 50  0001 C CNN
+F 3 "~" H 7550 8850 50  0001 C CNN
+	1    7550 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.9
+U 1 1 623502DA
+P 7950 8850
+F 0 "D6.9" V 7943 8930 30  0000 L CNN
+F 1 "LED" V 7988 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 8850 50  0001 C CNN
+F 3 "~" H 7950 8850 50  0001 C CNN
+	1    7950 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.10
+U 1 1 623502E0
+P 8200 8850
+F 0 "D6.10" V 8193 8930 30  0000 L CNN
+F 1 "LED" V 8238 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 8850 50  0001 C CNN
+F 3 "~" H 8200 8850 50  0001 C CNN
+	1    8200 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.11
+U 1 1 623502E6
+P 8450 8850
+F 0 "D6.11" V 8443 8930 30  0000 L CNN
+F 1 "LED" V 8488 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 8850 50  0001 C CNN
+F 3 "~" H 8450 8850 50  0001 C CNN
+	1    8450 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.12
+U 1 1 623502EC
+P 8700 8850
+F 0 "D6.12" V 8693 8930 30  0000 L CNN
+F 1 "LED" V 8738 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 8850 50  0001 C CNN
+F 3 "~" H 8700 8850 50  0001 C CNN
+	1    8700 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.13
+U 1 1 623502F2
+P 8950 8850
+F 0 "D6.13" V 8943 8930 30  0000 L CNN
+F 1 "LED" V 8988 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 8850 50  0001 C CNN
+F 3 "~" H 8950 8850 50  0001 C CNN
+	1    8950 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.14
+U 1 1 623502F8
+P 9200 8850
+F 0 "D6.14" V 9193 8930 30  0000 L CNN
+F 1 "LED" V 9238 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 8850 50  0001 C CNN
+F 3 "~" H 9200 8850 50  0001 C CNN
+	1    9200 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.15
+U 1 1 623502FE
+P 9450 8850
+F 0 "D6.15" V 9443 8930 30  0000 L CNN
+F 1 "LED" V 9488 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 8850 50  0001 C CNN
+F 3 "~" H 9450 8850 50  0001 C CNN
+	1    9450 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.16
+U 1 1 62350304
+P 9700 8850
+F 0 "D6.16" V 9693 8930 30  0000 L CNN
+F 1 "LED" V 9738 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 8850 50  0001 C CNN
+F 3 "~" H 9700 8850 50  0001 C CNN
+	1    9700 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D6.1
+U 1 1 6225D709
+P 5800 8850
+F 0 "D6.1" V 5793 8930 30  0000 L CNN
+F 1 "LED" V 5838 8930 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 8850 50  0001 C CNN
+F 3 "~" H 5800 8850 50  0001 C CNN
+	1    5800 8850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.1
+U 1 1 623D83A5
+P 5800 9500
+F 0 "D7.1" V 5793 9580 30  0000 L CNN
+F 1 "LED" V 5838 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 9500 50  0001 C CNN
+F 3 "~" H 5800 9500 50  0001 C CNN
+	1    5800 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.2
+U 1 1 6240BBF6
+P 6050 9500
+F 0 "D7.2" V 6043 9580 30  0000 L CNN
+F 1 "LED" V 6088 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 9500 50  0001 C CNN
+F 3 "~" H 6050 9500 50  0001 C CNN
+	1    6050 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.3
+U 1 1 6242687F
+P 6300 9500
+F 0 "D7.3" V 6293 9580 30  0000 L CNN
+F 1 "LED" V 6338 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 9500 50  0001 C CNN
+F 3 "~" H 6300 9500 50  0001 C CNN
+	1    6300 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.4
+U 1 1 62426885
+P 6550 9500
+F 0 "D7.4" V 6543 9580 30  0000 L CNN
+F 1 "LED" V 6588 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 9500 50  0001 C CNN
+F 3 "~" H 6550 9500 50  0001 C CNN
+	1    6550 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.5
+U 1 1 624425A2
+P 6800 9500
+F 0 "D7.5" V 6793 9580 30  0000 L CNN
+F 1 "LED" V 6838 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 9500 50  0001 C CNN
+F 3 "~" H 6800 9500 50  0001 C CNN
+	1    6800 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.6
+U 1 1 624425A8
+P 7050 9500
+F 0 "D7.6" V 7043 9580 30  0000 L CNN
+F 1 "LED" V 7088 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 9500 50  0001 C CNN
+F 3 "~" H 7050 9500 50  0001 C CNN
+	1    7050 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.7
+U 1 1 624425AE
+P 7300 9500
+F 0 "D7.7" V 7293 9580 30  0000 L CNN
+F 1 "LED" V 7338 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 9500 50  0001 C CNN
+F 3 "~" H 7300 9500 50  0001 C CNN
+	1    7300 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.8
+U 1 1 624425B4
+P 7550 9500
+F 0 "D7.8" V 7543 9580 30  0000 L CNN
+F 1 "LED" V 7588 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 9500 50  0001 C CNN
+F 3 "~" H 7550 9500 50  0001 C CNN
+	1    7550 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.9
+U 1 1 6245F575
+P 7950 9500
+F 0 "D7.9" V 7943 9580 30  0000 L CNN
+F 1 "LED" V 7988 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 9500 50  0001 C CNN
+F 3 "~" H 7950 9500 50  0001 C CNN
+	1    7950 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.10
+U 1 1 6245F57B
+P 8200 9500
+F 0 "D7.10" V 8193 9580 30  0000 L CNN
+F 1 "LED" V 8238 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 9500 50  0001 C CNN
+F 3 "~" H 8200 9500 50  0001 C CNN
+	1    8200 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.11
+U 1 1 6245F581
+P 8450 9500
+F 0 "D7.11" V 8443 9580 30  0000 L CNN
+F 1 "LED" V 8488 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 9500 50  0001 C CNN
+F 3 "~" H 8450 9500 50  0001 C CNN
+	1    8450 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.12
+U 1 1 6245F587
+P 8700 9500
+F 0 "D7.12" V 8693 9580 30  0000 L CNN
+F 1 "LED" V 8738 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 9500 50  0001 C CNN
+F 3 "~" H 8700 9500 50  0001 C CNN
+	1    8700 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.13
+U 1 1 6245F58D
+P 8950 9500
+F 0 "D7.13" V 8943 9580 30  0000 L CNN
+F 1 "LED" V 8988 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 9500 50  0001 C CNN
+F 3 "~" H 8950 9500 50  0001 C CNN
+	1    8950 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.14
+U 1 1 6245F593
+P 9200 9500
+F 0 "D7.14" V 9193 9580 30  0000 L CNN
+F 1 "LED" V 9238 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 9500 50  0001 C CNN
+F 3 "~" H 9200 9500 50  0001 C CNN
+	1    9200 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.15
+U 1 1 6245F599
+P 9450 9500
+F 0 "D7.15" V 9443 9580 30  0000 L CNN
+F 1 "LED" V 9488 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 9500 50  0001 C CNN
+F 3 "~" H 9450 9500 50  0001 C CNN
+	1    9450 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D7.16
+U 1 1 6245F59F
+P 9700 9500
+F 0 "D7.16" V 9693 9580 30  0000 L CNN
+F 1 "LED" V 9738 9580 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 9500 50  0001 C CNN
+F 3 "~" H 9700 9500 50  0001 C CNN
+	1    9700 9500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.1
+U 1 1 624B1C15
+P 5800 10150
+F 0 "D8.1" V 5793 10230 30  0000 L CNN
+F 1 "LED" V 5838 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 10150 50  0001 C CNN
+F 3 "~" H 5800 10150 50  0001 C CNN
+	1    5800 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.2
+U 1 1 624CCB52
+P 6050 10150
+F 0 "D8.2" V 6043 10230 30  0000 L CNN
+F 1 "LED" V 6088 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 10150 50  0001 C CNN
+F 3 "~" H 6050 10150 50  0001 C CNN
+	1    6050 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.3
+U 1 1 624E6F71
+P 6300 10150
+F 0 "D8.3" V 6293 10230 30  0000 L CNN
+F 1 "LED" V 6338 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 10150 50  0001 C CNN
+F 3 "~" H 6300 10150 50  0001 C CNN
+	1    6300 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.4
+U 1 1 624E6F77
+P 6550 10150
+F 0 "D8.4" V 6543 10230 30  0000 L CNN
+F 1 "LED" V 6588 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 10150 50  0001 C CNN
+F 3 "~" H 6550 10150 50  0001 C CNN
+	1    6550 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.5
+U 1 1 625026FC
+P 6800 10150
+F 0 "D8.5" V 6793 10230 30  0000 L CNN
+F 1 "LED" V 6838 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 10150 50  0001 C CNN
+F 3 "~" H 6800 10150 50  0001 C CNN
+	1    6800 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.6
+U 1 1 62502702
+P 7050 10150
+F 0 "D8.6" V 7043 10230 30  0000 L CNN
+F 1 "LED" V 7088 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 10150 50  0001 C CNN
+F 3 "~" H 7050 10150 50  0001 C CNN
+	1    7050 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.7
+U 1 1 62502708
+P 7300 10150
+F 0 "D8.7" V 7293 10230 30  0000 L CNN
+F 1 "LED" V 7338 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 10150 50  0001 C CNN
+F 3 "~" H 7300 10150 50  0001 C CNN
+	1    7300 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.8
+U 1 1 6250270E
+P 7550 10150
+F 0 "D8.8" V 7543 10230 30  0000 L CNN
+F 1 "LED" V 7588 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 10150 50  0001 C CNN
+F 3 "~" H 7550 10150 50  0001 C CNN
+	1    7550 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.9
+U 1 1 6251F14F
+P 7950 10150
+F 0 "D8.9" V 7943 10230 30  0000 L CNN
+F 1 "LED" V 7988 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 10150 50  0001 C CNN
+F 3 "~" H 7950 10150 50  0001 C CNN
+	1    7950 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.10
+U 1 1 6251F155
+P 8200 10150
+F 0 "D8.10" V 8193 10230 30  0000 L CNN
+F 1 "LED" V 8238 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 10150 50  0001 C CNN
+F 3 "~" H 8200 10150 50  0001 C CNN
+	1    8200 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.11
+U 1 1 6251F15B
+P 8450 10150
+F 0 "D8.11" V 8443 10230 30  0000 L CNN
+F 1 "LED" V 8488 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 10150 50  0001 C CNN
+F 3 "~" H 8450 10150 50  0001 C CNN
+	1    8450 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.12
+U 1 1 6251F161
+P 8700 10150
+F 0 "D8.12" V 8693 10230 30  0000 L CNN
+F 1 "LED" V 8738 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 10150 50  0001 C CNN
+F 3 "~" H 8700 10150 50  0001 C CNN
+	1    8700 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.13
+U 1 1 6251F167
+P 8950 10150
+F 0 "D8.13" V 8943 10230 30  0000 L CNN
+F 1 "LED" V 8988 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 10150 50  0001 C CNN
+F 3 "~" H 8950 10150 50  0001 C CNN
+	1    8950 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.14
+U 1 1 6251F16D
+P 9200 10150
+F 0 "D8.14" V 9193 10230 30  0000 L CNN
+F 1 "LED" V 9238 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 10150 50  0001 C CNN
+F 3 "~" H 9200 10150 50  0001 C CNN
+	1    9200 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.15
+U 1 1 6251F173
+P 9450 10150
+F 0 "D8.15" V 9443 10230 30  0000 L CNN
+F 1 "LED" V 9488 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 10150 50  0001 C CNN
+F 3 "~" H 9450 10150 50  0001 C CNN
+	1    9450 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D8.16
+U 1 1 6251F179
+P 9700 10150
+F 0 "D8.16" V 9693 10230 30  0000 L CNN
+F 1 "LED" V 9738 10230 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 10150 50  0001 C CNN
+F 3 "~" H 9700 10150 50  0001 C CNN
+	1    9700 10150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.1
+U 1 1 625E13A0
+P 5800 10800
+F 0 "D9.1" V 5793 10880 30  0000 L CNN
+F 1 "LED" V 5838 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 10800 50  0001 C CNN
+F 3 "~" H 5800 10800 50  0001 C CNN
+	1    5800 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.2
+U 1 1 625FAD3B
+P 6050 10800
+F 0 "D9.2" V 6043 10880 30  0000 L CNN
+F 1 "LED" V 6088 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 10800 50  0001 C CNN
+F 3 "~" H 6050 10800 50  0001 C CNN
+	1    6050 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.3
+U 1 1 62614CF9
+P 6300 10800
+F 0 "D9.3" V 6293 10880 30  0000 L CNN
+F 1 "LED" V 6338 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 10800 50  0001 C CNN
+F 3 "~" H 6300 10800 50  0001 C CNN
+	1    6300 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.4
+U 1 1 62614CFF
+P 6550 10800
+F 0 "D9.4" V 6543 10880 30  0000 L CNN
+F 1 "LED" V 6588 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 10800 50  0001 C CNN
+F 3 "~" H 6550 10800 50  0001 C CNN
+	1    6550 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.5
+U 1 1 6262F2E7
+P 6800 10800
+F 0 "D9.5" V 6793 10880 30  0000 L CNN
+F 1 "LED" V 6838 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 10800 50  0001 C CNN
+F 3 "~" H 6800 10800 50  0001 C CNN
+	1    6800 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.6
+U 1 1 6262F2ED
+P 7050 10800
+F 0 "D9.6" V 7043 10880 30  0000 L CNN
+F 1 "LED" V 7088 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 10800 50  0001 C CNN
+F 3 "~" H 7050 10800 50  0001 C CNN
+	1    7050 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.7
+U 1 1 6262F2F3
+P 7300 10800
+F 0 "D9.7" V 7293 10880 30  0000 L CNN
+F 1 "LED" V 7338 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 10800 50  0001 C CNN
+F 3 "~" H 7300 10800 50  0001 C CNN
+	1    7300 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.8
+U 1 1 6262F2F9
+P 7550 10800
+F 0 "D9.8" V 7543 10880 30  0000 L CNN
+F 1 "LED" V 7588 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 10800 50  0001 C CNN
+F 3 "~" H 7550 10800 50  0001 C CNN
+	1    7550 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.9
+U 1 1 6264CF5D
+P 7950 10800
+F 0 "D9.9" V 7943 10880 30  0000 L CNN
+F 1 "LED" V 7988 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 10800 50  0001 C CNN
+F 3 "~" H 7950 10800 50  0001 C CNN
+	1    7950 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.10
+U 1 1 6264CF63
+P 8200 10800
+F 0 "D9.10" V 8193 10880 30  0000 L CNN
+F 1 "LED" V 8238 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8200 10800 50  0001 C CNN
+F 3 "~" H 8200 10800 50  0001 C CNN
+	1    8200 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.11
+U 1 1 6264CF69
+P 8450 10800
+F 0 "D9.11" V 8443 10880 30  0000 L CNN
+F 1 "LED" V 8488 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8450 10800 50  0001 C CNN
+F 3 "~" H 8450 10800 50  0001 C CNN
+	1    8450 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.12
+U 1 1 6264CF6F
+P 8700 10800
+F 0 "D9.12" V 8693 10880 30  0000 L CNN
+F 1 "LED" V 8738 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8700 10800 50  0001 C CNN
+F 3 "~" H 8700 10800 50  0001 C CNN
+	1    8700 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.13
+U 1 1 6264CF75
+P 8950 10800
+F 0 "D9.13" V 8943 10880 30  0000 L CNN
+F 1 "LED" V 8988 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 8950 10800 50  0001 C CNN
+F 3 "~" H 8950 10800 50  0001 C CNN
+	1    8950 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.14
+U 1 1 6264CF7B
+P 9200 10800
+F 0 "D9.14" V 9193 10880 30  0000 L CNN
+F 1 "LED" V 9238 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9200 10800 50  0001 C CNN
+F 3 "~" H 9200 10800 50  0001 C CNN
+	1    9200 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.15
+U 1 1 6264CF81
+P 9450 10800
+F 0 "D9.15" V 9443 10880 30  0000 L CNN
+F 1 "LED" V 9488 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9450 10800 50  0001 C CNN
+F 3 "~" H 9450 10800 50  0001 C CNN
+	1    9450 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D9.16
+U 1 1 6264CF87
+P 9700 10800
+F 0 "D9.16" V 9693 10880 30  0000 L CNN
+F 1 "LED" V 9738 10880 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 9700 10800 50  0001 C CNN
+F 3 "~" H 9700 10800 50  0001 C CNN
+	1    9700 10800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.2
+U 1 1 61D3A5BD
+P 6050 6900
+F 0 "D3.2" V 6043 6980 30  0000 L CNN
+F 1 "LED" V 6088 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6050 6900 50  0001 C CNN
+F 3 "~" H 6050 6900 50  0001 C CNN
+	1    6050 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.1
+U 1 1 61D2320B
+P 5800 6900
+F 0 "D3.1" V 5793 6980 30  0000 L CNN
+F 1 "LED" V 5838 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 5800 6900 50  0001 C CNN
+F 3 "~" H 5800 6900 50  0001 C CNN
+	1    5800 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.4
+U 1 1 61D51D3D
+P 6550 6900
+F 0 "D3.4" V 6543 6980 30  0000 L CNN
+F 1 "LED" V 6588 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6550 6900 50  0001 C CNN
+F 3 "~" H 6550 6900 50  0001 C CNN
+	1    6550 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.5
+U 1 1 61D5F59A
+P 6800 6900
+F 0 "D3.5" V 6793 6980 30  0000 L CNN
+F 1 "LED" V 6838 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6800 6900 50  0001 C CNN
+F 3 "~" H 6800 6900 50  0001 C CNN
+	1    6800 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.6
+U 1 1 61D5F5A0
+P 7050 6900
+F 0 "D3.6" V 7043 6980 30  0000 L CNN
+F 1 "LED" V 7088 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7050 6900 50  0001 C CNN
+F 3 "~" H 7050 6900 50  0001 C CNN
+	1    7050 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.7
+U 1 1 61D5F5A6
+P 7300 6900
+F 0 "D3.7" V 7293 6980 30  0000 L CNN
+F 1 "LED" V 7338 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7300 6900 50  0001 C CNN
+F 3 "~" H 7300 6900 50  0001 C CNN
+	1    7300 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.8
+U 1 1 61D5F5AC
+P 7550 6900
+F 0 "D3.8" V 7543 6980 30  0000 L CNN
+F 1 "LED" V 7588 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7550 6900 50  0001 C CNN
+F 3 "~" H 7550 6900 50  0001 C CNN
+	1    7550 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.9
+U 1 1 61D6EE2D
+P 7950 6900
+F 0 "D3.9" V 7943 6980 30  0000 L CNN
+F 1 "LED" V 7988 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 7950 6900 50  0001 C CNN
+F 3 "~" H 7950 6900 50  0001 C CNN
+	1    7950 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D3.3
+U 1 1 61D46023
+P 6300 6900
+F 0 "D3.3" V 6293 6980 30  0000 L CNN
+F 1 "LED" V 6338 6980 50  0001 L CNN
+F 2 "Joels KiCad Footprint Library:LED_0603_For_Blinky" H 6300 6900 50  0001 C CNN
+F 3 "~" H 6300 6900 50  0001 C CNN
+	1    6300 6900
+	0    1    1    0   
+$EndComp
+Text Label 4950 5350 0    50   ~ 0
+CA1
+Text Label 4950 6000 0    50   ~ 0
+CA2
+Text Label 4950 6650 0    50   ~ 0
+CA3
+Text Label 4950 7300 0    50   ~ 0
+CA4
+Text Label 4950 7950 0    50   ~ 0
+CA5
+Text Label 4950 8600 0    50   ~ 0
+CA6
+Text Label 4950 9250 0    50   ~ 0
+CA7
+Text Label 4950 9900 0    50   ~ 0
+CA8
+Text Label 4950 10550 0    50   ~ 0
+CA9
+Text Label 10400 5350 2    50   ~ 0
+CB1
+Text Label 10400 6000 2    50   ~ 0
+CB2
+Text Label 10400 6650 2    50   ~ 0
+CB3
+Text Label 10400 7300 2    50   ~ 0
+CB4
+Text Label 10400 7950 2    50   ~ 0
+CB5
+Text Label 10400 8600 2    50   ~ 0
+CB6
+Text Label 10400 9250 2    50   ~ 0
+CB7
+Text Label 10400 9900 2    50   ~ 0
+CB8
+Text Label 10400 10550 2    50   ~ 0
+CB9
+Wire Notes Line
+	4850 4900 10550 4900
+Wire Notes Line
+	10550 4900 10550 11150
+Wire Notes Line
+	10550 11150 4850 11150
+Wire Notes Line
+	4850 11150 4850 4900
+Wire Wire Line
+	10400 5350 9700 5350
+Wire Wire Line
+	7950 5350 7950 5450
+Wire Wire Line
+	8200 5450 8200 5350
+Connection ~ 8200 5350
+Wire Wire Line
+	8200 5350 7950 5350
+Wire Wire Line
+	8450 5450 8450 5350
+Connection ~ 8450 5350
+Wire Wire Line
+	8450 5350 8200 5350
+Wire Wire Line
+	8700 5450 8700 5350
+Connection ~ 8700 5350
+Wire Wire Line
+	8700 5350 8450 5350
+Wire Wire Line
+	8950 5450 8950 5350
+Connection ~ 8950 5350
+Wire Wire Line
+	8950 5350 8700 5350
+Wire Wire Line
+	9200 5450 9200 5350
+Connection ~ 9200 5350
+Wire Wire Line
+	9200 5350 8950 5350
+Wire Wire Line
+	9450 5450 9450 5350
+Connection ~ 9450 5350
+Wire Wire Line
+	9450 5350 9200 5350
+Wire Wire Line
+	9700 5450 9700 5350
+Connection ~ 9700 5350
+Wire Wire Line
+	9700 5350 9450 5350
+Wire Wire Line
+	4950 5350 5700 5350
+Wire Wire Line
+	7550 5350 7550 5450
+Wire Wire Line
+	7300 5450 7300 5350
+Connection ~ 7300 5350
+Wire Wire Line
+	7300 5350 7550 5350
+Wire Wire Line
+	7050 5450 7050 5350
+Connection ~ 7050 5350
+Wire Wire Line
+	7050 5350 7300 5350
+Wire Wire Line
+	6800 5450 6800 5350
+Connection ~ 6800 5350
+Wire Wire Line
+	6800 5350 7050 5350
+Wire Wire Line
+	6550 5450 6550 5350
+Connection ~ 6550 5350
+Wire Wire Line
+	6550 5350 6800 5350
+Wire Wire Line
+	6300 5450 6300 5350
+Connection ~ 6300 5350
+Wire Wire Line
+	6300 5350 6550 5350
+Wire Wire Line
+	6050 5450 6050 5350
+Connection ~ 6050 5350
+Wire Wire Line
+	6050 5350 6300 5350
+Wire Wire Line
+	5800 5450 5800 5350
+Connection ~ 5800 5350
+Wire Wire Line
+	5800 5350 6050 5350
+Wire Wire Line
+	10400 6000 9700 6000
+Wire Wire Line
+	7950 6000 7950 6100
+Wire Wire Line
+	8200 6100 8200 6000
+Connection ~ 8200 6000
+Wire Wire Line
+	8200 6000 8100 6000
+Wire Wire Line
+	8450 6100 8450 6000
+Connection ~ 8450 6000
+Wire Wire Line
+	8450 6000 8200 6000
+Wire Wire Line
+	8700 6100 8700 6000
+Connection ~ 8700 6000
+Wire Wire Line
+	8700 6000 8450 6000
+Wire Wire Line
+	8950 6100 8950 6000
+Connection ~ 8950 6000
+Wire Wire Line
+	8950 6000 8700 6000
+Wire Wire Line
+	9200 6100 9200 6000
+Connection ~ 9200 6000
+Wire Wire Line
+	9200 6000 8950 6000
+Wire Wire Line
+	9450 6100 9450 6000
+Connection ~ 9450 6000
+Wire Wire Line
+	9450 6000 9200 6000
+Wire Wire Line
+	9700 6100 9700 6000
+Connection ~ 9700 6000
+Wire Wire Line
+	9700 6000 9450 6000
+Wire Wire Line
+	4950 6000 5800 6000
+Wire Wire Line
+	7550 6000 7550 6100
+Wire Wire Line
+	7300 6100 7300 6000
+Connection ~ 7300 6000
+Wire Wire Line
+	7300 6000 7550 6000
+Wire Wire Line
+	7050 6100 7050 6000
+Connection ~ 7050 6000
+Wire Wire Line
+	7050 6000 7300 6000
+Wire Wire Line
+	6800 6100 6800 6000
+Connection ~ 6800 6000
+Wire Wire Line
+	6800 6000 7050 6000
+Wire Wire Line
+	6550 6100 6550 6000
+Connection ~ 6550 6000
+Wire Wire Line
+	6550 6000 6800 6000
+Wire Wire Line
+	6300 6100 6300 6000
+Connection ~ 6300 6000
+Wire Wire Line
+	6300 6000 6550 6000
+Wire Wire Line
+	6050 6100 6050 6000
+Connection ~ 6050 6000
+Wire Wire Line
+	6050 6000 6300 6000
+Wire Wire Line
+	5800 6100 5800 6000
+Connection ~ 5800 6000
+Wire Wire Line
+	5800 6000 5950 6000
+Wire Wire Line
+	10400 6650 9700 6650
+Wire Wire Line
+	7950 6650 7950 6750
+Wire Wire Line
+	8200 6750 8200 6650
+Connection ~ 8200 6650
+Wire Wire Line
+	8200 6650 7950 6650
+Wire Wire Line
+	8450 6750 8450 6650
+Connection ~ 8450 6650
+Wire Wire Line
+	8450 6650 8350 6650
+Wire Wire Line
+	8700 6750 8700 6650
+Connection ~ 8700 6650
+Wire Wire Line
+	8700 6650 8450 6650
+Wire Wire Line
+	8950 6750 8950 6650
+Connection ~ 8950 6650
+Wire Wire Line
+	8950 6650 8700 6650
+Wire Wire Line
+	9200 6750 9200 6650
+Connection ~ 9200 6650
+Wire Wire Line
+	9200 6650 8950 6650
+Wire Wire Line
+	9450 6750 9450 6650
+Connection ~ 9450 6650
+Wire Wire Line
+	9450 6650 9200 6650
+Wire Wire Line
+	9700 6750 9700 6650
+Connection ~ 9700 6650
+Wire Wire Line
+	9700 6650 9450 6650
+Wire Wire Line
+	4950 6650 5800 6650
+Wire Wire Line
+	7550 6650 7550 6750
+Wire Wire Line
+	7300 6750 7300 6650
+Connection ~ 7300 6650
+Wire Wire Line
+	7300 6650 7550 6650
+Wire Wire Line
+	7050 6750 7050 6650
+Connection ~ 7050 6650
+Wire Wire Line
+	7050 6650 7300 6650
+Wire Wire Line
+	6800 6750 6800 6650
+Connection ~ 6800 6650
+Wire Wire Line
+	6800 6650 7050 6650
+Wire Wire Line
+	6550 6750 6550 6650
+Connection ~ 6550 6650
+Wire Wire Line
+	6550 6650 6800 6650
+Wire Wire Line
+	6300 6750 6300 6650
+Connection ~ 6300 6650
+Wire Wire Line
+	6300 6650 6550 6650
+Wire Wire Line
+	6050 6750 6050 6650
+Connection ~ 6050 6650
+Wire Wire Line
+	6050 6650 6200 6650
+Wire Wire Line
+	5800 6750 5800 6650
+Connection ~ 5800 6650
+Wire Wire Line
+	5800 6650 6050 6650
+Wire Wire Line
+	10400 7300 9700 7300
+Wire Wire Line
+	7950 7300 7950 7400
+Wire Wire Line
+	8200 7400 8200 7300
+Connection ~ 8200 7300
+Wire Wire Line
+	8200 7300 7950 7300
+Wire Wire Line
+	8450 7400 8450 7300
+Connection ~ 8450 7300
+Wire Wire Line
+	8450 7300 8200 7300
+Wire Wire Line
+	8700 7400 8700 7300
+Connection ~ 8700 7300
+Wire Wire Line
+	8700 7300 8600 7300
+Wire Wire Line
+	8950 7400 8950 7300
+Connection ~ 8950 7300
+Wire Wire Line
+	8950 7300 8700 7300
+Wire Wire Line
+	9200 7400 9200 7300
+Connection ~ 9200 7300
+Wire Wire Line
+	9200 7300 8950 7300
+Wire Wire Line
+	9450 7400 9450 7300
+Connection ~ 9450 7300
+Wire Wire Line
+	9450 7300 9200 7300
+Wire Wire Line
+	9700 7400 9700 7300
+Connection ~ 9700 7300
+Wire Wire Line
+	9700 7300 9450 7300
+Wire Wire Line
+	4950 7300 5800 7300
+Wire Wire Line
+	7550 7300 7550 7400
+Wire Wire Line
+	7300 7400 7300 7300
+Connection ~ 7300 7300
+Wire Wire Line
+	7300 7300 7550 7300
+Wire Wire Line
+	7050 7400 7050 7300
+Connection ~ 7050 7300
+Wire Wire Line
+	7050 7300 7300 7300
+Wire Wire Line
+	6800 7400 6800 7300
+Connection ~ 6800 7300
+Wire Wire Line
+	6800 7300 7050 7300
+Wire Wire Line
+	6550 7400 6550 7300
+Connection ~ 6550 7300
+Wire Wire Line
+	6550 7300 6800 7300
+Wire Wire Line
+	6300 7400 6300 7300
+Connection ~ 6300 7300
+Wire Wire Line
+	6300 7300 6450 7300
+Wire Wire Line
+	6050 7400 6050 7300
+Connection ~ 6050 7300
+Wire Wire Line
+	5800 7400 5800 7300
+Connection ~ 5800 7300
+Wire Wire Line
+	5800 7300 6050 7300
+Wire Wire Line
+	10400 7950 9700 7950
+Wire Wire Line
+	7950 7950 7950 8050
+Wire Wire Line
+	8200 8050 8200 7950
+Connection ~ 8200 7950
+Wire Wire Line
+	8200 7950 7950 7950
+Wire Wire Line
+	8450 8050 8450 7950
+Connection ~ 8450 7950
+Wire Wire Line
+	8450 7950 8200 7950
+Wire Wire Line
+	8700 8050 8700 7950
+Connection ~ 8700 7950
+Wire Wire Line
+	8700 7950 8450 7950
+Wire Wire Line
+	8950 8050 8950 7950
+Connection ~ 8950 7950
+Wire Wire Line
+	8950 7950 8850 7950
+Wire Wire Line
+	9200 8050 9200 7950
+Connection ~ 9200 7950
+Wire Wire Line
+	9200 7950 8950 7950
+Wire Wire Line
+	9450 8050 9450 7950
+Connection ~ 9450 7950
+Wire Wire Line
+	9450 7950 9200 7950
+Wire Wire Line
+	9700 8050 9700 7950
+Connection ~ 9700 7950
+Wire Wire Line
+	9700 7950 9450 7950
+Wire Wire Line
+	4950 7950 5800 7950
+Wire Wire Line
+	7550 7950 7550 8050
+Wire Wire Line
+	7300 8050 7300 7950
+Connection ~ 7300 7950
+Wire Wire Line
+	7300 7950 7550 7950
+Wire Wire Line
+	7050 8050 7050 7950
+Connection ~ 7050 7950
+Wire Wire Line
+	7050 7950 7300 7950
+Wire Wire Line
+	6800 8050 6800 7950
+Connection ~ 6800 7950
+Wire Wire Line
+	6800 7950 7050 7950
+Wire Wire Line
+	6550 8050 6550 7950
+Connection ~ 6550 7950
+Wire Wire Line
+	6550 7950 6700 7950
+Wire Wire Line
+	6300 8050 6300 7950
+Connection ~ 6300 7950
+Wire Wire Line
+	6300 7950 6550 7950
+Wire Wire Line
+	6050 8050 6050 7950
+Connection ~ 6050 7950
+Wire Wire Line
+	6050 7950 6300 7950
+Wire Wire Line
+	5800 8050 5800 7950
+Connection ~ 5800 7950
+Wire Wire Line
+	5800 7950 6050 7950
+Wire Wire Line
+	10400 8600 9700 8600
+Wire Wire Line
+	7950 8600 7950 8700
+Wire Wire Line
+	8200 8700 8200 8600
+Connection ~ 8200 8600
+Wire Wire Line
+	8200 8600 7950 8600
+Wire Wire Line
+	8450 8700 8450 8600
+Connection ~ 8450 8600
+Wire Wire Line
+	8450 8600 8200 8600
+Wire Wire Line
+	8700 8700 8700 8600
+Connection ~ 8700 8600
+Wire Wire Line
+	8700 8600 8450 8600
+Wire Wire Line
+	8950 8700 8950 8600
+Connection ~ 8950 8600
+Wire Wire Line
+	8950 8600 8700 8600
+Wire Wire Line
+	9200 8700 9200 8600
+Connection ~ 9200 8600
+Wire Wire Line
+	9200 8600 9100 8600
+Wire Wire Line
+	9450 8700 9450 8600
+Connection ~ 9450 8600
+Wire Wire Line
+	9450 8600 9200 8600
+Wire Wire Line
+	9700 8700 9700 8600
+Connection ~ 9700 8600
+Wire Wire Line
+	9700 8600 9450 8600
+Wire Wire Line
+	4950 8600 5800 8600
+Wire Wire Line
+	7550 8600 7550 8700
+Wire Wire Line
+	7300 8700 7300 8600
+Connection ~ 7300 8600
+Wire Wire Line
+	7300 8600 7550 8600
+Wire Wire Line
+	7050 8700 7050 8600
+Connection ~ 7050 8600
+Wire Wire Line
+	7050 8600 7300 8600
+Wire Wire Line
+	6800 8700 6800 8600
+Connection ~ 6800 8600
+Wire Wire Line
+	6800 8600 6950 8600
+Wire Wire Line
+	6550 8700 6550 8600
+Connection ~ 6550 8600
+Wire Wire Line
+	6550 8600 6800 8600
+Wire Wire Line
+	6300 8700 6300 8600
+Connection ~ 6300 8600
+Wire Wire Line
+	6300 8600 6550 8600
+Wire Wire Line
+	6050 8700 6050 8600
+Connection ~ 6050 8600
+Wire Wire Line
+	6050 8600 6300 8600
+Wire Wire Line
+	5800 8700 5800 8600
+Connection ~ 5800 8600
+Wire Wire Line
+	5800 8600 6050 8600
+Wire Wire Line
+	10400 9250 9700 9250
+Wire Wire Line
+	7950 9250 7950 9350
+Wire Wire Line
+	8200 9350 8200 9250
+Connection ~ 8200 9250
+Wire Wire Line
+	8200 9250 7950 9250
+Wire Wire Line
+	8450 9350 8450 9250
+Connection ~ 8450 9250
+Wire Wire Line
+	8450 9250 8200 9250
+Wire Wire Line
+	8700 9350 8700 9250
+Connection ~ 8700 9250
+Wire Wire Line
+	8700 9250 8450 9250
+Wire Wire Line
+	8950 9350 8950 9250
+Connection ~ 8950 9250
+Wire Wire Line
+	8950 9250 8700 9250
+Wire Wire Line
+	9200 9350 9200 9250
+Connection ~ 9200 9250
+Wire Wire Line
+	9200 9250 8950 9250
+Wire Wire Line
+	9450 9350 9450 9250
+Connection ~ 9450 9250
+Wire Wire Line
+	9450 9250 9350 9250
+Wire Wire Line
+	9700 9350 9700 9250
+Connection ~ 9700 9250
+Wire Wire Line
+	9700 9250 9450 9250
+Wire Wire Line
+	4950 9250 5800 9250
+Wire Wire Line
+	7550 9250 7550 9350
+Wire Wire Line
+	7300 9350 7300 9250
+Connection ~ 7300 9250
+Wire Wire Line
+	7300 9250 7550 9250
+Wire Wire Line
+	7050 9350 7050 9250
+Connection ~ 7050 9250
+Wire Wire Line
+	7050 9250 7200 9250
+Wire Wire Line
+	6800 9350 6800 9250
+Connection ~ 6800 9250
+Wire Wire Line
+	6800 9250 7050 9250
+Wire Wire Line
+	6550 9350 6550 9250
+Connection ~ 6550 9250
+Wire Wire Line
+	6550 9250 6800 9250
+Wire Wire Line
+	6300 9350 6300 9250
+Connection ~ 6300 9250
+Wire Wire Line
+	6300 9250 6550 9250
+Wire Wire Line
+	6050 9350 6050 9250
+Connection ~ 6050 9250
+Wire Wire Line
+	6050 9250 6300 9250
+Wire Wire Line
+	5800 9350 5800 9250
+Connection ~ 5800 9250
+Wire Wire Line
+	5800 9250 6050 9250
+Wire Wire Line
+	10400 9900 9700 9900
+Wire Wire Line
+	7950 9900 7950 10000
+Wire Wire Line
+	8200 10000 8200 9900
+Connection ~ 8200 9900
+Wire Wire Line
+	8200 9900 7950 9900
+Wire Wire Line
+	8450 10000 8450 9900
+Connection ~ 8450 9900
+Wire Wire Line
+	8450 9900 8200 9900
+Wire Wire Line
+	8700 10000 8700 9900
+Connection ~ 8700 9900
+Wire Wire Line
+	8700 9900 8450 9900
+Wire Wire Line
+	8950 10000 8950 9900
+Connection ~ 8950 9900
+Wire Wire Line
+	8950 9900 8700 9900
+Wire Wire Line
+	9200 10000 9200 9900
+Connection ~ 9200 9900
+Wire Wire Line
+	9200 9900 8950 9900
+Wire Wire Line
+	9450 10000 9450 9900
+Connection ~ 9450 9900
+Wire Wire Line
+	9450 9900 9200 9900
+Wire Wire Line
+	9700 10000 9700 9900
+Connection ~ 9700 9900
+Wire Wire Line
+	9700 9900 9600 9900
+Wire Wire Line
+	4950 9900 5800 9900
+Wire Wire Line
+	7550 9900 7550 10000
+Wire Wire Line
+	7300 10000 7300 9900
+Connection ~ 7300 9900
+Wire Wire Line
+	7300 9900 7450 9900
+Wire Wire Line
+	7050 10000 7050 9900
+Connection ~ 7050 9900
+Wire Wire Line
+	7050 9900 7300 9900
+Wire Wire Line
+	6800 10000 6800 9900
+Connection ~ 6800 9900
+Wire Wire Line
+	6800 9900 7050 9900
+Wire Wire Line
+	6550 10000 6550 9900
+Connection ~ 6550 9900
+Wire Wire Line
+	6550 9900 6800 9900
+Wire Wire Line
+	6300 10000 6300 9900
+Connection ~ 6300 9900
+Wire Wire Line
+	6300 9900 6550 9900
+Wire Wire Line
+	6050 10000 6050 9900
+Connection ~ 6050 9900
+Wire Wire Line
+	6050 9900 6300 9900
+Wire Wire Line
+	5800 10000 5800 9900
+Connection ~ 5800 9900
+Wire Wire Line
+	5800 9900 6050 9900
+Wire Wire Line
+	10400 10550 9800 10550
+Wire Wire Line
+	7950 10550 7950 10650
+Wire Wire Line
+	8200 10650 8200 10550
+Connection ~ 8200 10550
+Wire Wire Line
+	8200 10550 7950 10550
+Wire Wire Line
+	8450 10650 8450 10550
+Connection ~ 8450 10550
+Wire Wire Line
+	8450 10550 8200 10550
+Wire Wire Line
+	8700 10650 8700 10550
+Connection ~ 8700 10550
+Wire Wire Line
+	8700 10550 8450 10550
+Wire Wire Line
+	8950 10650 8950 10550
+Connection ~ 8950 10550
+Wire Wire Line
+	8950 10550 8700 10550
+Wire Wire Line
+	9200 10650 9200 10550
+Connection ~ 9200 10550
+Wire Wire Line
+	9200 10550 8950 10550
+Wire Wire Line
+	9450 10650 9450 10550
+Connection ~ 9450 10550
+Wire Wire Line
+	9450 10550 9200 10550
+Wire Wire Line
+	9700 10650 9700 10550
+Connection ~ 9700 10550
+Wire Wire Line
+	9700 10550 9450 10550
+Wire Wire Line
+	4950 10550 5800 10550
+Wire Wire Line
+	7550 10550 7550 10650
+Wire Wire Line
+	7300 10650 7300 10550
+Connection ~ 7300 10550
+Wire Wire Line
+	7300 10550 7550 10550
+Wire Wire Line
+	7050 10650 7050 10550
+Connection ~ 7050 10550
+Wire Wire Line
+	7050 10550 7300 10550
+Wire Wire Line
+	6800 10650 6800 10550
+Connection ~ 6800 10550
+Wire Wire Line
+	6800 10550 7050 10550
+Wire Wire Line
+	6550 10650 6550 10550
+Connection ~ 6550 10550
+Wire Wire Line
+	6550 10550 6800 10550
+Wire Wire Line
+	6300 10650 6300 10550
+Connection ~ 6300 10550
+Wire Wire Line
+	6300 10550 6550 10550
+Wire Wire Line
+	6050 10650 6050 10550
+Connection ~ 6050 10550
+Wire Wire Line
+	6050 10550 6300 10550
+Wire Wire Line
+	5800 10650 5800 10550
+Connection ~ 5800 10550
+Wire Wire Line
+	5800 10550 6050 10550
+Wire Wire Line
+	5700 5350 5700 6400
+Wire Wire Line
+	5700 10950 5800 10950
+Connection ~ 5700 5350
+Wire Wire Line
+	5700 5350 5800 5350
+Wire Wire Line
+	5700 6400 5800 6400
+Connection ~ 5700 6400
+Wire Wire Line
+	5700 6400 5700 7050
+Wire Wire Line
+	5700 7050 5800 7050
+Connection ~ 5700 7050
+Wire Wire Line
+	5700 7050 5700 7700
+Wire Wire Line
+	5700 7700 5800 7700
+Connection ~ 5700 7700
+Wire Wire Line
+	5700 7700 5700 8350
+Wire Wire Line
+	5700 8350 5800 8350
+Connection ~ 5700 8350
+Wire Wire Line
+	5700 8350 5700 9000
+Wire Wire Line
+	5700 9000 5800 9000
+Connection ~ 5700 9000
+Wire Wire Line
+	5700 9000 5700 9650
+Wire Wire Line
+	5700 9650 5800 9650
+Connection ~ 5700 9650
+Wire Wire Line
+	5700 9650 5700 10300
+Wire Wire Line
+	5700 10300 5800 10300
+Connection ~ 5700 10300
+Wire Wire Line
+	5700 10300 5700 10950
+Wire Wire Line
+	7950 5350 7850 5350
+Wire Wire Line
+	7850 5350 7850 6400
+Wire Wire Line
+	7850 10950 7950 10950
+Connection ~ 7950 5350
+Wire Wire Line
+	7950 6400 7850 6400
+Connection ~ 7850 6400
+Wire Wire Line
+	7850 6400 7850 7050
+Wire Wire Line
+	7950 7050 7850 7050
+Connection ~ 7850 7050
+Wire Wire Line
+	7850 7050 7850 7700
+Wire Wire Line
+	7950 7700 7850 7700
+Connection ~ 7850 7700
+Wire Wire Line
+	7850 7700 7850 8350
+Wire Wire Line
+	7950 8350 7850 8350
+Connection ~ 7850 8350
+Wire Wire Line
+	7850 8350 7850 9000
+Wire Wire Line
+	7950 9000 7850 9000
+Connection ~ 7850 9000
+Wire Wire Line
+	7850 9000 7850 9650
+Wire Wire Line
+	7950 9650 7850 9650
+Connection ~ 7850 9650
+Wire Wire Line
+	7850 9650 7850 10300
+Wire Wire Line
+	7950 10300 7850 10300
+Connection ~ 7850 10300
+Wire Wire Line
+	7850 10300 7850 10950
+Wire Wire Line
+	5950 6000 5950 7050
+Wire Wire Line
+	5950 10950 6050 10950
+Connection ~ 5950 6000
+Wire Wire Line
+	5950 6000 6050 6000
+Wire Wire Line
+	5950 6000 5950 5850
+Wire Wire Line
+	5950 5850 5800 5850
+Wire Wire Line
+	5800 5850 5800 5750
+Wire Wire Line
+	5950 7050 6050 7050
+Connection ~ 5950 7050
+Wire Wire Line
+	5950 7050 5950 7700
+Wire Wire Line
+	5950 7700 6050 7700
+Connection ~ 5950 7700
+Wire Wire Line
+	5950 7700 5950 8350
+Wire Wire Line
+	5950 8350 6050 8350
+Connection ~ 5950 8350
+Wire Wire Line
+	5950 8350 5950 9000
+Wire Wire Line
+	5950 9000 6050 9000
+Connection ~ 5950 9000
+Wire Wire Line
+	5950 9000 5950 9650
+Wire Wire Line
+	5950 9650 6050 9650
+Connection ~ 5950 9650
+Wire Wire Line
+	5950 9650 5950 10300
+Wire Wire Line
+	5950 10300 6050 10300
+Connection ~ 5950 10300
+Wire Wire Line
+	5950 10300 5950 10950
+Wire Wire Line
+	8100 6000 8100 5850
+Wire Wire Line
+	8100 5850 7950 5850
+Wire Wire Line
+	7950 5850 7950 5750
+Connection ~ 8100 6000
+Wire Wire Line
+	8100 6000 7950 6000
+Wire Wire Line
+	8100 6000 8100 7050
+Wire Wire Line
+	8100 7050 8200 7050
+Wire Wire Line
+	8100 7050 8100 7700
+Wire Wire Line
+	8100 10950 8200 10950
+Connection ~ 8100 7050
+Wire Wire Line
+	8200 10300 8100 10300
+Connection ~ 8100 10300
+Wire Wire Line
+	8100 10300 8100 10950
+Wire Wire Line
+	8200 9650 8100 9650
+Connection ~ 8100 9650
+Wire Wire Line
+	8100 9650 8100 10300
+Wire Wire Line
+	8200 9000 8100 9000
+Connection ~ 8100 9000
+Wire Wire Line
+	8100 9000 8100 9650
+Wire Wire Line
+	8200 8350 8100 8350
+Connection ~ 8100 8350
+Wire Wire Line
+	8100 8350 8100 9000
+Wire Wire Line
+	8200 7700 8100 7700
+Connection ~ 8100 7700
+Wire Wire Line
+	8100 7700 8100 8350
+Wire Wire Line
+	6200 6650 6200 6400
+Wire Wire Line
+	6200 5850 6050 5850
+Wire Wire Line
+	6050 5850 6050 5750
+Connection ~ 6200 6650
+Wire Wire Line
+	6200 6650 6300 6650
+Wire Wire Line
+	6050 6400 6200 6400
+Connection ~ 6200 6400
+Wire Wire Line
+	6200 6400 6200 5850
+Wire Wire Line
+	6200 10950 6300 10950
+Wire Wire Line
+	6200 10300 6300 10300
+Connection ~ 6200 10300
+Wire Wire Line
+	6200 10300 6200 10950
+Wire Wire Line
+	6200 9650 6300 9650
+Connection ~ 6200 9650
+Wire Wire Line
+	6200 9650 6200 10300
+Wire Wire Line
+	6200 9000 6300 9000
+Connection ~ 6200 9000
+Wire Wire Line
+	6200 9000 6200 9650
+Wire Wire Line
+	6200 8350 6300 8350
+Connection ~ 6200 8350
+Wire Wire Line
+	6200 8350 6200 9000
+Wire Wire Line
+	6300 7700 6200 7700
+Connection ~ 6200 7700
+Wire Wire Line
+	6200 7700 6200 8350
+Wire Wire Line
+	8350 10950 8450 10950
+Connection ~ 8350 6650
+Wire Wire Line
+	8350 6650 8200 6650
+Wire Wire Line
+	8350 10300 8450 10300
+Connection ~ 8350 10300
+Wire Wire Line
+	8350 10300 8350 10950
+Wire Wire Line
+	8450 9650 8350 9650
+Connection ~ 8350 9650
+Wire Wire Line
+	8350 9650 8350 10300
+Wire Wire Line
+	8350 9000 8450 9000
+Connection ~ 8350 9000
+Wire Wire Line
+	8350 9000 8350 9650
+Wire Wire Line
+	8350 8350 8450 8350
+Connection ~ 8350 8350
+Wire Wire Line
+	8350 8350 8350 9000
+Wire Wire Line
+	8350 6650 8350 7700
+Wire Wire Line
+	8350 7700 8450 7700
+Connection ~ 8350 7700
+Wire Wire Line
+	8350 7700 8350 8350
+Wire Wire Line
+	8200 6400 8350 6400
+Wire Wire Line
+	8350 6400 8350 6650
+Wire Wire Line
+	8350 6400 8350 5850
+Wire Wire Line
+	8350 5850 8200 5850
+Wire Wire Line
+	8200 5850 8200 5750
+Connection ~ 8350 6400
+Wire Wire Line
+	6050 7300 6300 7300
+Wire Wire Line
+	6200 6650 6200 7700
+Wire Wire Line
+	6450 10950 6550 10950
+Connection ~ 6450 7300
+Wire Wire Line
+	6450 7300 6550 7300
+Wire Wire Line
+	6450 6400 6300 6400
+Wire Wire Line
+	6450 6400 6450 7050
+Wire Wire Line
+	6450 6400 6450 5850
+Wire Wire Line
+	6450 5850 6300 5850
+Wire Wire Line
+	6300 5850 6300 5750
+Connection ~ 6450 6400
+Wire Wire Line
+	6450 10300 6550 10300
+Connection ~ 6450 10300
+Wire Wire Line
+	6450 10300 6450 10950
+Wire Wire Line
+	6450 9650 6550 9650
+Connection ~ 6450 9650
+Wire Wire Line
+	6450 9650 6450 10300
+Wire Wire Line
+	6450 9000 6550 9000
+Connection ~ 6450 9000
+Wire Wire Line
+	6450 9000 6450 9650
+Wire Wire Line
+	6450 8350 6550 8350
+Connection ~ 6450 8350
+Wire Wire Line
+	6450 8350 6450 9000
+Wire Wire Line
+	6450 7050 6300 7050
+Connection ~ 6450 7050
+Wire Wire Line
+	6450 7050 6450 7300
+Wire Wire Line
+	6450 7300 6450 8350
+Wire Wire Line
+	8600 7300 8600 7050
+Wire Wire Line
+	8600 5850 8450 5850
+Wire Wire Line
+	8450 5850 8450 5750
+Connection ~ 8600 7300
+Wire Wire Line
+	8600 7300 8450 7300
+Wire Wire Line
+	8600 6400 8450 6400
+Connection ~ 8600 6400
+Wire Wire Line
+	8600 6400 8600 5850
+Wire Wire Line
+	8600 7050 8450 7050
+Connection ~ 8600 7050
+Wire Wire Line
+	8600 7050 8600 6400
+Wire Wire Line
+	8600 10950 8700 10950
+Wire Wire Line
+	8600 10300 8700 10300
+Connection ~ 8600 10300
+Wire Wire Line
+	8600 10300 8600 10950
+Wire Wire Line
+	8600 9650 8700 9650
+Connection ~ 8600 9650
+Wire Wire Line
+	8600 9650 8600 10300
+Wire Wire Line
+	8600 9000 8700 9000
+Connection ~ 8600 9000
+Wire Wire Line
+	8600 9000 8600 9650
+Wire Wire Line
+	8600 8350 8700 8350
+Connection ~ 8600 8350
+Wire Wire Line
+	8600 8350 8600 9000
+Wire Wire Line
+	8600 7300 8600 8350
+Wire Wire Line
+	6700 10950 6800 10950
+Connection ~ 6700 7950
+Wire Wire Line
+	6700 7950 6800 7950
+Wire Wire Line
+	6800 10300 6700 10300
+Connection ~ 6700 10300
+Wire Wire Line
+	6700 10300 6700 10950
+Wire Wire Line
+	6800 9650 6700 9650
+Connection ~ 6700 9650
+Wire Wire Line
+	6700 9650 6700 10300
+Wire Wire Line
+	6700 7950 6700 7700
+Wire Wire Line
+	6700 5850 6550 5850
+Wire Wire Line
+	6550 5850 6550 5750
+Wire Wire Line
+	6550 6400 6700 6400
+Connection ~ 6700 6400
+Wire Wire Line
+	6700 6400 6700 5850
+Wire Wire Line
+	6550 7050 6700 7050
+Connection ~ 6700 7050
+Wire Wire Line
+	6700 7050 6700 6400
+Wire Wire Line
+	6550 7700 6700 7700
+Connection ~ 6700 7700
+Wire Wire Line
+	6700 7700 6700 7050
+Wire Wire Line
+	8850 7950 8850 9000
+Wire Wire Line
+	8850 10950 8950 10950
+Connection ~ 8850 7950
+Wire Wire Line
+	8850 7950 8700 7950
+Wire Wire Line
+	8850 10300 8950 10300
+Connection ~ 8850 10300
+Wire Wire Line
+	8850 10300 8850 10950
+Wire Wire Line
+	8850 9650 8950 9650
+Connection ~ 8850 9650
+Wire Wire Line
+	8850 9650 8850 10300
+Wire Wire Line
+	8850 9000 8950 9000
+Connection ~ 8850 9000
+Wire Wire Line
+	8850 9000 8850 9650
+Wire Wire Line
+	8850 7950 8850 7700
+Wire Wire Line
+	8850 5850 8700 5850
+Wire Wire Line
+	8700 5850 8700 5750
+Wire Wire Line
+	8850 7700 8700 7700
+Connection ~ 8850 7700
+Wire Wire Line
+	8850 7700 8850 7050
+Wire Wire Line
+	8850 7050 8700 7050
+Connection ~ 8850 7050
+Wire Wire Line
+	8850 7050 8850 6400
+Wire Wire Line
+	8850 6400 8700 6400
+Connection ~ 8850 6400
+Wire Wire Line
+	8850 6400 8850 5850
+Wire Wire Line
+	6950 8600 6950 9650
+Wire Wire Line
+	6950 10950 7050 10950
+Connection ~ 6950 8600
+Wire Wire Line
+	6950 8600 7050 8600
+Wire Wire Line
+	6950 10300 7050 10300
+Connection ~ 6950 10300
+Wire Wire Line
+	6950 10300 6950 10950
+Wire Wire Line
+	6950 9650 7050 9650
+Connection ~ 6950 9650
+Wire Wire Line
+	6950 9650 6950 10300
+Wire Wire Line
+	6950 8600 6950 8350
+Wire Wire Line
+	6950 5850 6800 5850
+Wire Wire Line
+	6800 5850 6800 5750
+Wire Wire Line
+	6800 6400 6950 6400
+Connection ~ 6950 6400
+Wire Wire Line
+	6950 6400 6950 5850
+Wire Wire Line
+	6800 7050 6950 7050
+Connection ~ 6950 7050
+Wire Wire Line
+	6950 7050 6950 6400
+Wire Wire Line
+	6800 7700 6950 7700
+Connection ~ 6950 7700
+Wire Wire Line
+	6950 7700 6950 7050
+Wire Wire Line
+	6800 8350 6950 8350
+Connection ~ 6950 8350
+Wire Wire Line
+	6950 8350 6950 7700
+Wire Wire Line
+	9100 8600 9100 9650
+Wire Wire Line
+	9100 10950 9200 10950
+Connection ~ 9100 8600
+Wire Wire Line
+	9100 8600 8950 8600
+Wire Wire Line
+	9100 10300 9200 10300
+Connection ~ 9100 10300
+Wire Wire Line
+	9100 10300 9100 10950
+Wire Wire Line
+	9100 9650 9200 9650
+Connection ~ 9100 9650
+Wire Wire Line
+	9100 9650 9100 10300
+Wire Wire Line
+	6700 7950 6700 9000
+Wire Wire Line
+	6700 9000 6800 9000
+Connection ~ 6700 9000
+Wire Wire Line
+	6700 9000 6700 9650
+Wire Wire Line
+	9100 8600 9100 8350
+Wire Wire Line
+	9100 5850 8950 5850
+Wire Wire Line
+	8950 5850 8950 5750
+Wire Wire Line
+	9100 6400 8950 6400
+Connection ~ 9100 6400
+Wire Wire Line
+	9100 6400 9100 5850
+Wire Wire Line
+	9100 7050 8950 7050
+Connection ~ 9100 7050
+Wire Wire Line
+	9100 7050 9100 6400
+Wire Wire Line
+	9100 7700 8950 7700
+Connection ~ 9100 7700
+Wire Wire Line
+	9100 7700 9100 7050
+Wire Wire Line
+	9100 8350 8950 8350
+Connection ~ 9100 8350
+Wire Wire Line
+	9100 8350 9100 7700
+Wire Wire Line
+	7200 9250 7200 10300
+Wire Wire Line
+	7200 10950 7300 10950
+Connection ~ 7200 9250
+Wire Wire Line
+	7200 9250 7300 9250
+Wire Wire Line
+	7200 10300 7300 10300
+Connection ~ 7200 10300
+Wire Wire Line
+	7200 10300 7200 10950
+Wire Wire Line
+	7200 9250 7200 9000
+Wire Wire Line
+	7200 5850 7050 5850
+Wire Wire Line
+	7050 5850 7050 5750
+Wire Wire Line
+	7050 6400 7200 6400
+Connection ~ 7200 6400
+Wire Wire Line
+	7200 6400 7200 5850
+Wire Wire Line
+	7050 7050 7200 7050
+Connection ~ 7200 7050
+Wire Wire Line
+	7200 7050 7200 6400
+Wire Wire Line
+	7050 7700 7200 7700
+Connection ~ 7200 7700
+Wire Wire Line
+	7200 7700 7200 7050
+Wire Wire Line
+	7050 8350 7200 8350
+Connection ~ 7200 8350
+Wire Wire Line
+	7200 8350 7200 7700
+Wire Wire Line
+	7050 9000 7200 9000
+Connection ~ 7200 9000
+Wire Wire Line
+	7200 9000 7200 8350
+Wire Wire Line
+	9350 9250 9350 10300
+Wire Wire Line
+	9350 10950 9450 10950
+Connection ~ 9350 9250
+Wire Wire Line
+	9350 9250 9200 9250
+Wire Wire Line
+	9350 10300 9450 10300
+Connection ~ 9350 10300
+Wire Wire Line
+	9350 10300 9350 10950
+Wire Wire Line
+	9350 9250 9350 9000
+Wire Wire Line
+	9350 5850 9200 5850
+Wire Wire Line
+	9200 5850 9200 5750
+Wire Wire Line
+	9200 6400 9350 6400
+Connection ~ 9350 6400
+Wire Wire Line
+	9350 6400 9350 5850
+Wire Wire Line
+	9200 7050 9350 7050
+Connection ~ 9350 7050
+Wire Wire Line
+	9350 7050 9350 6400
+Wire Wire Line
+	9200 7700 9350 7700
+Connection ~ 9350 7700
+Wire Wire Line
+	9350 7700 9350 7050
+Wire Wire Line
+	9200 8350 9350 8350
+Connection ~ 9350 8350
+Wire Wire Line
+	9350 8350 9350 7700
+Wire Wire Line
+	9200 9000 9350 9000
+Connection ~ 9350 9000
+Wire Wire Line
+	9350 9000 9350 8350
+Wire Wire Line
+	7450 9900 7450 10950
+Wire Wire Line
+	7450 10950 7550 10950
+Connection ~ 7450 9900
+Wire Wire Line
+	7450 9900 7550 9900
+Wire Wire Line
+	7450 9900 7450 9650
+Wire Wire Line
+	7450 5850 7300 5850
+Wire Wire Line
+	7300 5850 7300 5750
+Wire Wire Line
+	7300 6400 7450 6400
+Connection ~ 7450 6400
+Wire Wire Line
+	7450 6400 7450 5850
+Wire Wire Line
+	7300 7050 7450 7050
+Connection ~ 7450 7050
+Wire Wire Line
+	7450 7050 7450 6400
+Wire Wire Line
+	7300 7700 7450 7700
+Connection ~ 7450 7700
+Wire Wire Line
+	7450 7700 7450 7050
+Wire Wire Line
+	7300 8350 7450 8350
+Connection ~ 7450 8350
+Wire Wire Line
+	7450 8350 7450 7700
+Wire Wire Line
+	7300 9000 7450 9000
+Connection ~ 7450 9000
+Wire Wire Line
+	7450 9000 7450 8350
+Wire Wire Line
+	7300 9650 7450 9650
+Connection ~ 7450 9650
+Wire Wire Line
+	7450 9650 7450 9000
+Wire Wire Line
+	7550 10550 7650 10550
+Wire Wire Line
+	7650 10550 7650 10300
+Wire Wire Line
+	7650 5850 7550 5850
+Wire Wire Line
+	7550 5850 7550 5750
+Connection ~ 7550 10550
+Wire Wire Line
+	7550 6400 7650 6400
+Connection ~ 7650 6400
+Wire Wire Line
+	7650 6400 7650 5850
+Wire Wire Line
+	7550 7050 7650 7050
+Connection ~ 7650 7050
+Wire Wire Line
+	7650 7050 7650 6400
+Wire Wire Line
+	7550 7700 7650 7700
+Connection ~ 7650 7700
+Wire Wire Line
+	7650 7700 7650 7050
+Wire Wire Line
+	7550 8350 7650 8350
+Connection ~ 7650 8350
+Wire Wire Line
+	7650 8350 7650 7700
+Wire Wire Line
+	7550 9000 7650 9000
+Connection ~ 7650 9000
+Wire Wire Line
+	7650 9000 7650 8350
+Wire Wire Line
+	7550 9650 7650 9650
+Connection ~ 7650 9650
+Wire Wire Line
+	7650 9650 7650 9000
+Wire Wire Line
+	7550 10300 7650 10300
+Connection ~ 7650 10300
+Wire Wire Line
+	7650 10300 7650 9650
+Wire Wire Line
+	9600 9900 9600 10950
+Wire Wire Line
+	9600 10950 9700 10950
+Connection ~ 9600 9900
+Wire Wire Line
+	9600 9900 9450 9900
+Wire Wire Line
+	9600 9900 9600 9650
+Wire Wire Line
+	9600 5850 9450 5850
+Wire Wire Line
+	9450 5850 9450 5750
+Wire Wire Line
+	9450 6400 9600 6400
+Connection ~ 9600 6400
+Wire Wire Line
+	9600 6400 9600 5850
+Wire Wire Line
+	9450 7050 9600 7050
+Connection ~ 9600 7050
+Wire Wire Line
+	9600 7050 9600 6400
+Wire Wire Line
+	9450 7700 9600 7700
+Connection ~ 9600 7700
+Wire Wire Line
+	9600 7700 9600 7050
+Wire Wire Line
+	9450 8350 9600 8350
+Connection ~ 9600 8350
+Wire Wire Line
+	9600 8350 9600 7700
+Wire Wire Line
+	9450 9000 9600 9000
+Connection ~ 9600 9000
+Wire Wire Line
+	9600 9000 9600 8350
+Wire Wire Line
+	9450 9650 9600 9650
+Connection ~ 9600 9650
+Wire Wire Line
+	9600 9650 9600 9000
+Wire Wire Line
+	9800 10550 9800 10300
+Wire Wire Line
+	9800 5850 9700 5850
+Wire Wire Line
+	9700 5850 9700 5750
+Connection ~ 9800 10550
+Wire Wire Line
+	9800 10550 9700 10550
+Wire Wire Line
+	9700 6400 9800 6400
+Connection ~ 9800 6400
+Wire Wire Line
+	9800 6400 9800 5850
+Wire Wire Line
+	9700 7050 9800 7050
+Connection ~ 9800 7050
+Wire Wire Line
+	9800 7050 9800 6400
+Wire Wire Line
+	9700 7700 9800 7700
+Connection ~ 9800 7700
+Wire Wire Line
+	9800 7700 9800 7050
+Wire Wire Line
+	9700 8350 9800 8350
+Connection ~ 9800 8350
+Wire Wire Line
+	9800 8350 9800 7700
+Wire Wire Line
+	9700 9000 9800 9000
+Connection ~ 9800 9000
+Wire Wire Line
+	9800 9000 9800 8350
+Wire Wire Line
+	9700 9650 9800 9650
+Connection ~ 9800 9650
+Wire Wire Line
+	9800 9650 9800 9000
+Wire Wire Line
+	9700 10300 9800 10300
+Connection ~ 9800 10300
+Wire Wire Line
+	9800 10300 9800 9650
+Text Notes 10400 5050 2    50   ~ 0
+REF - Datasheet of IS31FL3731
+Text Label 12550 2850 0    50   ~ 0
+CFILT
+Text Label 12750 2250 0    50   ~ 0
+AD
 $EndSCHEMATC
