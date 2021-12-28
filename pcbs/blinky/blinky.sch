@@ -1162,25 +1162,6 @@ Wire Notes Line
 	2200 7200 850  7200
 Wire Notes Line
 	850  7200 850  4850
-$Comp
-L Joels_KiCad_Symbol_Library:TSOP36438TT IC1
-U 1 1 629FCB03
-P 12450 5450
-F 0 "IC1" H 12842 4885 50  0000 C CNN
-F 1 "TSOP36438TT" H 12842 4976 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:TSOP36438TT" H 13300 5550 50  0001 L CNN
-F 3 "https://www.mouser.com/datasheet/2/427/tsop362-464348.pdf" H 13300 5450 50  0001 L CNN
-F 4 "Infrared Receivers" H 13300 5350 50  0001 L CNN "Description"
-F 5 "5.3" H 13300 5250 50  0001 L CNN "Height"
-F 6 "Vishay" H 13300 5150 50  0001 L CNN "Manufacturer_Name"
-F 7 "TSOP36438TT" H 13300 5050 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "78-TSOP36438TT" H 13300 4950 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TSOP36438TT?qs=b85dNVE93B5nGTLDDhv1%252Bg%3D%3D" H 13300 4850 50  0001 L CNN "Mouser Price/Stock"
-F 10 "TSOP36438TT" H 13300 4750 50  0001 L CNN "Arrow Part Number"
-F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4650 50  0001 L CNN "Arrow Price/Stock"
-	1    12450 5450
-	-1   0    0    1   
-$EndComp
 NoConn ~ 12450 5350
 Wire Wire Line
 	13150 5600 12450 5600
@@ -1209,10 +1190,10 @@ NoConn ~ 4100 3150
 NoConn ~ 4100 2650
 NoConn ~ 4100 2750
 $Comp
-L Joels_KiCad_Symbol_Library:JS202011JCQN S1
+L Joels_KiCad_Symbol_Library:JS202011JCQN SW2
 U 1 1 62AD4B38
 P 7850 1450
-F 0 "S1" H 7850 1817 50  0000 C CNN
+F 0 "SW2" H 7850 1817 50  0000 C CNN
 F 1 "JS202011JCQN" H 7850 1726 50  0000 C CNN
 F 2 "Joels KiCad Footprint Library:CK-JS202011JCQN" H 7850 1450 50  0001 L BNN
 F 3 "" H 7850 1450 50  0001 L BNN
@@ -4435,4 +4416,27 @@ Text Label 12550 2850 0    50   ~ 0
 CFILT
 Text Label 12750 2250 0    50   ~ 0
 AD
+Text Label 4150 2150 0    50   ~ 0
+VDDCORE
+Text Label 4150 2450 0    50   ~ 0
+2RST
+$Comp
+L Joels_KiCad_Symbol_Library:TSOP36438TT U3
+U 1 1 629FCB03
+P 12450 5450
+F 0 "U3" H 12842 4885 50  0000 C CNN
+F 1 "TSOP36438TT" H 12842 4976 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:TSOP36438TT" H 13300 5550 50  0001 L CNN
+F 3 "https://www.mouser.com/datasheet/2/427/tsop362-464348.pdf" H 13300 5450 50  0001 L CNN
+F 4 "Infrared Receivers" H 13300 5350 50  0001 L CNN "Description"
+F 5 "5.3" H 13300 5250 50  0001 L CNN "Height"
+F 6 "Vishay" H 13300 5150 50  0001 L CNN "Manufacturer_Name"
+F 7 "TSOP36438TT" H 13300 5050 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "78-TSOP36438TT" H 13300 4950 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TSOP36438TT?qs=b85dNVE93B5nGTLDDhv1%252Bg%3D%3D" H 13300 4850 50  0001 L CNN "Mouser Price/Stock"
+F 10 "TSOP36438TT" H 13300 4750 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4650 50  0001 L CNN "Arrow Price/Stock"
+	1    12450 5450
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
