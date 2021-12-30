@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 154)
+    (drawings 152)
     (tracks 1034)
     (zones 0)
     (modules 182)
@@ -7327,6 +7327,8 @@
     )
   )
 
+  (gr_line (start 49.5 138.75) (end 47.225385 142.203952) (layer Edge.Cuts) (width 0.05) (tstamp 61CF6916))
+  (gr_line (start 52.094896 138.121336) (end 49.5 138.75) (layer Edge.Cuts) (width 0.05))
   (gr_line (start 115.75 112.5) (end 113.01087 113.219056) (layer Edge.Cuts) (width 0.05) (tstamp 61CF67B7))
   (gr_line (start 118.251523 114.898834) (end 115.75 112.5) (layer Edge.Cuts) (width 0.05))
   (gr_line (start 47.25 113.25) (end 47.225385 116.544862) (layer Edge.Cuts) (width 0.05) (tstamp 61CF661E))
@@ -7423,9 +7425,6 @@
   (gr_curve (pts (xy 50.738005 113.26658) (xy 50.738005 113.383904) (xy 50.620933 114.016284) (xy 50.477869 114.671851)) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 47.225385 124.913746) (end 47.225385 116.544862) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 47.225385 133.282612) (end 47.225385 124.913746) (layer Edge.Cuts) (width 0.0648))
-  (gr_line (start 50.252229 138.656296) (end 51.133271 138.388816) (layer Edge.Cuts) (width 0.0648))
-  (gr_line (start 48.73881 140.430124) (end 50.252229 138.656296) (layer Edge.Cuts) (width 0.0648))
-  (gr_line (start 47.225385 142.203952) (end 48.73881 140.430124) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 47.225385 151.936264) (end 47.225385 142.203952) (layer Edge.Cuts) (width 0.0648))
   (gr_curve (pts (xy 123.462041 147.799288) (xy 124.635958 147.262996) (xy 125.230815 146.176408) (xy 125.128078 144.755992)) (layer Edge.Cuts) (width 0.0648))
   (gr_curve (pts (xy 121.105081 148.038328) (xy 122.65374 148.063528) (xy 122.950254 148.031128) (xy 123.462041 147.799288)) (layer Edge.Cuts) (width 0.0648))
@@ -7438,7 +7437,6 @@
   (gr_curve (pts (xy 51.662838 140.832208) (xy 49.744665 145.917172) (xy 49.182777 148.289032) (xy 49.084353 151.716376)) (layer Edge.Cuts) (width 0.0648))
   (gr_curve (pts (xy 52.30348 138.457936) (xy 52.409716 138.737296) (xy 52.300621 139.140856) (xy 51.662838 140.832208)) (layer Edge.Cuts) (width 0.0648))
   (gr_curve (pts (xy 52.094896 138.121336) (xy 52.139176 138.121336) (xy 52.2331 138.272896) (xy 52.30348 138.457936)) (layer Edge.Cuts) (width 0.0648))
-  (gr_curve (pts (xy 51.133271 138.388816) (xy 51.617838 138.241576) (xy 52.050569 138.121336) (xy 52.094896 138.121336)) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 113.544235 135.341416) (end 113.542997 135.341488) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 118.255483 123.755792) (end 118.259443 132.612724) (layer Edge.Cuts) (width 0.0648))
   (gr_line (start 118.251523 114.898834) (end 118.255483 123.755792) (layer Edge.Cuts) (width 0.0648))
