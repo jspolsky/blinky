@@ -4439,4 +4439,48 @@ F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4
 	1    12450 5450
 	-1   0    0    1   
 $EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 61EFA092
+P 1650 8100
+F 0 "H1" H 1750 8146 50  0000 L CNN
+F 1 "Mouse Bite" H 1750 8055 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_For_Clipper" H 1650 8100 50  0001 C CNN
+F 3 "~" H 1650 8100 50  0001 C CNN
+	1    1650 8100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 61EFA5CA
+P 1650 8350
+F 0 "H2" H 1750 8396 50  0000 L CNN
+F 1 "Mouse Bite" H 1750 8305 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_For_Clipper" H 1650 8350 50  0001 C CNN
+F 3 "~" H 1650 8350 50  0001 C CNN
+	1    1650 8350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 61F9A649
+P 1650 8600
+F 0 "H3" H 1750 8646 50  0000 L CNN
+F 1 "Mouse Bite" H 1750 8555 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_For_Clipper" H 1650 8600 50  0001 C CNN
+F 3 "~" H 1650 8600 50  0001 C CNN
+	1    1650 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 6203A605
+P 1650 8850
+F 0 "H4" H 1750 8896 50  0000 L CNN
+F 1 "Mouse Bite" H 1750 8805 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Mouse_Bite_For_Clipper" H 1650 8850 50  0001 C CNN
+F 3 "~" H 1650 8850 50  0001 C CNN
+	1    1650 8850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
