@@ -4505,4 +4505,92 @@ F 3 "~" H 3050 8700 50  0001 C CNN
 	1    3050 8700
 	1    0    0    -1  
 $EndComp
+$Comp
+L Mechanical:Fiducial FID1
+U 1 1 620431A9
+P 1650 9500
+F 0 "FID1" H 1735 9546 50  0000 L CNN
+F 1 "Fiducial" H 1735 9455 50  0000 L CNN
+F 2 "Fiducial:Fiducial_1mm_Mask3mm" H 1650 9500 50  0001 C CNN
+F 3 "~" H 1650 9500 50  0001 C CNN
+	1    1650 9500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID2
+U 1 1 61D86C25
+P 1650 9700
+F 0 "FID2" H 1735 9746 50  0000 L CNN
+F 1 "Fiducial" H 1735 9655 50  0000 L CNN
+F 2 "Fiducial:Fiducial_1mm_Mask3mm" H 1650 9700 50  0001 C CNN
+F 3 "~" H 1650 9700 50  0001 C CNN
+	1    1650 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID3
+U 1 1 61E26B89
+P 1650 9900
+F 0 "FID3" H 1735 9946 50  0000 L CNN
+F 1 "Fiducial" H 1735 9855 50  0000 L CNN
+F 2 "Fiducial:Fiducial_1mm_Mask3mm" H 1650 9900 50  0001 C CNN
+F 3 "~" H 1650 9900 50  0001 C CNN
+	1    1650 9900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 61EE2AAC
+P 2900 9500
+F 0 "H5" H 3000 9546 50  0000 L CNN
+F 1 "MountingHole" H 3000 9455 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 2900 9500 50  0001 C CNN
+F 3 "~" H 2900 9500 50  0001 C CNN
+	1    2900 9500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H6
+U 1 1 61EE30AB
+P 2900 9750
+F 0 "H6" H 3000 9796 50  0000 L CNN
+F 1 "MountingHole" H 3000 9705 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 2900 9750 50  0001 C CNN
+F 3 "~" H 2900 9750 50  0001 C CNN
+	1    2900 9750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H7
+U 1 1 61F831CA
+P 2900 10000
+F 0 "H7" H 3000 10046 50  0000 L CNN
+F 1 "MountingHole" H 3000 9955 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 2900 10000 50  0001 C CNN
+F 3 "~" H 2900 10000 50  0001 C CNN
+	1    2900 10000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H8
+U 1 1 620231D9
+P 2900 10250
+F 0 "H8" H 3000 10296 50  0000 L CNN
+F 1 "MountingHole" H 3000 10205 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:JCLPCB_Tooling_Hole" H 2900 10250 50  0001 C CNN
+F 3 "~" H 2900 10250 50  0001 C CNN
+	1    2900 10250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H9
+U 1 1 620E81F6
+P 1650 10550
+F 0 "H9" H 1750 10596 50  0000 L CNN
+F 1 "Lanyard Hole" H 1750 10505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm_Pad_Via" H 1650 10550 50  0001 C CNN
+F 3 "~" H 1650 10550 50  0001 C CNN
+	1    1650 10550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
