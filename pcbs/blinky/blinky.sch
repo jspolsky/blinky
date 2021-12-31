@@ -4583,14 +4583,25 @@ F 3 "~" H 2900 10250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H9
-U 1 1 620E81F6
-P 1650 10550
-F 0 "H9" H 1750 10596 50  0000 L CNN
-F 1 "Lanyard Hole" H 1750 10505 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.5mm_Pad_Via" H 1650 10550 50  0001 C CNN
-F 3 "~" H 1650 10550 50  0001 C CNN
-	1    1650 10550
+L Mechanical:MountingHole_Pad H9
+U 1 1 62321B10
+P 1650 10400
+F 0 "H9" H 1750 10449 50  0000 L CNN
+F 1 "Lanyard" H 1750 10358 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm_Pad_Via" H 1650 10400 50  0001 C CNN
+F 3 "~" H 1650 10400 50  0001 C CNN
+	1    1650 10400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0129
+U 1 1 62322FB2
+P 1650 10500
+F 0 "#PWR0129" H 1650 10250 50  0001 C CNN
+F 1 "GND" H 1655 10327 50  0000 C CNN
+F 2 "" H 1650 10500 50  0001 C CNN
+F 3 "" H 1650 10500 50  0001 C CNN
+	1    1650 10500
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
