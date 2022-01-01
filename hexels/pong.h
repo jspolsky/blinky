@@ -1,6 +1,6 @@
 const uint8_t bmp_pong[] = {
         /* frames, delay (hi byte), delay (lo byte): */
-        8, 0, 55,
+        8, 0, 200,
         
         /* raw data: */
 	____, ____, ____, ____, ____, ____, ____, 0xff, 

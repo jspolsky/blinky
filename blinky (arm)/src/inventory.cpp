@@ -2,6 +2,7 @@
 #include <FlashStorage.h>
 
 #include "inventory.h"
+#include "matrix.h"
 #define MAX_ANIMATION 512 /* animations that can be stored in inventory are 0-511 */
 
 namespace Inventory
@@ -43,6 +44,10 @@ namespace Inventory
 
             addToInventory(myAnimation);
 
+            // TODO remove these, just here for easy debugging
+            addToInventory(1);
+            addToInventory(2);
+
             flash_inventory.write(inventory);
         }
         currentAnimation = myAnimation;
@@ -53,20 +58,20 @@ namespace Inventory
 
     bool isAnimationInInventory(uint16_t animation)
     {
-        return (animation < MAX_ANIMATION) &&
+        return (animation < Matrix::getAnimationCount()) &&
                !!(inventory.rgbitUnlocked[animation / 8] & (1 << (animation % 8)));
     }
 
     uint16_t nextAnimation()
     {
-        uint16_t animation = (currentAnimation + 1) % MAX_ANIMATION;
+        uint16_t animation = (currentAnimation + 1) % Matrix::getAnimationCount();
         while (animation != currentAnimation)
         {
             if (isAnimationInInventory(animation))
             {
                 break;
             }
-            animation = ((animation + 1) % MAX_ANIMATION);
+            animation = ((animation + 1) % Matrix::getAnimationCount());
         }
 
         currentAnimation = animation;
@@ -75,7 +80,7 @@ namespace Inventory
 
     void addToInventory(uint16_t animation)
     {
-        if (animation < MAX_ANIMATION)
+        if (animation < Matrix::getAnimationCount())
         {
             inventory.rgbitUnlocked[animation / 8] |= (1 << (animation % 8));
             flash_inventory.write(inventory);

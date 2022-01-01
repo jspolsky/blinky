@@ -28,25 +28,38 @@ const uint8_t gamma_scale[] = {
     47,
 };
 
-#define ____ 0
-#include "../../hexels/bouncyheart2.h"
-#include "../../hexels/_exchange.h"
-#include "../../hexels/greyscale.h"
-#include "../../hexels/man.h"
-
 namespace Matrix
 {
     Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 
+#define ____ 0
+#include "../../hexels/_exchange.h"
+#include "../../hexels/greyscale.h"
+
 #ifdef PREVIEW
     const uint8_t *rgbmp[] = {bmp__exchange, bmp_greyscale};
-    const uint8_t rgcframes[] = {cframes__exchange, cframes_greyscale};
 #endif
 
 #ifdef BLINKY
-    const uint8_t *rgbmp[] = {bmp__exchange, bmp_bouncyheart2, bmp_man};
-    const uint8_t rgcframes[] = {cframes__exchange, cframes_bouncyheart2, cframes_man};
+
+#include "../../hexels/bouncyheart2.h"
+#include "../../hexels/man.h"
+#include "../../hexels/pong.h"
+    // ADD ADDITIONAL .h FILES ABOVE
+
+    const uint8_t *rgbmp[] = {
+        bmp__exchange,
+        bmp_bouncyheart2,
+        bmp_man,
+        bmp_pong,
+        // ADD ADDITIONAL ANIMATIONS ABOVE
+    };
+
 #endif
+
+    const size_t cAnimations = sizeof(rgbmp) / sizeof(uint8_t *);
+
+    size_t getAnimationCount() { return cAnimations - 1; };
 
     static bool powerState = false;
 
@@ -116,28 +129,21 @@ namespace Matrix
     void displayAnimation(uint16_t code)
     {
 
-        uint8_t const *bitmap = NULL;
-        uint8_t cframes = 0;
+        // code is actually one less than the position in the array
+        // 0xFFFF is the exchange animation, located at position 0 in rgbmp
+        // 0 is the first animation, located at position 1 in rgbmp
+        //
+        size_t position = code + 1;
 
-        if (code == EXCHANGE_ANIMATION)
+        if (position >= cAnimations)
         {
-            bitmap = rgbmp[0];
-            cframes = rgcframes[0];
-        }
-        else if (code < 2)
-        {
-            bitmap = rgbmp[code + 1];
-            cframes = rgcframes[code + 1];
-        }
-        else if (code >= 2)
-        {
-            // TODO get more animations. For now show A-Z
-            showChar((code % 26) + 'A');
+            showChar('X');
+            return;
         }
 
-        if (bitmap)
-        {
-            displayAnimation(cframes, 55, bitmap);
-        }
+        uint8_t const *bitmap = rgbmp[position] + 3;
+        uint8_t cframes = rgbmp[position][0];
+        uint16_t delay = (rgbmp[position][1] << 8) | (rgbmp[position][2]);
+        displayAnimation(cframes, delay, bitmap);
     }
 }
