@@ -3,6 +3,9 @@
 
 #include "inventory.h"
 #include "matrix.h"
+#include "pins.h"
+#include "util.h"
+
 #define MAX_ANIMATION 512 /* animations that can be stored in inventory are 0-511 */
 
 namespace Inventory
@@ -23,12 +26,24 @@ namespace Inventory
 
     void setup()
     {
-        inventory = flash_inventory.read();
-        if (inventory.header[0] == 'O' && inventory.header[1] == 'K')
+        pinMode(RESET_INVENTORY_PIN, INPUT_PULLUP);
+        delay(10);
+        bool bResetInventory = (digitalRead(RESET_INVENTORY_PIN) == LOW);
+
+        if (!bResetInventory)
         {
-            myAnimation = inventory.myAnimation;
+            inventory = flash_inventory.read();
+            if (inventory.header[0] == 'O' && inventory.header[1] == 'K')
+            {
+                myAnimation = inventory.myAnimation;
+            }
+            else
+            {
+                bResetInventory = true;
+            }
         }
-        else
+
+        if (bResetInventory)
         {
             memset(&inventory, 0, sizeof(inventory));
 
@@ -36,17 +51,13 @@ namespace Inventory
             // We need to pick a random animation to be OUR animation.
             //
             pinMode(A6, INPUT);
-            randomSeed(analogRead(A6));              // this pin is floating so it generates just
-                                                     // enough noise to be different every time
-            myAnimation = inventory.myAnimation = 0; // TODO random(2);
+            randomSeed(analogRead(RANDOM_NOISE_PIN)); // this pin is floating so it generates just
+                                                      // enough noise to be different every time
+            myAnimation = inventory.myAnimation = random(Matrix::getAnimationCount());
             inventory.header[0] = 'O';
             inventory.header[1] = 'K';
 
             addToInventory(myAnimation);
-
-            // TODO remove these, just here for easy debugging
-            addToInventory(1);
-            addToInventory(2);
 
             flash_inventory.write(inventory);
         }
