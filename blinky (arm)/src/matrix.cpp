@@ -112,16 +112,22 @@ namespace Matrix
         for (uint8_t frame = 0; frame < cframes; frame++) // write 8 frames then animate
         {
             ledmatrix.setFrame(frame);
-            for (int y = 0; y < 9; y++)
-                for (int x = 0; x < 16; x += 2)
-                {
-                    const uint8_t twoNibbles = *pnext++;
-                    const uint8_t firstNibble = (twoNibbles & 0xF0) >> 4;
-                    const uint8_t secondNibble = (twoNibbles & 0x0F);
 
-                    ledmatrix.drawPixel(15 - x, y, gamma_scale[firstNibble]);
-                    ledmatrix.drawPixel(15 - (x + 1), y, gamma_scale[secondNibble]);
-                }
+            uint8_t frameBuffer[145];
+            uint8_t *pframeBuffer = frameBuffer;
+            *pframeBuffer++ = 0;
+
+            for (int i = 0; i < 72; i++)
+            {
+                const uint8_t twoNibbles = *pnext++;
+                const uint8_t firstNibble = (twoNibbles & 0xF0) >> 4;
+                const uint8_t secondNibble = (twoNibbles & 0x0F);
+
+                *pframeBuffer++ = gamma_scale[firstNibble];
+                *pframeBuffer++ = gamma_scale[secondNibble];
+            }
+
+            ledmatrix.drawEntireFrame(frameBuffer);
         }
 
         ledmatrix.shutdown(0);

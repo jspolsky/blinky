@@ -39,6 +39,7 @@ public:
   Adafruit_IS31FL3731(uint8_t x = 16, uint8_t y = 9);
   bool begin(uint8_t addr = ISSI_ADDR_DEFAULT, TwoWire *theWire = &Wire);
   void drawPixel(int16_t x, int16_t y, uint16_t color);
+  void drawEntireFrame(uint8_t *pframeBuffer);
   void clear(void);
 
   void setLEDPWM(uint8_t lednum, uint8_t pwm, uint8_t bank = 0);
@@ -53,6 +54,7 @@ public:
 protected:
   bool selectBank(uint8_t bank);
   bool writeRegister8(uint8_t bank, uint8_t reg, uint8_t data);
+  bool writeRegister144(uint8_t bank, uint8_t reg, uint8_t *prg145);
   uint8_t readRegister8(uint8_t bank, uint8_t reg);
   uint8_t _frame; ///< The frame (of 8) we are currently addressing
 

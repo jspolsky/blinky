@@ -210,6 +210,11 @@ void Adafruit_IS31FL3731::drawPixel(int16_t x, int16_t y, uint16_t color)
   return;
 }
 
+void Adafruit_IS31FL3731::drawEntireFrame(uint8_t *pframeBuffer)
+{
+  writeRegister144(_frame, 0x24, pframeBuffer);
+}
+
 /**************************************************************************/
 /*!
     @brief Set's this object's frame tracker (does not talk to the chip)
@@ -313,6 +318,17 @@ bool Adafruit_IS31FL3731::writeRegister8(uint8_t bank, uint8_t reg,
 
   uint8_t cmd[2] = {reg, data};
   return _i2c_dev->write(cmd, 2);
+}
+
+// Writes 144 bytes of data to a register
+// TRICKY THING: you must supply a 145 byte long array, with the data going from
+// prg145[1] through prg145[144].
+bool Adafruit_IS31FL3731::writeRegister144(uint8_t bank, uint8_t reg, uint8_t *prg145)
+{
+  selectBank(bank);
+
+  prg145[0] = reg;
+  return _i2c_dev->write(prg145, 145);
 }
 
 /**************************************************************************/
