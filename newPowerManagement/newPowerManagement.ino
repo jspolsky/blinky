@@ -5,6 +5,8 @@
 Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
 RTCZero rtc;
 
+#define BUTTON_PIN A0
+
 volatile bool bClockFired;
 volatile bool fDown = false;
 
@@ -23,11 +25,11 @@ void setup() {
   pixels.begin();
   showColor(32, 32, 32);
 
-  pinMode( A0, INPUT_PULLUP );
+  pinMode( BUTTON_PIN, INPUT_PULLUP );
 
   rtc.begin();
   rtc.attachInterrupt(isrClock); 
-  LowPower.attachInterruptWakeup( digitalPinToInterrupt(A0), isrPin, CHANGE ); 
+  LowPower.attachInterruptWakeup( digitalPinToInterrupt(BUTTON_PIN), isrPin, CHANGE ); 
 }
 
 void isrClock() {
@@ -38,8 +40,7 @@ void isrClock() {
 
 void isrPin() {
 
-    int state = digitalRead(A0);
-    fDown = (!fDown && state == LOW);
+    fDown = (digitalRead(BUTTON_PIN) == LOW);
  
 }
 
@@ -47,11 +48,11 @@ void loop() {
 
   if (bClockFired) {
     
-    // Power saving timeout. Simulate this
-    // by turning off the LED, in reality we would turn off
-    // the digital display
+    // Power saving timeout
     
     bClockFired = false;
+
+    // TODO TURN OFF THE MATRIX
     showColor(0, 0, 0);
     
   }
@@ -64,21 +65,25 @@ void loop() {
     bool fLongPressDetected = false;
 
     // wait for up
-    while (digitalRead(A0) == LOW)
+    while (digitalRead(BUTTON_PIN) == LOW)
     {
 
-      if (tmStart + 750L < millis()) {
+      if (tmStart + 500L < millis()) {
       
         fLongPressDetected = true;
 
-        while (digitalRead(A0) == LOW) {
+        while (digitalRead(BUTTON_PIN) == LOW) {
           
-          // long press action
+          // TODO RUN IR::start()
+          // TODO run IR::loop() in a loop until it is "idle"
+          //      -- modify IR::loop() to be told the button state
+      
           showColor(0, 0, millis() % 255);
 
         }
 
         // end of long press
+        
         showColor(0, 0, 64);
         
       }
@@ -88,6 +93,9 @@ void loop() {
 
       //it's a short press
       showColor(0, 32, 0);
+      
+      // TODO show next animation
+      
     
     }    
        
