@@ -28,6 +28,11 @@ Adafruit_IS31FL3731::Adafruit_IS31FL3731(uint8_t width, uint8_t height)
 Adafruit_IS31FL3731_Wing::Adafruit_IS31FL3731_Wing(void)
     : Adafruit_IS31FL3731(15, 7) {}
 
+void Adafruit_IS31FL3731::shutdown(bool f)
+{
+  writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, f ? 0x00 : 0x01);
+}
+
 /**************************************************************************/
 /*!
     @brief Initialize hardware and clear display
@@ -53,12 +58,12 @@ bool Adafruit_IS31FL3731::begin(uint8_t addr, TwoWire *theWire)
   _frame = 0;
 
   // shutdown
-  writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0x00);
+  shutdown(1);
 
   delay(10);
 
   // out of shutdown
-  writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_SHUTDOWN, 0x01);
+  shutdown(0);
 
   // picture mode
   writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG,

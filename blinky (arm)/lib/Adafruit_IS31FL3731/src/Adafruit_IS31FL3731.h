@@ -48,6 +48,8 @@ public:
   void autoPlay(uint16_t msDelay, uint8_t numFrames);
   void autoPlayStop();
 
+  void shutdown(bool f);
+
 protected:
   bool selectBank(uint8_t bank);
   bool writeRegister8(uint8_t bank, uint8_t reg, uint8_t data);
