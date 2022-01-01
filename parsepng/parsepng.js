@@ -150,8 +150,8 @@ getPixels(inputFileName, function (err, pixels) {
       let row = "";
       for (let y = 0; y <= 15; y += 2) {
         row += formatTwoNibbles(
-          getOneByte(frame * 9 + x, y),
-          getOneByte(frame * 9 + x, y + 1)
+          getOneByte(frame * 9 + x, 16 - y),
+          getOneByte(frame * 9 + x, 16 - (y + 1))
         );
 
         // the "16 - " logic below is because our
