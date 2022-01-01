@@ -106,6 +106,7 @@ namespace Matrix
 
     void displayAnimation(uint8_t cframes, uint16_t delay, uint8_t const *bitmap)
     {
+        ledmatrix.shutdown(1);
         const uint8_t *pnext = bitmap;
 
         for (uint8_t frame = 0; frame < cframes; frame++) // write 8 frames then animate
@@ -123,6 +124,7 @@ namespace Matrix
                 }
         }
 
+        ledmatrix.shutdown(0);
         ledmatrix.autoPlay(delay, cframes);
     }
 
