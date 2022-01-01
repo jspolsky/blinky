@@ -1,6 +1,8 @@
-const uint8_t cframes_pong = 8;
-const uint32_t delay_pong = 43;
 const uint8_t bmp_pong[] = {
+        /* frames, delay (hi byte), delay (lo byte): */
+        8, 0, 55,
+        
+        /* raw data: */
 	____, ____, ____, ____, ____, ____, ____, 0xff, 
 	____, ____, ____, ____, ____, ____, ____, 0x0f, 
 	____, ____, ____, ____, ____, ____, ____, 0x0f, 

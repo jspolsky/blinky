@@ -1,5 +1,8 @@
-const uint8_t cframes_bouncyheart2 = 8;
 const uint8_t bmp_bouncyheart2[] = {
+        /* frames, delay (hi byte), delay (lo byte): */
+        8, 0, 55,
+        
+        /* raw data: */
 	____, ____, ____, ____, ____, 0x99, 0x90, ____, 
 	____, ____, ____, ____, 0x09, 0xf9, 0x98, ____, 
 	____, ____, ____, ____, 0x09, 0x99, 0x88, 0x40, 
@@ -81,4 +84,3 @@ const uint8_t bmp_bouncyheart2[] = {
 	____, ____, ____, ____, ____, ____, ____, ____, 
 
 };
-// Average luminosity: 2.5277777777777777 Est mA consumption: 4.0381796733333335 

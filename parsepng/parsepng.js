@@ -31,12 +31,14 @@ const Buffer = require("buffer").Buffer;
 
 const args = process.argv.slice(2);
 
-if (args.length === 0) {
+if (args.length === 0 || args[0] === "-h" || args[0] === "--help") {
   console.error(
     `Usage: node parsepng [-s speed] [-w] inputfile <outputfile>
        -s sets delay between frames in ms, must be between 11 and 704, default 55
        -w will keep running, watching the file for changes
-       if outputfile is omitted, sends pixels to a Blinky Previewer via USB`
+       if outputfile is omitted, sends pixels to a Blinky Previewer via USB
+       
+       outputfile is a base name. Will generate .h and .bin versions.`
   );
   return;
 }
@@ -44,7 +46,9 @@ if (args.length === 0) {
 // Parse the command line
 
 let inputFileName = "";
-let outputFileName = "";
+let outputFileName = ""; // base name
+let outputFileNameBinary = "";
+let outputFileNameCCode = "";
 let delay = 55;
 let watch = false;
 
@@ -65,6 +69,9 @@ while (ixArg < args.length) {
     inputFileName = args[ixArg];
   } else if (outputFileName === "") {
     outputFileName = args[ixArg];
+    outputFileNameBinary = outputFileName + ".bin";
+    outputFileNameCCode = outputFileName + ".h";
+    variable_name = outputFileName;
   } else {
     console.error("too many arguments");
     return;
@@ -114,6 +121,17 @@ getPixels(inputFileName, function (err, pixels) {
     return shade;
   };
 
+  const formatTwoNibbles = (nib1, nib2) => {
+    if (!nib1 && !nib2) return "____, ";
+    else return `0x${nib1.toString(16)}${nib2.toString(16)}, `;
+  };
+
+  var imageAsCCode = `const uint8_t bmp_${variable_name}[] = \{
+        /* frames, delay (hi byte), delay (lo byte): */
+        ${number_of_frames}, ${delay >> 8}, ${delay & 0xff},
+        
+        /* raw data: */\n`;
+
   var imageAsByteArray = [
     // first byte: number of frames
     number_of_frames,
@@ -129,7 +147,13 @@ getPixels(inputFileName, function (err, pixels) {
 
   for (let frame = 0; frame < number_of_frames; frame++) {
     for (let x = 0; x <= 8; x++) {
+      let row = "";
       for (let y = 0; y <= 15; y += 2) {
+        row += formatTwoNibbles(
+          getOneByte(frame * 9 + x, y),
+          getOneByte(frame * 9 + x, y + 1)
+        );
+
         // the "16 - " logic below is because our
         // LED board is physically upside down :)
         imageAsByteArray.push(
@@ -137,17 +161,29 @@ getPixels(inputFileName, function (err, pixels) {
             getOneByte(frame * 9 + x, 16 - (y + 1))
         );
       }
+      imageAsCCode += `\t${row}\n`;
     }
+    imageAsCCode += "\n";
   }
+
+  imageAsCCode += "};\n";
 
   if (outputFileName !== "") {
     //
     // Write animation as binary to file
     //
 
-    fs.writeFile(outputFileName, Buffer.from(imageAsByteArray), (err) => {
+    fs.writeFile(outputFileNameBinary, Buffer.from(imageAsByteArray), (err) => {
       if (err) {
-        console.error(`Error writing output file ${outputFileName}`);
+        console.error(`Error writing output file ${outputFileNameBinary}`);
+        console.error(err);
+        return;
+      }
+    });
+
+    fs.writeFile(outputFileNameCCode, imageAsCCode, (err) => {
+      if (err) {
+        console.error(`Error writing output file ${outputFileNameCCode}`);
         console.error(err);
         return;
       }

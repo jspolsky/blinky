@@ -1,5 +1,8 @@
-const uint8_t cframes__exchange = 3;
 const uint8_t bmp__exchange[] = {
+        /* frames, delay (hi byte), delay (lo byte): */
+        3, 0, 55,
+        
+        /* raw data: */
 	____, 0xa0, 0x0a, ____, ____, 0x0a, ____, 0xa0, 
 	0x0a, ____, 0xa0, 0x01, 0x21, ____, 0xa0, 0x0a, 
 	0x0c, ____, 0xc0, 0x3a, 0xea, 0x30, 0xc0, 0x0c, 
@@ -31,4 +34,3 @@ const uint8_t bmp__exchange[] = {
 	0xa0, 0x0a, ____, 0xa0, ____, 0xa0, 0x0a, ____, 
 
 };
-// Average luminosity: 10.393518518518519 Est mA consumption: 8.824566605555557 

@@ -1,5 +1,8 @@
-const uint8_t cframes_man = 8;
 const uint8_t bmp_man[] = {
+        /* frames, delay (hi byte), delay (lo byte): */
+        8, 0, 55,
+        
+        /* raw data: */
 	____, ____, ____, 0xf0, ____, ____, 0x07, 0x77, 
 	____, ____, 0x0f, ____, ____, 0x0f, 0x73, ____, 
 	0x30, ____, 0xf0, ____, 0x0f, 0xf0, 0x77, 0x77, 
@@ -81,4 +84,3 @@ const uint8_t bmp_man[] = {
 	____, 0x0f, ____, ____, ____, ____, 0x07, 0x77, 
 
 };
-// Average luminosity: 10.777777777777779 Est mA consumption: 9.058392453333333 
