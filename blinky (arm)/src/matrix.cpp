@@ -141,7 +141,7 @@ namespace Matrix
         // 0xFFFF is the exchange animation, located at position 0 in rgbmp
         // 0 is the first animation, located at position 1 in rgbmp
         //
-        size_t position = code + 1;
+        size_t position = (code == EXCHANGE_ANIMATION) ? 0 : code + 1;
 
         if (position >= cAnimations)
         {
