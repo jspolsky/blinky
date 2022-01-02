@@ -81,6 +81,7 @@ namespace Matrix
         {
             // turn on
             digitalWrite(MATRIX_ENABLE_PIN, HIGH);
+            ledmatrix.begin();
         }
         else if (powerState == true && !bOn)
         {
