@@ -62,16 +62,4 @@ private:
   Adafruit_I2CDevice *_i2c_dev = NULL;
 };
 
-/**************************************************************************/
-/*!
-    @brief Constructor for FeatherWing IS31FL3731 version
-*/
-/**************************************************************************/
-class Adafruit_IS31FL3731_Wing : public Adafruit_IS31FL3731
-{
-public:
-  Adafruit_IS31FL3731_Wing(void);
-  void drawPixel(int16_t x, int16_t y, uint16_t color);
-};
-
 #endif

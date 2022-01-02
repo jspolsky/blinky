@@ -1,3 +1,8 @@
+/*
+ * Based on Adafruit's Charlieplex Driver Adafruit_IS31FL3731,
+ * but extensively stripped down for the Blinky.
+ */
+
 #include <Adafruit_IS31FL3731.h>
 
 #ifndef _swap_int16_t
@@ -19,14 +24,6 @@
 
 Adafruit_IS31FL3731::Adafruit_IS31FL3731(uint8_t width, uint8_t height)
     : Adafruit_GFX(width, height) {}
-
-/**************************************************************************/
-/*!
-    @brief Constructor for FeatherWing version (15x7 LEDs)
-*/
-/**************************************************************************/
-Adafruit_IS31FL3731_Wing::Adafruit_IS31FL3731_Wing(void)
-    : Adafruit_IS31FL3731(15, 7) {}
 
 void Adafruit_IS31FL3731::shutdown(bool f)
 {
@@ -60,11 +57,6 @@ bool Adafruit_IS31FL3731::begin(uint8_t addr, TwoWire *theWire)
   // shutdown
   shutdown(1);
 
-  delay(10);
-
-  // out of shutdown
-  shutdown(0);
-
   // picture mode
   writeRegister8(ISSI_BANK_FUNCTIONREG, ISSI_REG_CONFIG,
                  ISSI_REG_CONFIG_PICTUREMODE);
@@ -81,6 +73,11 @@ bool Adafruit_IS31FL3731::begin(uint8_t addr, TwoWire *theWire)
   }
 
   audioSync(false);
+
+  delay(10);
+
+  // out of shutdown
+  shutdown(0);
 
   return true;
 }
@@ -118,57 +115,6 @@ void Adafruit_IS31FL3731::setLEDPWM(uint8_t lednum, uint8_t pwm, uint8_t bank)
   if (lednum >= 144)
     return;
   writeRegister8(bank, 0x24 + lednum, pwm);
-}
-
-/**************************************************************************/
-/*!
-    @brief Adafruit GFX low level accesssor - sets a 8-bit PWM pixel value
-    handles rotation and pixel arrangement, unlike setLEDPWM
-    @param x The x position, starting with 0 for left-most side
-    @param y The y position, starting with 0 for top-most side
-    @param color Despite being a 16-bit value, takes 0 (off) to 255 (max on)
-*/
-/**************************************************************************/
-void Adafruit_IS31FL3731_Wing::drawPixel(int16_t x, int16_t y, uint16_t color)
-{
-  // check rotation, move pixel around if necessary
-  switch (getRotation())
-  {
-  case 1:
-    _swap_int16_t(x, y);
-    x = 15 - x - 1;
-    break;
-  case 2:
-    x = 15 - x - 1;
-    y = 7 - y - 1;
-    break;
-  case 3:
-    _swap_int16_t(x, y);
-    y = 9 - y - 1;
-    break;
-  }
-
-  // charlie wing is smaller:
-  if ((x < 0) || (x >= 16) || (y < 0) || (y >= 7))
-    return;
-
-  if (x > 7)
-  {
-    x = 15 - x;
-    y += 8;
-  }
-  else
-  {
-    y = 7 - y;
-  }
-
-  _swap_int16_t(x, y);
-
-  if (color > 255)
-    color = 255; // PWM 8bit max
-
-  setLEDPWM(x + y * 16, color, _frame);
-  return;
 }
 
 /**************************************************************************/
@@ -329,23 +275,4 @@ bool Adafruit_IS31FL3731::writeRegister144(uint8_t bank, uint8_t reg, uint8_t *p
 
   prg145[0] = reg;
   return _i2c_dev->write(prg145, 145);
-}
-
-/**************************************************************************/
-/*!
-    @brief  Read one byte from a register located in a given bank
-    @param   bank The IS31 bank to read the register location
-    @param   reg the offset into the bank to read
-    @return 1 byte value
-*/
-/**************************************************************************/
-uint8_t Adafruit_IS31FL3731::readRegister8(uint8_t bank, uint8_t reg)
-{
-  uint8_t val = 0xFF;
-
-  selectBank(bank);
-
-  _i2c_dev->write_then_read(&reg, 1, &val, 1);
-
-  return val;
 }
