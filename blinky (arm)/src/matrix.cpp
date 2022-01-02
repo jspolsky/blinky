@@ -103,7 +103,7 @@ namespace Matrix
     //             ledmatrix.drawPixel(15 - x, y, gamma_scale[v]);
     // }
 
-    void displayAnimation(uint8_t cframes, uint16_t delay, uint8_t const *bitmap)
+    void displayAnimation(uint8_t cframes, uint16_t frame_delay, uint8_t const *bitmap)
     {
         ledmatrix.shutdown(1);
         const uint8_t *pnext = bitmap;
@@ -130,7 +130,7 @@ namespace Matrix
         }
 
         ledmatrix.shutdown(0);
-        ledmatrix.autoPlay(delay, cframes);
+        ledmatrix.autoPlay(frame_delay, cframes);
     }
 
     void displayAnimation(uint16_t code)
@@ -149,10 +149,10 @@ namespace Matrix
 
         uint8_t const *bitmap = rgbmp[position] + 3;
         uint8_t cframes = rgbmp[position][0];
-        uint16_t delay = (rgbmp[position][1] << 8) | (rgbmp[position][2]);
+        uint16_t frame_delay = (rgbmp[position][1] << 8) | (rgbmp[position][2]);
 
         power(true);
-        displayAnimation(cframes, delay, bitmap);
+        displayAnimation(cframes, frame_delay, bitmap);
     }
 
     void testPattern()
