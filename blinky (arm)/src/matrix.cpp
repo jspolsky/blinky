@@ -92,13 +92,6 @@ namespace Matrix
         powerState = bOn;
     }
 
-    void showChar(char c)
-    {
-        ledmatrix.autoPlayStop();
-        ledmatrix.clear();
-        ledmatrix.drawChar(0, 0, c, 0x3333, 0x0000, 1);
-    }
-
     // void showGreyscale16(uint8_t v)
     // {
 
@@ -151,7 +144,6 @@ namespace Matrix
 
         if (position >= cAnimations)
         {
-            showChar('X');
             return;
         }
 

@@ -1,7 +1,6 @@
 #ifndef _ADAFRUIT_IS31FL3731_H_
 #define _ADAFRUIT_IS31FL3731_H_
 
-#include <Adafruit_GFX.h>
 #include <Adafruit_I2CDevice.h>
 #include <Arduino.h>
 
@@ -33,12 +32,11 @@
     @brief Constructor for generic IS31FL3731 breakout version
 */
 /**************************************************************************/
-class Adafruit_IS31FL3731 : public Adafruit_GFX
+class Adafruit_IS31FL3731
 {
 public:
   Adafruit_IS31FL3731(uint8_t x = 16, uint8_t y = 9);
   bool begin(uint8_t addr = ISSI_ADDR_DEFAULT, TwoWire *theWire = &Wire);
-  void drawPixel(int16_t x, int16_t y, uint16_t color);
   void drawEntireFrame(uint8_t *pframeBuffer);
   void clear(void);
 

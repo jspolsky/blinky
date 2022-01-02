@@ -22,8 +22,7 @@
 */
 /**************************************************************************/
 
-Adafruit_IS31FL3731::Adafruit_IS31FL3731(uint8_t width, uint8_t height)
-    : Adafruit_GFX(width, height) {}
+Adafruit_IS31FL3731::Adafruit_IS31FL3731(uint8_t width, uint8_t height) {}
 
 void Adafruit_IS31FL3731::shutdown(bool f)
 {
@@ -115,45 +114,6 @@ void Adafruit_IS31FL3731::setLEDPWM(uint8_t lednum, uint8_t pwm, uint8_t bank)
   if (lednum >= 144)
     return;
   writeRegister8(bank, 0x24 + lednum, pwm);
-}
-
-/**************************************************************************/
-/*!
-    @brief Adafruit GFX low level accesssor - sets a 8-bit PWM pixel value
-    handles rotation and pixel arrangement, unlike setLEDPWM
-    @param x The x position, starting with 0 for left-most side
-    @param y The y position, starting with 0 for top-most side
-    @param color Despite being a 16-bit value, takes 0 (off) to 255 (max on)
-*/
-/**************************************************************************/
-void Adafruit_IS31FL3731::drawPixel(int16_t x, int16_t y, uint16_t color)
-{
-  // check rotation, move pixel around if necessary
-  switch (getRotation())
-  {
-  case 1:
-    _swap_int16_t(x, y);
-    x = 16 - x - 1;
-    break;
-  case 2:
-    x = 16 - x - 1;
-    y = 9 - y - 1;
-    break;
-  case 3:
-    _swap_int16_t(x, y);
-    y = 9 - y - 1;
-    break;
-  }
-
-  if ((x < 0) || (x >= 16))
-    return;
-  if ((y < 0) || (y >= 9))
-    return;
-  if (color > 255)
-    color = 255; // PWM 8bit max
-
-  setLEDPWM(x + y * 16, color, _frame);
-  return;
 }
 
 void Adafruit_IS31FL3731::drawEntireFrame(uint8_t *pframeBuffer)
