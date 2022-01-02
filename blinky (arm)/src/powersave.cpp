@@ -4,66 +4,46 @@
 #include "matrix.h"
 #include "util.h"
 
-#define WAKEUP_MINUTES 1 /* should be 5 */
-#define WAKEUP_SECONDS 0
-#define NUMBER_OF_WAKEUPS 5 /* should be 24 */ /* 5 minutes * 24 wakeups = 2 hours */
-
 namespace PowerSave
 {
 
-    static bool alarmMatched = false;
-    static uint32_t alarmCount = 0;
-    static RTCZero rtc;
+    // how long the matrix stays on until
+    // power save mode kicks in
+    const uint8_t hours = 0;
+    const uint8_t minutes = 0;
+    const uint8_t seconds = 10;
 
-    void alarmMatch(void)
+    volatile bool bClockFired = false;
+    RTCZero rtc;
+
+    void isrClock()
     {
-        alarmMatched = true;
-    }
-
-    void setAlarm()
-    {
-        rtc.disableAlarm();
-        rtc.setTime(0, 0, 0);
-        rtc.setDate(1, 1, 5);
-        rtc.setAlarmTime(0, WAKEUP_MINUTES, WAKEUP_SECONDS);
-        rtc.enableAlarm(rtc.MATCH_HHMMSS);
-    }
-
-    void reset()
-    {
-        // user pressed a button
-        alarmCount = 0;
-
-        Matrix::power(true);
-
-        setAlarm();
+        bClockFired = true;
     }
 
     void setup()
     {
-        alarmCount = 0;
-
+        bClockFired = false;
         rtc.begin();
-        rtc.attachInterrupt(alarmMatch);
-
-        setAlarm();
+        rtc.attachInterrupt(isrClock);
     }
 
-    void loop()
+    bool loop()
     {
-        if (alarmMatched)
+        bool bHandled = false;
+
+        if (bClockFired)
         {
-            alarmMatched = false;
-            alarmCount++;
-
-            if (alarmCount >= NUMBER_OF_WAKEUPS)
-            {
-
-                Matrix::power(false);
-                alarmCount = 0;
-            }
-
-            setAlarm();
+            bClockFired = false;
+            Matrix::power(false);
+            bHandled = true;
         }
+
+        rtc.setTime(0, 0, 0);
+        rtc.setDate(1, 9, 22);
+        rtc.setAlarmTime(hours, minutes, seconds);
+        rtc.enableAlarm(rtc.MATCH_HHMMSS);
+
+        return bHandled;
     }
 }

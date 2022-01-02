@@ -70,6 +70,11 @@ namespace Matrix
         ledmatrix.begin();
     }
 
+    bool isPowerOn()
+    {
+        return powerState;
+    }
+
     void power(bool bOn)
     {
         if (powerState == false && bOn)
@@ -152,6 +157,8 @@ namespace Matrix
         uint8_t const *bitmap = rgbmp[position] + 3;
         uint8_t cframes = rgbmp[position][0];
         uint16_t delay = (rgbmp[position][1] << 8) | (rgbmp[position][2]);
+
+        power(true);
         displayAnimation(cframes, delay, bitmap);
     }
 

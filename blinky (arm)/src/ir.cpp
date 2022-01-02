@@ -35,6 +35,20 @@ namespace IR
         irstate = idle;
     }
 
+    void run_protocol()
+    {
+        start();
+        while (digitalRead(BUTTON_PIN) == LOW)
+        {
+            loop();
+        }
+        end();
+        while (irstate != idle) 
+        {
+            loop();
+        }
+    }
+
     void loop()
     {
         if ((irstate != idle && tmstart + 15000L < millis()) || // end protocol after 15 seconds no matter what

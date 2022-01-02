@@ -9,10 +9,6 @@
 #include "inventory.h"
 #include "powersave.h"
 
-void LongPressStart();
-void LongPressEnd();
-void ShortPress();
-
 void setup()
 {
   Matrix::setup();
@@ -21,9 +17,9 @@ void setup()
   Util::setup();
 
 #ifdef BLINKY
-  Button::setup(LongPressStart, LongPressEnd, ShortPress);
   IR::setup();
   PowerSave::setup();
+  Button::setup();
 #endif
 
 #ifdef PREVIEW
@@ -37,16 +33,12 @@ void loop()
 {
 
 #ifdef BLINKY
-  PowerSave::loop();
-  Button::loop();
-  IR::loop();
-
-  if (Button::can_sleep() && IR::can_sleep())
+  if (!PowerSave::loop())
   {
-    Button::sleep();
-    IR::sleep();
-    LowPower.sleep();
+    Button::loop();
   }
+
+  LowPower.sleep();
 #endif
 
 #ifdef PREVIEW
@@ -110,18 +102,15 @@ void loop()
 
 void LongPressStart()
 {
-  PowerSave::reset();
   IR::start();
 }
 
 void LongPressEnd()
 {
-  PowerSave::reset();
   IR::end();
 }
 
 void ShortPress()
 {
-  PowerSave::reset();
-  Matrix::displayAnimation(Inventory::nextAnimation());
+  
 }
