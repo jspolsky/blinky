@@ -15,8 +15,8 @@ void ShortPress();
 
 void setup()
 {
-  Inventory::setup();
   Matrix::setup();
+  Inventory::setup();
   Matrix::displayAnimation(Inventory::getCurrentAnimation());
   Util::setup();
 

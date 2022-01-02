@@ -154,4 +154,24 @@ namespace Matrix
         uint16_t delay = (rgbmp[position][1] << 8) | (rgbmp[position][2]);
         displayAnimation(cframes, delay, bitmap);
     }
+
+    void testPattern()
+    {
+        uint8_t buf[145];
+        buf[0] = 0;
+
+        for (int i = 1; i <= 144; i++)
+        {
+            buf[i] = i + 10;
+        }
+        ledmatrix.drawEntireFrame(buf);
+        delay(1000);
+
+        for (int i = 1; i <= 144; i++)
+        {
+            buf[145 - i] = i + 10;
+        }
+        ledmatrix.drawEntireFrame(buf);
+        delay(1000);
+    }
 }

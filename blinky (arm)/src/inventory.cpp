@@ -45,6 +45,8 @@ namespace Inventory
 
         if (bResetInventory)
         {
+            Matrix::testPattern();
+
             memset(&inventory, 0, sizeof(inventory));
 
             // Oh hai. First time waking up after a flash.
