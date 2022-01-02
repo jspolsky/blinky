@@ -37,13 +37,21 @@ namespace IR
 
     void run_protocol()
     {
-        start();
+        buttonReleased = false;
+        tmreleased = 0L;
+        tmstart = millis();
+        Matrix::displayAnimation(EXCHANGE_ANIMATION);
+        irstate = sending;
+
         while (digitalRead(BUTTON_PIN) == LOW)
         {
             loop();
         }
-        end();
-        while (irstate != idle) 
+
+        buttonReleased = true;
+        tmreleased = millis();
+
+        while (irstate != idle)
         {
             loop();
         }
@@ -155,16 +163,9 @@ namespace IR
 
     void start()
     {
-        buttonReleased = false;
-        tmreleased = 0L;
-        tmstart = millis();
-        Matrix::displayAnimation(EXCHANGE_ANIMATION);
-        irstate = sending;
     }
 
     void end()
     {
-        buttonReleased = true;
-        tmreleased = millis();
     }
 }

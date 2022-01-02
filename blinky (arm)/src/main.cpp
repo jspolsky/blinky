@@ -95,22 +95,3 @@ void loop()
 
 #endif
 }
-
-/**************************
- *  CALLBACKS FROM BUTTON *
- **************************/
-
-void LongPressStart()
-{
-  IR::start();
-}
-
-void LongPressEnd()
-{
-  IR::end();
-}
-
-void ShortPress()
-{
-  
-}

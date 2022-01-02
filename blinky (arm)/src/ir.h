@@ -12,6 +12,4 @@ namespace IR
     bool can_sleep();
     void sleep();
 
-    void start();
-    void end();
 }
