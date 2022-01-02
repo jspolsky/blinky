@@ -152,20 +152,4 @@ namespace IR
         }
     }
 
-    bool can_sleep()
-    {
-        return irstate == idle;
-    }
-
-    void sleep()
-    {
-    }
-
-    void start()
-    {
-    }
-
-    void end()
-    {
-    }
 }
