@@ -9,9 +9,9 @@ namespace PowerSave
 
     // how long the matrix stays on until
     // power save mode kicks in
-    const uint8_t hours = 0;
+    const uint8_t hours = 2;
     const uint8_t minutes = 0;
-    const uint8_t seconds = 10;
+    const uint8_t seconds = 0;
 
     volatile bool bClockFired = false;
     RTCZero rtc;
