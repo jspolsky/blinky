@@ -850,7 +850,7 @@ L Device:R R5
 U 1 1 61CD7684
 P 12800 3500
 F 0 "R5" H 12870 3546 50  0000 L CNN
-F 1 "20K" H 12870 3455 50  0000 L CNN
+F 1 "100K" H 12870 3455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 12730 3500 50  0001 C CNN
 F 3 "~" H 12800 3500 50  0001 C CNN
 	1    12800 3500
@@ -4421,25 +4421,6 @@ VDDCORE
 Text Label 4150 2450 0    50   ~ 0
 2RST
 $Comp
-L Joels_KiCad_Symbol_Library:TSOP36438TT U3
-U 1 1 629FCB03
-P 12450 5450
-F 0 "U3" H 12842 4885 50  0000 C CNN
-F 1 "TSOP36438TT" H 12842 4976 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:TSOP36438TT" H 13300 5550 50  0001 L CNN
-F 3 "https://www.mouser.com/datasheet/2/427/tsop362-464348.pdf" H 13300 5450 50  0001 L CNN
-F 4 "Infrared Receivers" H 13300 5350 50  0001 L CNN "Description"
-F 5 "5.3" H 13300 5250 50  0001 L CNN "Height"
-F 6 "Vishay" H 13300 5150 50  0001 L CNN "Manufacturer_Name"
-F 7 "TSOP36438TT" H 13300 5050 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "78-TSOP36438TT" H 13300 4950 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TSOP36438TT?qs=b85dNVE93B5nGTLDDhv1%252Bg%3D%3D" H 13300 4850 50  0001 L CNN "Mouser Price/Stock"
-F 10 "TSOP36438TT" H 13300 4750 50  0001 L CNN "Arrow Part Number"
-F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4650 50  0001 L CNN "Arrow Price/Stock"
-	1    12450 5450
-	-1   0    0    1   
-$EndComp
-$Comp
 L Mechanical:MountingHole H1
 U 1 1 61EFA092
 P 1650 8100
@@ -4603,5 +4584,24 @@ F 2 "" H 1650 10500 50  0001 C CNN
 F 3 "" H 1650 10500 50  0001 C CNN
 	1    1650 10500
 	1    0    0    -1  
+$EndComp
+$Comp
+L Joels_KiCad_Symbol_Library:TSOP36438TT U3
+U 1 1 629FCB03
+P 12450 5450
+F 0 "U3" H 12842 4885 50  0000 C CNN
+F 1 "TSOP36438TT" H 12842 4976 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:TSOP36438TT" H 13300 5550 50  0001 L CNN
+F 3 "https://www.mouser.com/datasheet/2/427/tsop362-464348.pdf" H 13300 5450 50  0001 L CNN
+F 4 "Infrared Receivers" H 13300 5350 50  0001 L CNN "Description"
+F 5 "5.3" H 13300 5250 50  0001 L CNN "Height"
+F 6 "Vishay" H 13300 5150 50  0001 L CNN "Manufacturer_Name"
+F 7 "TSOP36438TT" H 13300 5050 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "78-TSOP36438TT" H 13300 4950 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/TSOP36438TT?qs=b85dNVE93B5nGTLDDhv1%252Bg%3D%3D" H 13300 4850 50  0001 L CNN "Mouser Price/Stock"
+F 10 "TSOP36438TT" H 13300 4750 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4650 50  0001 L CNN "Arrow Price/Stock"
+	1    12450 5450
+	-1   0    0    1   
 $EndComp
 $EndSCHEMATC
