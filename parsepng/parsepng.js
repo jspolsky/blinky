@@ -81,7 +81,18 @@ while (ixArg < args.length) {
   ixArg++;
 }
 
+var lastModifiedTime = "";
+
 const main = () => {
+  const stats = fs.statSync(inputFileName);
+
+  const modifiedTime = stats.mtimeMs;
+  if (lastModifiedTime === modifiedTime) {
+    return; // file hasn't changed
+  }
+
+  lastModifiedTime = modifiedTime;
+
   getPixels(inputFileName, function (err, pixels) {
     if (err) {
       console.error(`input file ${inputFileName} not found or not a PNG file`);
@@ -235,15 +246,12 @@ const main = () => {
           });
 
           port.flush(() => {
-            console.log("flushed");
             setTimeout(() => {
               port.write("!"); // starts transmission
               port.write(imageAsByteArray);
               port.drain(() => {
-                console.log("drained");
                 setTimeout(() => {
                   port.close();
-                  console.log("closed");
                 }, 1000);
               });
             }, 100);
@@ -265,7 +273,7 @@ const main = () => {
 
 if (watch) {
   main(); // run the first time
-  setInterval(main, 5000); // and every 5 seconds
+  setInterval(main, 2000); // and every 2 seconds
 } else {
   main();
 }
