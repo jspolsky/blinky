@@ -29,6 +29,14 @@ const SerialPort = require("serialport");
 const fs = require("fs");
 const Buffer = require("buffer").Buffer;
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 const args = process.argv.slice(2);
 
 if (args.length === 0 || args[0] === "-h" || args[0] === "--help") {
