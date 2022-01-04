@@ -128,10 +128,10 @@ getPixels(inputFileName, function (err, pixels) {
   };
 
   var imageAsCCode = `const uint8_t bmp_${variableName}[] = \{
-        /* frames, delay (hi byte), delay (lo byte): */
-        ${number_of_frames}, ${delay >> 8}, ${delay & 0xff},
-        
-        /* raw data: */\n`;
+    /* frames, delay (hi byte), delay (lo byte): */
+    ${number_of_frames}, ${delay >> 8}, ${delay & 0xff},
+
+    /* raw data: */\n`;
 
   var imageAsByteArray = [
     // first byte: number of frames
