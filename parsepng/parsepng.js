@@ -49,6 +49,7 @@ let inputFileName = "";
 let outputFileName = ""; // base name
 let outputFileNameBinary = "";
 let outputFileNameCCode = "";
+let variableName = "";
 let delay = 55;
 let watch = false;
 
@@ -71,7 +72,7 @@ while (ixArg < args.length) {
     outputFileName = args[ixArg];
     outputFileNameBinary = outputFileName + ".bin";
     outputFileNameCCode = outputFileName + ".h";
-    variable_name = outputFileName;
+    variableName = outputFileName;
   } else {
     console.error("too many arguments");
     return;
@@ -126,7 +127,7 @@ getPixels(inputFileName, function (err, pixels) {
     else return `0x${nib1.toString(16)}${nib2.toString(16)}, `;
   };
 
-  var imageAsCCode = `const uint8_t bmp_${variable_name}[] = \{
+  var imageAsCCode = `const uint8_t bmp_${variableName}[] = \{
         /* frames, delay (hi byte), delay (lo byte): */
         ${number_of_frames}, ${delay >> 8}, ${delay & 0xff},
         
