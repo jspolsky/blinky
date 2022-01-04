@@ -150,17 +150,12 @@ getPixels(inputFileName, function (err, pixels) {
     for (let x = 0; x <= 8; x++) {
       let row = "";
       for (let y = 0; y <= 15; y += 2) {
-        row += formatTwoNibbles(
-          getOneByte(frame * 9 + x, 16 - y),
-          getOneByte(frame * 9 + x, 16 - (y + 1))
-        );
+        const byte1 = getOneByte(frame * 9 + x, 15 - y); // 15 - because board is upside down
+        const byte2 = getOneByte(frame * 9 + x, 14 - y); // 14 - because board is upside down
 
-        // the "16 - " logic below is because our
-        // LED board is physically upside down :)
-        imageAsByteArray.push(
-          getOneByte(frame * 9 + x, 16 - y) * 16 +
-            getOneByte(frame * 9 + x, 16 - (y + 1))
-        );
+        row += formatTwoNibbles(byte1, byte2);
+
+        imageAsByteArray.push(byte1 * 16 + byte2);
       }
       imageAsCCode += `\t${row}\n`;
     }
