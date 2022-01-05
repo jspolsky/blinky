@@ -257,13 +257,26 @@ const main = () => {
       );
     }
 
+    const luminosity = luminositySum / luminosityCount;
+    const consumption = 0.8887377 + 0.3639953 * luminosity;
+
+    const scale = "▁▁▁▁▂▂▂▂▃▃▃▃▄▄▄▄                ▅▅▅▅▆▆▆▆▇▇▇▇████";
+    var thermometer = scale;
+
+    if (consumption <= 6) {
+      thermometer =
+        scale.substring(0, consumption * 8) +
+        "│" +
+        scale.substring(consumption * 8);
+    }
+
+    if (consumption > 6) thermometer += " way too bright";
+    else if (consumption > 4) thermometer += " too bright";
+
     console.log(
-      `Average luminosity: ${(luminositySum / luminosityCount).toFixed(
+      `Est mA consumption: ${consumption.toFixed(
         2
-      )}\nEst mA consumption: ${(
-        0.8887377 +
-        0.3639953 * (luminositySum / luminosityCount)
-      ).toFixed(2)} `
+      )} (Goal: 2-4)\n${thermometer}`
     );
   });
 };
