@@ -183,21 +183,17 @@ const main = () => {
     imageAsCCode += "};\n";
 
     if (outputFileName !== "") {
-      //
-      // Write animation as binary to file
-      //
-
-      fs.writeFile(
-        outputFileNameBinary,
-        Buffer.from(imageAsByteArray),
-        (err) => {
-          if (err) {
-            console.error(`Error writing output file ${outputFileNameBinary}`);
-            console.error(err);
-            return;
-          }
-        }
-      );
+      // fs.writeFile(
+      //   outputFileNameBinary,
+      //   Buffer.from(imageAsByteArray),
+      //   (err) => {
+      //     if (err) {
+      //       console.error(`Error writing output file ${outputFileNameBinary}`);
+      //       console.error(err);
+      //       return;
+      //     }
+      //   }
+      // );
 
       fs.writeFile(outputFileNameCCode, imageAsCCode, (err) => {
         if (err) {
@@ -262,11 +258,12 @@ const main = () => {
     }
 
     console.log(
-      `Average luminosity: ${
-        luminositySum / luminosityCount
-      }\nEst mA consumption: ${
-        2.5 + 0.60851064 * (luminositySum / luminosityCount)
-      } `
+      `Average luminosity: ${(luminositySum / luminosityCount).toFixed(
+        2
+      )}\nEst mA consumption: ${(
+        2.5 +
+        0.60851064 * (luminositySum / luminosityCount)
+      ).toFixed(2)} `
     );
   });
 };
