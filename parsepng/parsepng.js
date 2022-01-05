@@ -261,8 +261,8 @@ const main = () => {
       `Average luminosity: ${(luminositySum / luminosityCount).toFixed(
         2
       )}\nEst mA consumption: ${(
-        2.5 +
-        0.60851064 * (luminositySum / luminosityCount)
+        0.8887377 +
+        0.3639953 * (luminositySum / luminosityCount)
       ).toFixed(2)} `
     );
   });
