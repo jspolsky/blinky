@@ -33,12 +33,9 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args[0] === "-h" || args[0] === "--help") {
   console.error(
-    `Usage: node parsepng [-s speed] [-w] inputfile <outputfile>
+    `Usage: node parsepng [-s speed] [-w] inputfile 
        -s sets delay between frames in ms, must be between 11 and 704, default 55
-       -w will keep running, watching the file for changes
-       if outputfile is omitted, sends pixels to a Blinky Previewer via USB
-       
-       outputfile is a base name. Will generate .h and .bin versions.`
+       -w will keep running, watching the file for changes`
   );
   return;
 }
@@ -68,11 +65,12 @@ while (ixArg < args.length) {
     return;
   } else if (inputFileName === "") {
     inputFileName = args[ixArg];
-  } else if (outputFileName === "") {
-    outputFileName = args[ixArg];
+
+    const parsed = path.parse(inputFileName);
+    outputFileName = path.join(parsed.dir, parsed.name);
     outputFileNameBinary = outputFileName + ".bin";
     outputFileNameCCode = outputFileName + ".h";
-    variableName = outputFileName;
+    variableName = parsed.name;
   } else {
     console.error("too many arguments");
     return;
@@ -202,60 +200,59 @@ const main = () => {
           return;
         }
       });
-    } else {
-      //
-      // Send output to USB port for preview
-      //
-
-      // find the path. If there is not exactly one Adafruit USB port,
-      // give up
-
-      var cPorts = 0;
-      var sPath = "";
-
-      SerialPort.list().then(
-        (ports) => {
-          ports.forEach((port) => {
-            if (port.manufacturer && port.manufacturer.startsWith("Adafruit")) {
-              sPath = port.path;
-              cPorts++;
-            }
-          });
-          if (cPorts > 1) {
-            console.error(
-              "More than one USB device found ... not sure who to talk to"
-            );
-            return;
-          }
-
-          if (cPorts < 1) {
-            console.error("Can't find Blinky Previewer connected to USB");
-            return;
-          }
-
-          // If we made it this far, send the data to the previewer
-          const port = new SerialPort(sPath, function (err) {
-            if (err) {
-              console.error("Open port error ", err.message);
-              return;
-            }
-          });
-
-          port.flush(() => {
-            setTimeout(() => {
-              port.write("!"); // starts transmission
-              port.write(imageAsByteArray);
-              port.drain(() => {
-                setTimeout(() => {
-                  port.close();
-                }, 1000);
-              });
-            }, 100);
-          });
-        },
-        (err) => console.error(err)
-      );
     }
+    //
+    // Send output to USB port for preview
+    //
+
+    // find the path. If there is not exactly one Adafruit USB port,
+    // give up
+
+    var cPorts = 0;
+    var sPath = "";
+
+    SerialPort.list().then(
+      (ports) => {
+        ports.forEach((port) => {
+          if (port.manufacturer && port.manufacturer.startsWith("Adafruit")) {
+            sPath = port.path;
+            cPorts++;
+          }
+        });
+        if (cPorts > 1) {
+          console.error(
+            "More than one USB device found ... not sure who to talk to"
+          );
+          return;
+        }
+
+        if (cPorts < 1) {
+          console.error("Can't find Blinky Previewer connected to USB");
+          return;
+        }
+
+        // If we made it this far, send the data to the previewer
+        const port = new SerialPort(sPath, function (err) {
+          if (err) {
+            console.error("Open port error ", err.message);
+            return;
+          }
+        });
+
+        port.flush(() => {
+          setTimeout(() => {
+            port.write("!"); // starts transmission
+            port.write(imageAsByteArray);
+            port.drain(() => {
+              setTimeout(() => {
+                port.close();
+              }, 1000);
+            });
+          }, 100);
+        });
+      },
+      (err) => console.error(err)
+    );
 
     const luminosity = luminositySum / luminosityCount;
     const consumption = 0.8887377 + 0.3639953 * luminosity;
@@ -267,7 +264,7 @@ const main = () => {
       thermometer =
         scale.substring(0, consumption * 8) +
         "│" +
-        scale.substring(consumption * 8);
+        scale.substring(consumption * 8 + 1);
     }
 
     if (consumption > 6) thermometer += " way too bright";
