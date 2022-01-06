@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoLowPower.h>
 #define DECODE_NEC
 #include <IRremote.h>
 
@@ -143,6 +144,7 @@ namespace IR
                 else
                 {
                     IrReceiver.resume();
+                    LowPower.idle(50);
                 }
             }
             break;
