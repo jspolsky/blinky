@@ -2,6 +2,12 @@
 
 #pragma once
 
+namespace IR2
+{
+    void setup();
+    void run_protocol();
+}
+
 namespace IR
 {
     void setup();
