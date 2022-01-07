@@ -88,6 +88,9 @@ namespace IR2
                         }
                         fAckReceived = (IrReceiver.decodedIRData.address == ADDRESS_WITH_ACK);
                     }
+
+                    IrReceiver.resume();
+
                 } while (msRemaining > 0 && !fReceived);
 
                 IrReceiver.end();
@@ -95,12 +98,12 @@ namespace IR2
             }
 
             cLoops++;
-            if (cLoops > 8)
+            if (cLoops >= 8)
             {
                 // Protocol always ends after 8 round trips, which is a few seconds
                 done = true;
             }
-            else if (fReceived && fAckReceived && cAcksSent > 2)
+            else if (fReceived && fAckReceived && cAcksSent >= 2)
             {
                 done = true;
             }
