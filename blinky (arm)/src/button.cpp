@@ -41,8 +41,10 @@ namespace Button
                     fLongPressDetected = true;
                     IR::run_protocol();
                 }
-
-                LowPower.idle(50);
+                else
+                {
+                    LowPower.idle(50);
+                }
             }
 
             if (!fLongPressDetected)
