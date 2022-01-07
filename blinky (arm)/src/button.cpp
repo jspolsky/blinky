@@ -39,7 +39,7 @@ namespace Button
                 if (tmStart + 500L < millis())
                 {
                     fLongPressDetected = true;
-                    IR2::run_protocol();
+                    IR::run_protocol();
                 }
             }
 

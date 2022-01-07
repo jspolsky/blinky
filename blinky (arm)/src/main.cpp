@@ -23,7 +23,7 @@ void setup()
 #endif
 
 #ifdef BLINKY
-  IR2::setup();
+  IR::setup();
   PowerSave::setup();
   Button::setup();
 #endif
