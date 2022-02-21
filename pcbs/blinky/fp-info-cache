@@ -1,4 +1,4 @@
-19484108904361733
+19490695137952733
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -169,6 +169,13 @@ Keystone type 3009 coin cell retainer
 2
 Battery
 BatteryHolder_Keystone_3034_1x20mm
+Keystone 3034 SMD battery holder for 2020, 2025 and 2032 coincell batteries. http://www.keyelco.com/product-pdf.cfm?p=798
+Keystone type 3034 coin cell retainer
+0
+3
+2
+Battery
+BatteryHolder_Keystone_3034_Pos_Clip
 Keystone 3034 SMD battery holder for 2020, 2025 and 2032 coincell batteries. http://www.keyelco.com/product-pdf.cfm?p=798
 Keystone type 3034 coin cell retainer
 0
@@ -54985,6 +54992,13 @@ Keystone type 3034 coin cell retainer
 7
 2
 Joels KiCad Footprint Library
+BatteryHolder_Keystone_3034_Pos_Clip
+Keystone 3034 SMD battery holder for 2020, 2025 and 2032 coincell batteries. http://www.keyelco.com/product-pdf.cfm?p=798
+Keystone type 3034 coin cell retainer
+0
+2
+1
+Joels KiCad Footprint Library
 CK-JS102011JAQN-0-0-MFG
 
 
@@ -55054,6 +55068,13 @@ JSTZH6
 0
 6
 6
+Joels KiCad Footprint Library
+Keystone_2992_Negative_Contact_Pad
+Keystone Coin Cell SM Negative Pad
+resistor
+0
+4
+1
 Joels KiCad Footprint Library
 LED_0603_For_Blinky
 LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
@@ -55145,6 +55166,13 @@ SpaceControllerLogo
 0
 0
 0
+Joels KiCad Footprint Library
+TAG-CONNECT_TC2050-IDC
+
+
+0
+10
+10
 Joels KiCad Footprint Library
 TL9320AF400QG
 

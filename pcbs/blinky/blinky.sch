@@ -231,19 +231,6 @@ F 3 "" H 1300 2650 50  0001 C CNN
 	1    1300 2650
 	1    0    0    -1  
 $EndComp
-$Comp
-L Joels_KiCad_Symbol_Library:ATSAMD21E18A-AF U1
-U 1 1 6196BB45
-P 2100 1850
-F 0 "U1" H 3100 2237 60  0000 C CNN
-F 1 "ATSAMD21E17" H 3100 2131 60  0000 C CNN
-F 2 "Joels KiCad Footprint Library:ATSAMD21E17_32Pin_TQFP" H 3100 2090 60  0001 C CNN
-F 3 "" H 2100 1850 60  0000 C CNN
-F 4 "Microchip" H 2100 1850 50  0001 C CNN "manufacturer"
-F 5 "ATSAMD21E17" H 2100 1850 50  0001 C CNN "part number"
-	1    2100 1850
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	850  1000 6350 1000
 Wire Notes Line
@@ -253,11 +240,7 @@ Wire Notes Line
 Wire Notes Line
 	850  4400 850  1000
 Text Notes 850  950  0    50   ~ 0
-MCU - ATSAMD21E17
-Text Notes 9500 950  0    50   ~ 0
-SOIC-8 CLIP FLASH AND TEST
-Text Label 11000 1450 2    50   ~ 0
-~RESET
+MCU - SAMD21E17L
 Text Label 5850 3450 2    50   ~ 0
 ~RESET
 Wire Wire Line
@@ -266,219 +249,134 @@ Text Notes 5200 4000 0    50   ~ 0
 RESET - ref datasheet 38.4
 Text Notes 4900 1550 0    50   ~ 0
 POWER - ref datasheet 38.2
-Text Label 11000 1550 2    50   ~ 0
-SWDIO
-Text Label 11000 1650 2    50   ~ 0
-SWCLK
-$Comp
-L power:+3.3V #PWR0102
-U 1 1 61AA2037
-P 9650 1450
-F 0 "#PWR0102" H 9650 1300 50  0001 C CNN
-F 1 "+3.3V" H 9665 1623 50  0000 C CNN
-F 2 "" H 9650 1450 50  0001 C CNN
-F 3 "" H 9650 1450 50  0001 C CNN
-	1    9650 1450
-	1    0    0    -1  
-$EndComp
-Wire Notes Line
-	9500 1000 11400 1000
-Wire Notes Line
-	11400 1000 11400 2050
-Wire Notes Line
-	11400 2050 9500 2050
-Wire Notes Line
-	9500 2050 9500 1000
 $Comp
 L Joels_KiCad_Symbol_Library:MIC5225-3.3YM5 U2
 U 1 1 61B0D4A4
-P 7150 3650
-F 0 "U2" H 7700 3915 50  0000 C CNN
-F 1 "MIC5225-3.3YM5" H 7700 3824 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:MIC5225-SOT23-5LD" H 7150 4050 50  0001 L CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/mic5225.pdf" H 7150 4150 50  0001 L CNN
-F 4 "1%" H 7150 4250 50  0001 L CNN "accuracy percentage"
-F 5 "No" H 7150 4350 50  0001 L CNN "automotive"
-F 6 "IC" H 7150 4450 50  0001 L CNN "category"
-F 7 "Integrated Circuits (ICs)" H 7150 4550 50  0001 L CNN "device class L1"
-F 8 "Power Management ICs" H 7150 4650 50  0001 L CNN "device class L2"
-F 9 "Voltage Regulators - Linear" H 7150 4750 50  0001 L CNN "device class L3"
-F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 7150 4850 50  0001 L CNN "digikey description"
-F 11 "576-2980-1-ND" H 7150 4950 50  0001 L CNN "digikey part number"
-F 12 "310mV" H 7150 5050 50  0001 L CNN "dropout voltage"
-F 13 "1.45mm" H 7150 5150 50  0001 L CNN "height"
-F 14 "Yes" H 7150 5250 50  0001 L CNN "lead free"
-F 15 "4928afa3c5097de1" H 7150 5350 50  0001 L CNN "library id"
-F 16 "Microchip" H 7150 5450 50  0001 L CNN "manufacturer"
-F 17 "+125°C" H 7150 5550 50  0001 L CNN "max junction temp"
-F 18 "16V" H 7150 5650 50  0001 L CNN "max supply voltage"
-F 19 "2.3V" H 7150 5750 50  0001 L CNN "min supply voltage"
-F 20 "LDO Voltage Regulators High Vin, Low Iq Regulator (Lead Free)\\n\\n" H 7150 5850 50  0001 L CNN "mouser description"
-F 21 "998-MIC5225-3.3YM5TR" H 7150 5950 50  0001 L CNN "mouser part number"
-F 22 "29-3000uA" H 7150 6050 50  0001 L CNN "nominal supply current"
-F 23 "1" H 7150 6150 50  0001 L CNN "number of outputs"
-F 24 "150mA" H 7150 6250 50  0001 L CNN "output current"
-F 25 "Fixed" H 7150 6350 50  0001 L CNN "output type"
-F 26 "3.3V" H 7150 6450 50  0001 L CNN "output voltage"
-F 27 "SOT23-5" H 7150 6550 50  0001 L CNN "package"
-F 28 "Yes" H 7150 6650 50  0001 L CNN "rohs"
-F 29 "0mm" H 7150 6750 50  0001 L CNN "standoff height"
-F 30 "+125°C" H 7150 6850 50  0001 L CNN "temperature range high"
-F 31 "-40°C" H 7150 6950 50  0001 L CNN "temperature range low"
-F 32 "MIC5225-3.3YM5-TR" H 7150 3650 50  0001 C CNN "part number"
-	1    7150 3650
+P 9850 3650
+F 0 "U2" H 10400 3915 50  0000 C CNN
+F 1 "MIC5225-3.3YM5" H 10400 3824 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:MIC5225-SOT23-5LD" H 9850 4050 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/mic5225.pdf" H 9850 4150 50  0001 L CNN
+F 4 "1%" H 9850 4250 50  0001 L CNN "accuracy percentage"
+F 5 "No" H 9850 4350 50  0001 L CNN "automotive"
+F 6 "IC" H 9850 4450 50  0001 L CNN "category"
+F 7 "Integrated Circuits (ICs)" H 9850 4550 50  0001 L CNN "device class L1"
+F 8 "Power Management ICs" H 9850 4650 50  0001 L CNN "device class L2"
+F 9 "Voltage Regulators - Linear" H 9850 4750 50  0001 L CNN "device class L3"
+F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 9850 4850 50  0001 L CNN "digikey description"
+F 11 "576-2980-1-ND" H 9850 4950 50  0001 L CNN "digikey part number"
+F 12 "310mV" H 9850 5050 50  0001 L CNN "dropout voltage"
+F 13 "1.45mm" H 9850 5150 50  0001 L CNN "height"
+F 14 "Yes" H 9850 5250 50  0001 L CNN "lead free"
+F 15 "4928afa3c5097de1" H 9850 5350 50  0001 L CNN "library id"
+F 16 "Microchip" H 9850 5450 50  0001 L CNN "manufacturer"
+F 17 "+125°C" H 9850 5550 50  0001 L CNN "max junction temp"
+F 18 "16V" H 9850 5650 50  0001 L CNN "max supply voltage"
+F 19 "2.3V" H 9850 5750 50  0001 L CNN "min supply voltage"
+F 20 "LDO Voltage Regulators High Vin, Low Iq Regulator (Lead Free)\\n\\n" H 9850 5850 50  0001 L CNN "mouser description"
+F 21 "998-MIC5225-3.3YM5TR" H 9850 5950 50  0001 L CNN "mouser part number"
+F 22 "29-3000uA" H 9850 6050 50  0001 L CNN "nominal supply current"
+F 23 "1" H 9850 6150 50  0001 L CNN "number of outputs"
+F 24 "150mA" H 9850 6250 50  0001 L CNN "output current"
+F 25 "Fixed" H 9850 6350 50  0001 L CNN "output type"
+F 26 "3.3V" H 9850 6450 50  0001 L CNN "output voltage"
+F 27 "SOT23-5" H 9850 6550 50  0001 L CNN "package"
+F 28 "Yes" H 9850 6650 50  0001 L CNN "rohs"
+F 29 "0mm" H 9850 6750 50  0001 L CNN "standoff height"
+F 30 "+125°C" H 9850 6850 50  0001 L CNN "temperature range high"
+F 31 "-40°C" H 9850 6950 50  0001 L CNN "temperature range low"
+F 32 "MIC5225-3.3YM5-TR" H 9850 3650 50  0001 C CNN "part number"
+	1    9850 3650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0104
 U 1 1 61B18D12
-P 6750 3550
-F 0 "#PWR0104" H 6750 3400 50  0001 C CNN
-F 1 "+5V" H 6765 3723 50  0000 C CNN
-F 2 "" H 6750 3550 50  0001 C CNN
-F 3 "" H 6750 3550 50  0001 C CNN
-	1    6750 3550
+P 9550 3650
+F 0 "#PWR0104" H 9550 3500 50  0001 C CNN
+F 1 "+5V" H 9565 3823 50  0000 C CNN
+F 2 "" H 9550 3650 50  0001 C CNN
+F 3 "" H 9550 3650 50  0001 C CNN
+	1    9550 3650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0113
 U 1 1 61B195FB
-P 8500 4250
-F 0 "#PWR0113" H 8500 4000 50  0001 C CNN
-F 1 "GND" H 8505 4077 50  0000 C CNN
-F 2 "" H 8500 4250 50  0001 C CNN
-F 3 "" H 8500 4250 50  0001 C CNN
-	1    8500 4250
+P 11100 4250
+F 0 "#PWR0113" H 11100 4000 50  0001 C CNN
+F 1 "GND" H 11105 4077 50  0000 C CNN
+F 2 "" H 11100 4250 50  0001 C CNN
+F 3 "" H 11100 4250 50  0001 C CNN
+	1    11100 4250
 	1    0    0    -1  
 $EndComp
-NoConn ~ 8150 3850
+NoConn ~ 10850 3850
 $Comp
 L Device:C C5
 U 1 1 61B1B316
-P 6750 3850
-F 0 "C5" H 6865 3896 50  0000 L CNN
-F 1 "1.0u" H 6865 3805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6788 3700 50  0001 C CNN
-F 3 "~" H 6750 3850 50  0001 C CNN
-	1    6750 3850
+P 9550 3950
+F 0 "C5" H 9665 3996 50  0000 L CNN
+F 1 "1.0u" H 9665 3905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9588 3800 50  0001 C CNN
+F 3 "~" H 9550 3950 50  0001 C CNN
+	1    9550 3950
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0115
 U 1 1 61B1B999
-P 6750 4250
-F 0 "#PWR0115" H 6750 4000 50  0001 C CNN
-F 1 "GND" H 6755 4077 50  0000 C CNN
-F 2 "" H 6750 4250 50  0001 C CNN
-F 3 "" H 6750 4250 50  0001 C CNN
-	1    6750 4250
+P 9550 4350
+F 0 "#PWR0115" H 9550 4100 50  0001 C CNN
+F 1 "GND" H 9555 4177 50  0000 C CNN
+F 2 "" H 9550 4350 50  0001 C CNN
+F 3 "" H 9550 4350 50  0001 C CNN
+	1    9550 4350
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C6
 U 1 1 61B1D018
-P 8500 3850
-F 0 "C6" H 8615 3896 50  0000 L CNN
-F 1 "2.2u" H 8615 3805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 8538 3700 50  0001 C CNN
-F 3 "~" H 8500 3850 50  0001 C CNN
-	1    8500 3850
+P 11100 3850
+F 0 "C6" H 11215 3896 50  0000 L CNN
+F 1 "2.2u" H 11215 3805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 11138 3700 50  0001 C CNN
+F 3 "~" H 11100 3850 50  0001 C CNN
+	1    11100 3850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6750 3650 6750 3700
+	9550 4100 9550 4350
 Wire Wire Line
-	6750 3650 7150 3650
-Connection ~ 6750 3650
+	9850 3650 9850 4050
 Wire Wire Line
-	6750 4000 6750 4250
+	9850 4050 9950 4050
 Wire Wire Line
-	8500 4000 8500 4050
-Wire Wire Line
-	8500 3700 8500 3650
-Wire Wire Line
-	8500 3650 8150 3650
-Connection ~ 8500 3650
-Wire Wire Line
-	7150 3650 7150 4050
-Wire Wire Line
-	7150 4050 7250 4050
-Wire Wire Line
-	7150 3650 7250 3650
-Connection ~ 7150 3650
-Wire Wire Line
-	8150 4050 8500 4050
-Wire Wire Line
-	8500 4250 8500 4050
-Connection ~ 8500 4050
-Wire Notes Line
-	6550 3200 9300 3200
-Wire Notes Line
-	9300 3200 9300 4600
-Wire Notes Line
-	9300 4600 6550 4600
-Wire Notes Line
-	6550 4600 6550 3200
-Text Notes 6550 3150 0    50   ~ 0
+	9850 3650 9950 3650
+Text Notes 9400 3200 0    50   ~ 0
 LINEAR REGULATOR
-$Comp
-L Device:Battery_Cell BT2
-U 1 1 61B4CD45
-P 8400 2450
-F 0 "BT2" H 8518 2546 50  0000 L CNN
-F 1 "CR2032" H 8518 2455 50  0000 L CNN
-F 2 "Joels KiCad Footprint Library:BatteryHolder_Keystone_3034_Minimum_Pad" V 8400 2510 50  0001 C CNN
-F 3 "~" V 8400 2510 50  0001 C CNN
-F 4 "Keystone" H 8400 2450 50  0001 C CNN "manufacturer"
-F 5 "3034" H 8400 2450 50  0001 C CNN "part number"
-	1    8400 2450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT1
-U 1 1 61B4D0C5
-P 8400 2050
-F 0 "BT1" H 8518 2146 50  0000 L CNN
-F 1 "CR2032" H 8518 2055 50  0000 L CNN
-F 2 "Joels KiCad Footprint Library:BatteryHolder_Keystone_3034_Minimum_Pad" V 8400 2110 50  0001 C CNN
-F 3 "~" V 8400 2110 50  0001 C CNN
-F 4 "Keystone" H 8400 2050 50  0001 C CNN "manufacturer"
-F 5 "3034" H 8400 2050 50  0001 C CNN "part number"
-	1    8400 2050
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR0116
 U 1 1 61B56A6F
-P 8400 2700
-F 0 "#PWR0116" H 8400 2450 50  0001 C CNN
-F 1 "GND" H 8405 2527 50  0000 C CNN
-F 2 "" H 8400 2700 50  0001 C CNN
-F 3 "" H 8400 2700 50  0001 C CNN
-	1    8400 2700
+P 6850 3650
+F 0 "#PWR0116" H 6850 3400 50  0001 C CNN
+F 1 "GND" H 6855 3477 50  0000 C CNN
+F 2 "" H 6850 3650 50  0001 C CNN
+F 3 "" H 6850 3650 50  0001 C CNN
+	1    6850 3650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8400 2550 8400 2600
 $Comp
 L power:+5V #PWR0117
 U 1 1 61B5D4B6
-P 7050 1350
-F 0 "#PWR0117" H 7050 1200 50  0001 C CNN
-F 1 "+5V" H 7065 1523 50  0000 C CNN
-F 2 "" H 7050 1350 50  0001 C CNN
-F 3 "" H 7050 1350 50  0001 C CNN
-	1    7050 1350
+P 6850 1400
+F 0 "#PWR0117" H 6850 1250 50  0001 C CNN
+F 1 "+5V" H 6865 1573 50  0000 C CNN
+F 2 "" H 6850 1400 50  0001 C CNN
+F 3 "" H 6850 1400 50  0001 C CNN
+	1    6850 1400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6750 3650 6750 3550
-Wire Wire Line
-	8500 3550 8500 3650
-Wire Notes Line
-	6550 2950 9300 2950
-Wire Notes Line
-	9300 2950 9300 1000
 Wire Notes Line
 	9300 1000 6550 1000
 Text Notes 6550 950  0    50   ~ 0
@@ -486,67 +384,45 @@ BATTERY AND SWITCH
 $Comp
 L Switch:SW_SPST SW1
 U 1 1 61BA15D1
-P 10300 2650
-F 0 "SW1" H 10300 2885 50  0000 C CNN
-F 1 "TACTILE" H 10300 2794 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:TL9320AF400QG" H 10300 2650 50  0001 C CNN
-F 3 "~" H 10300 2650 50  0001 C CNN
-F 4 "E-Switch" H 10300 2650 50  0001 C CNN "manufacturer"
-F 5 "TL9320AF 400QG" H 10300 2650 50  0001 C CNN "part number"
-	1    10300 2650
+P 10500 2650
+F 0 "SW1" H 10500 2885 50  0000 C CNN
+F 1 "TACTILE" H 10500 2794 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:TL9320AF400QG" H 10500 2650 50  0001 C CNN
+F 3 "~" H 10500 2650 50  0001 C CNN
+F 4 "E-Switch" H 10500 2650 50  0001 C CNN "manufacturer"
+F 5 "TL9320AF 400QG" H 10500 2650 50  0001 C CNN "part number"
+	1    10500 2650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0118
 U 1 1 61BA2425
-P 10800 2650
-F 0 "#PWR0118" H 10800 2400 50  0001 C CNN
-F 1 "GND" H 10805 2477 50  0000 C CNN
-F 2 "" H 10800 2650 50  0001 C CNN
-F 3 "" H 10800 2650 50  0001 C CNN
-	1    10800 2650
+P 11000 2650
+F 0 "#PWR0118" H 11000 2400 50  0001 C CNN
+F 1 "GND" H 11005 2477 50  0000 C CNN
+F 2 "" H 11000 2650 50  0001 C CNN
+F 3 "" H 11000 2650 50  0001 C CNN
+	1    11000 2650
 	1    0    0    -1  
 $EndComp
-Text Label 9700 2650 0    50   ~ 0
+Text Label 9900 2650 0    50   ~ 0
 A0
 Wire Wire Line
-	9700 2650 10100 2650
+	9900 2650 10300 2650
 Wire Wire Line
-	10500 2650 10800 2650
+	10700 2650 11000 2650
 Wire Notes Line
-	9450 2300 11150 2300
+	9500 2300 11400 2300
 Wire Notes Line
-	11150 2300 11150 2950
+	11400 2300 11400 2950
 Wire Notes Line
-	11150 2950 9450 2950
+	11400 2950 9500 2950
 Wire Notes Line
-	9450 2950 9450 2300
-Text Notes 9450 2250 0    50   ~ 0
-CONTROL
-$Comp
-L Device:C C1
-U 1 1 61B53FCA
-P 7750 2150
-F 0 "C1" H 7865 2196 50  0000 L CNN
-F 1 "100u" H 7865 2105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 7788 2000 50  0001 C CNN
-F 3 "~" H 7750 2150 50  0001 C CNN
-	1    7750 2150
-	1    0    0    -1  
-$EndComp
+	9500 2950 9500 2300
+Text Notes 9500 2250 0    50   ~ 0
+POWER SWITCH
 Wire Wire Line
-	8400 1750 7750 1750
-Wire Wire Line
-	7750 1750 7750 2000
-Wire Wire Line
-	7750 2300 7750 2600
-Wire Wire Line
-	7750 2600 8400 2600
-Connection ~ 8400 2600
-Wire Wire Line
-	8400 2600 8400 2700
-Wire Wire Line
-	8400 2150 8400 2250
+	6850 1800 6850 2450
 Text Label 14350 3550 2    50   ~ 0
 CB6
 Text Label 14350 3650 2    50   ~ 0
@@ -604,12 +480,12 @@ NoConn ~ 2100 1850
 $Comp
 L power:+3.3V #PWR0105
 U 1 1 61B19016
-P 8500 3550
-F 0 "#PWR0105" H 8500 3400 50  0001 C CNN
-F 1 "+3.3V" H 8515 3723 50  0000 C CNN
-F 2 "" H 8500 3550 50  0001 C CNN
-F 3 "" H 8500 3550 50  0001 C CNN
-	1    8500 3550
+P 11100 3550
+F 0 "#PWR0105" H 11100 3400 50  0001 C CNN
+F 1 "+3.3V" H 11115 3723 50  0000 C CNN
+F 2 "" H 11100 3550 50  0001 C CNN
+F 3 "" H 11100 3550 50  0001 C CNN
+	1    11100 3550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1192,120 +1068,59 @@ NoConn ~ 4100 2750
 $Comp
 L Joels_KiCad_Symbol_Library:JS202011JCQN SW2
 U 1 1 62AD4B38
-P 7850 1450
-F 0 "SW2" H 7850 1817 50  0000 C CNN
-F 1 "JS202011JCQN" H 7850 1726 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:CK-JS202011JCQN" H 7850 1450 50  0001 L BNN
-F 3 "" H 7850 1450 50  0001 L BNN
-F 4 "Manufacturer Recommendations" H 7850 1450 50  0001 L BNN "STANDARD"
-F 5 "11 Nov 19" H 7850 1450 50  0001 L BNN "PARTREV"
-F 6 "5.6 mm" H 7850 1450 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
-F 7 "C&K" H 7850 1450 50  0001 L BNN "MANUFACTURER"
-	1    7850 1450
+P 7650 1500
+F 0 "SW2" H 7650 1867 50  0000 C CNN
+F 1 "JS202011JCQN" H 7650 1776 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:CK-JS202011JCQN" H 7650 1500 50  0001 L BNN
+F 3 "" H 7650 1500 50  0001 L BNN
+F 4 "Manufacturer Recommendations" H 7650 1500 50  0001 L BNN "STANDARD"
+F 5 "11 Nov 19" H 7650 1500 50  0001 L BNN "PARTREV"
+F 6 "5.6 mm" H 7650 1500 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
+F 7 "C&K" H 7650 1500 50  0001 L BNN "MANUFACTURER"
+	1    7650 1500
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7350 1550
-NoConn ~ 8350 1550
+NoConn ~ 7150 1600
+NoConn ~ 8150 1600
 Wire Wire Line
-	8400 1750 8400 1850
-Wire Notes Line
-	6550 1000 6550 2950
+	6850 1800 6850 1500
 Wire Wire Line
-	7750 1750 7050 1750
+	6850 1500 7150 1500
+Connection ~ 6850 1800
 Wire Wire Line
-	7050 1750 7050 1450
+	8350 1800 8350 1500
+Connection ~ 8350 1800
 Wire Wire Line
-	7050 1450 7350 1450
-Connection ~ 7750 1750
+	8350 1500 8150 1500
 Wire Wire Line
-	8400 1750 8550 1750
+	6850 1400 7050 1400
 Wire Wire Line
-	8550 1750 8550 1450
-Connection ~ 8400 1750
+	7050 1400 7050 1250
 Wire Wire Line
-	8550 1450 8350 1450
+	7050 1250 8150 1250
 Wire Wire Line
-	7050 1350 7250 1350
+	8150 1250 8150 1400
+Connection ~ 7050 1400
 Wire Wire Line
-	7250 1350 7250 1200
-Wire Wire Line
-	7250 1200 8350 1200
-Wire Wire Line
-	8350 1200 8350 1350
-Connection ~ 7250 1350
-Wire Wire Line
-	7250 1350 7350 1350
+	7050 1400 7150 1400
 NoConn ~ 2100 3350
 Text Label 1800 2550 0    50   ~ 0
 A7
 Wire Wire Line
 	1800 2550 2100 2550
-Text Label 9950 1650 0    50   ~ 0
-A7
-$Comp
-L Connector_Generic:Conn_02x04_Counter_Clockwise J1
-U 1 1 61A502FF
-P 10350 1550
-F 0 "J1" H 10400 1967 50  0000 C CNN
-F 1 "JACK IN" H 10400 1876 50  0000 C CNN
-F 2 "Joels KiCad Footprint Library:SOIC_clipProgSmall" H 10350 1550 50  0001 C CNN
-F 3 "~" H 10350 1550 50  0001 C CNN
-	1    10350 1550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0101
-U 1 1 61A7017B
-P 9950 1750
-F 0 "#PWR0101" H 9950 1500 50  0001 C CNN
-F 1 "GND" H 9955 1577 50  0000 C CNN
-F 2 "" H 9950 1750 50  0001 C CNN
-F 3 "" H 9950 1750 50  0001 C CNN
-	1    9950 1750
-	1    0    0    -1  
-$EndComp
-NoConn ~ 10650 1750
 $Comp
 L power:VBUS #PWR0103
 U 1 1 61D78AD0
-P 8800 1750
-F 0 "#PWR0103" H 8800 1600 50  0001 C CNN
-F 1 "VBUS" H 8815 1923 50  0000 C CNN
-F 2 "" H 8800 1750 50  0001 C CNN
-F 3 "" H 8800 1750 50  0001 C CNN
-	1    8800 1750
+P 8600 1750
+F 0 "#PWR0103" H 8600 1600 50  0001 C CNN
+F 1 "VBUS" H 8615 1923 50  0000 C CNN
+F 2 "" H 8600 1750 50  0001 C CNN
+F 3 "" H 8600 1750 50  0001 C CNN
+	1    8600 1750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8550 1750 8800 1750
-Connection ~ 8550 1750
-$Comp
-L power:VBUS #PWR0128
-U 1 1 61D8035D
-P 9950 1450
-F 0 "#PWR0128" H 9950 1300 50  0001 C CNN
-F 1 "VBUS" H 9965 1623 50  0000 C CNN
-F 2 "" H 9950 1450 50  0001 C CNN
-F 3 "" H 9950 1450 50  0001 C CNN
-	1    9950 1450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9950 1450 10150 1450
-Wire Wire Line
-	9650 1450 9650 1550
-Wire Wire Line
-	9650 1550 10150 1550
-Wire Wire Line
-	9950 1650 10150 1650
-Wire Wire Line
-	10150 1750 9950 1750
-Wire Wire Line
-	10650 1450 11000 1450
-Wire Wire Line
-	10650 1550 11000 1550
-Wire Wire Line
-	10650 1650 11000 1650
+	8350 1800 8600 1800
 $Comp
 L Device:LED D1.1
 U 1 1 61AB81B3
@@ -4604,4 +4419,214 @@ F 11 "https://www.arrow.com/en/products/tsop36438tt/vishay?region=nac" H 13300 4
 	1    12450 5450
 	-1   0    0    1   
 $EndComp
+$Comp
+L Joels_KiCad_Symbol_Library:ATSAMD21E17L-AF U1
+U 1 1 621D24C4
+P 2100 1850
+F 0 "U1" H 3100 2237 60  0000 C CNN
+F 1 "ATSAMD21E17L-AF" H 3100 2131 60  0000 C CNN
+F 2 "Joels KiCad Footprint Library:ATSAMD21E17_32Pin_TQFP" H 3100 2090 60  0001 C CNN
+F 3 "" H 2100 1850 60  0000 C CNN
+	1    2100 1850
+	1    0    0    -1  
+$EndComp
+Text Notes 950  1150 0    50   ~ 0
+SAMD21ExxL VARIANT HAS DIFFERENT PINOUT THAN OTHER SAMD21E CHIPS
+Text Notes 9500 950  0    50   ~ 0
+TAG-CONNECT FLASH AND TEST
+Text Label 11050 1400 2    50   ~ 0
+SWDIO
+Text Label 11050 1500 2    50   ~ 0
+SWCLK
+$Comp
+L power:+3.3V #PWR0102
+U 1 1 61AA2037
+P 9750 1400
+F 0 "#PWR0102" H 9750 1250 50  0001 C CNN
+F 1 "+3.3V" H 9765 1573 50  0000 C CNN
+F 2 "" H 9750 1400 50  0001 C CNN
+F 3 "" H 9750 1400 50  0001 C CNN
+	1    9750 1400
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	9500 1000 11400 1000
+Wire Notes Line
+	11400 1000 11400 2050
+Wire Notes Line
+	11400 2050 9500 2050
+Wire Notes Line
+	9500 2050 9500 1000
+Text Label 9700 1600 0    50   ~ 0
+A7
+$Comp
+L power:GND #PWR0101
+U 1 1 61A7017B
+P 9700 1800
+F 0 "#PWR0101" H 9700 1550 50  0001 C CNN
+F 1 "GND" H 9705 1627 50  0000 C CNN
+F 2 "" H 9700 1800 50  0001 C CNN
+F 3 "" H 9700 1800 50  0001 C CNN
+	1    9700 1800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 10700 1700
+Wire Wire Line
+	9750 1400 9750 1500
+Wire Wire Line
+	9750 1500 9900 1500
+Wire Wire Line
+	9700 1600 9900 1600
+Wire Wire Line
+	9900 1800 9700 1800
+Wire Wire Line
+	10700 1800 11050 1800
+Wire Wire Line
+	10700 1400 11050 1400
+Wire Wire Line
+	10700 1500 11050 1500
+$Comp
+L Joels_KiCad_Symbol_Library:TC2050-IDC J2
+U 1 1 624265D7
+P 10300 1600
+F 0 "J2" H 10300 2065 50  0000 C CNN
+F 1 "TC2050-IDC" H 10300 1974 50  0000 C CNN
+F 2 "Joels KiCad Footprint Library:TAG-CONNECT_TC2050-IDC" H 11150 1900 50  0001 L BNN
+F 3 "" H 10300 1600 50  0001 L BNN
+F 4 "A" H 10300 1600 50  0001 L BNN "PARTREV"
+F 5 "Tag Connect" H 11150 1700 50  0001 L BNN "MF"
+F 6 "Manufacturer Recommendations" H 11150 1800 50  0001 L BNN "STANDARD"
+	1    10300 1600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9900 1700
+Text Label 11050 1800 2    50   ~ 0
+~RESET
+$Comp
+L power:+5V #PWR0128
+U 1 1 630266E1
+P 11250 1600
+F 0 "#PWR0128" H 11250 1450 50  0001 C CNN
+F 1 "+5V" H 11265 1773 50  0000 C CNN
+F 2 "" H 11250 1600 50  0001 C CNN
+F 3 "" H 11250 1600 50  0001 C CNN
+	1    11250 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10700 1600 11250 1600
+NoConn ~ 9900 1400
+$Comp
+L Device:C C1
+U 1 1 61B53FCA
+P 6850 2600
+F 0 "C1" H 6965 2646 50  0000 L CNN
+F 1 "100u" H 6965 2555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 6888 2450 50  0001 C CNN
+F 3 "~" H 6850 2600 50  0001 C CNN
+	1    6850 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9550 3650 9550 3800
+Wire Wire Line
+	9550 3650 9850 3650
+Connection ~ 9550 3650
+Connection ~ 9850 3650
+Wire Wire Line
+	11100 3550 11100 3650
+Wire Wire Line
+	11100 4000 11100 4050
+Wire Wire Line
+	10850 3650 11100 3650
+Connection ~ 11100 3650
+Wire Wire Line
+	11100 3650 11100 3700
+Wire Wire Line
+	10850 4050 11100 4050
+Connection ~ 11100 4050
+Wire Wire Line
+	11100 4050 11100 4250
+Wire Notes Line
+	11400 3250 9400 3250
+Wire Notes Line
+	9400 3250 9400 4600
+Wire Notes Line
+	9400 4600 11400 4600
+Wire Notes Line
+	11400 4600 11400 3250
+Wire Wire Line
+	6850 3650 6850 2750
+Connection ~ 6850 3650
+$Comp
+L Joels_KiCad_Symbol_Library:Battery_Positive_Clip BT1
+U 1 1 61B4D0C5
+P 8300 2300
+F 0 "BT1" H 8400 2350 50  0000 L CNN
+F 1 "CR2032 (+) CLIP" H 8400 2250 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:BatteryHolder_Keystone_3034_Pos_Clip" V 8300 2360 50  0001 C CNN
+F 3 "~" V 8300 2360 50  0001 C CNN
+F 4 "Keystone" H 8300 2300 50  0001 C CNN "manufacturer"
+F 5 "3034" H 8300 2300 50  0001 C CNN "part number"
+	1    8300 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 1800 8100 1800
+Wire Notes Line
+	6550 3900 9300 3900
+Wire Notes Line
+	9300 3900 9300 1000
+Wire Notes Line
+	6550 1000 6550 3900
+Text Notes 8200 3400 0    50   ~ 0
+TWO CR2032 BATTERIES\nWITH SEPARATE (+) CLIP\nAND (-) CONTACT PAD
+Wire Wire Line
+	8600 1800 8600 1750
+$Comp
+L Joels_KiCad_Symbol_Library:Battery_Negative_Pad BT2
+U 1 1 66051526
+P 8300 2500
+F 0 "BT2" H 8400 2550 50  0000 L CNN
+F 1 "CR2032 (-) PAD" H 8400 2450 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Keystone_2992_Negative_Contact_Pad" H 8300 2500 50  0001 C CNN
+F 3 "~" H 8300 2500 50  0001 C CNN
+	1    8300 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2300 8100 1800
+$Comp
+L Joels_KiCad_Symbol_Library:Battery_Positive_Clip BT3
+U 1 1 663FFC5C
+P 8300 2750
+F 0 "BT3" H 8400 2800 50  0000 L CNN
+F 1 "CR2032 (+) CLIP" H 8400 2700 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:BatteryHolder_Keystone_3034_Pos_Clip" V 8300 2810 50  0001 C CNN
+F 3 "~" V 8300 2810 50  0001 C CNN
+F 4 "Keystone" H 8300 2750 50  0001 C CNN "manufacturer"
+F 5 "3034" H 8300 2750 50  0001 C CNN "part number"
+	1    8300 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Joels_KiCad_Symbol_Library:Battery_Negative_Pad BT4
+U 1 1 663FFC62
+P 8300 2950
+F 0 "BT4" H 8400 3000 50  0000 L CNN
+F 1 "CR2032 (-) PAD" H 8400 2900 50  0000 L CNN
+F 2 "Joels KiCad Footprint Library:Keystone_2992_Negative_Contact_Pad" H 8300 2950 50  0001 C CNN
+F 3 "~" H 8300 2950 50  0001 C CNN
+	1    8300 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2500 8100 2750
+Wire Wire Line
+	8100 2950 8100 3650
+Wire Wire Line
+	8100 3650 6850 3650
+Connection ~ 8100 1800
+Wire Wire Line
+	8100 1800 8350 1800
 $EndSCHEMATC
